@@ -1,4 +1,4 @@
-# Description: GNU compression utility (replacement for compress)
+# Description: GNU compression utility
 # URL: http://www.gzip.org/
 
 name=gzip
