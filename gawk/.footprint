@@ -2,11 +2,11 @@ drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 lrwxrwxrwx	root/root	usr/bin/awk
 -rwxr-xr-x	root/root	usr/bin/dgawk
-hrwxr-xr-x	root/root	usr/bin/gawk
--rwxr-xr-x	root/root	usr/bin/gawk-4.0.1
+-rwxr-xr-x	root/root	usr/bin/gawk
+hrwxr-xr-x	root/root	usr/bin/gawk-4.0.1
 -rwxr-xr-x	root/root	usr/bin/igawk
-hrwxr-xr-x	root/root	usr/bin/pgawk
--rwxr-xr-x	root/root	usr/bin/pgawk-4.0.1
+-rwxr-xr-x	root/root	usr/bin/pgawk
+hrwxr-xr-x	root/root	usr/bin/pgawk-4.0.1
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/awk/
 -rwxr-xr-x	root/root	usr/lib/awk/grcat
