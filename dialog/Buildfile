@@ -5,19 +5,21 @@ name=dialog
 version=1.1-20100119
 release=1
 source=(ftp://dickey.his.com/$name/$name-$version.tgz)
-depends=cross/ncurses
+depends=ncurses
 
 build () {
-  cd $name-$version
-  ./configure --build=$BUILD \
-              --host=$HOST \
-              --prefix=/usr \
-              --mandir=/usr/share/man \
-              --with-ncurses
+   cd $name-$version
 
-  find -type f -name 'makefile' \
-    -exec sed -e "s|-I/usr|-I$HOST_SYSROOT/usr|g" -e "s|-L/usr|-L$HOST_SYSROOT/usr|g" -i {} \; 
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr \
+               --mandir=/usr/share/man \
+               --with-ncurses
 
-  make -j $JOBS
-  make DESTDIR=$PKG install
+   find -type f -name 'makefile' \
+        -exec sed -e "s|-I/usr|-I$SYSROOT/usr|g" \
+                  -e "s|-L/usr|-L$SYSROOT/usr|g" -i {} \;
+
+   make -j $JOBS
+   make DESTDIR=$PKG install
 }

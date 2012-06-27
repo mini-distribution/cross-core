@@ -8,21 +8,21 @@ source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz \
         readline62-001 readline62-002 inputrc)
 
 build() {
-  cd $name-$version
+   cd $name-$version
 
-  patch -p0 < $SRC/readline62-001
-  patch -p0 < $SRC/readline62-002
+   patch -p0 < $SRC/readline62-001
+   patch -p0 < $SRC/readline62-002
 
-  # Don't use rpath for linking the shared libs
-  sed -i '117s/-Wl,-rpath,$(libdir)//' support/shobj-conf
+   # Don't use rpath for linking the shared libs
+   sed -i '117s/-Wl,-rpath,$(libdir)//' support/shobj-conf
 
-  ./configure --build=$BUILD \
-              --host=$HOST \
-              --prefix=/usr \
-              --mandir=/usr/man
-  make SHLIB_LIBS=-lncurses
-  make DESTDIR=$PKG install
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr \
+               --mandir=/usr/man
+   make SHLIB_LIBS=-lncurses
+   make DESTDIR=$PKG install
 
-  install -D -m 644 $SRC/inputrc $PKG/etc/inputrc
-  rm -r $PKG/usr/share/info
+   install -D -m 644 $SRC/inputrc $PKG/etc/inputrc
+   rm -r $PKG/usr/share/info
 }

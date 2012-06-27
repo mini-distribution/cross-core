@@ -16,6 +16,7 @@ build() {
    make DIST_ROOT=$PKG install install-lib install-dev
 
    # Fix .la files
-   find $PKG -name "*.la" -exec sed -i -e "s;/usr;$CROSS_SYSROOT/usr;g" "{}" \;
+   find $PKG -name "*.la" -exec sed -i -e "/dependency_libs/s; /usr; $SYSROOT/usr;g" {} \;
+   find $PKG -name "*.la" -exec sed -i -e "/libdir/s;'/usr;'$SYSROOT/usr;g" {} \;
 }
 

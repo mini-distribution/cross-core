@@ -5,7 +5,7 @@ name=dbus
 version=1.5.12
 release=1
 source=(http://dbus.freedesktop.org/releases/dbus/$name-$version.tar.gz)
-depends=cross/expat
+depends=expat
 
 build() {
    cd $name-$version
@@ -27,6 +27,7 @@ build() {
    rm -r $PKG/var
 
    # Fix .la files
-   find $PKG -name "*.la" -exec sed -i -e "s;/usr;$CROSS_SYSROOT/usr;g" "{}" \;
+   find $PKG -name "*.la" -exec sed -i -e "/dependency_libs/s; /usr; $SYSROOT/usr;g" {} \;
+   find $PKG -name "*.la" -exec sed -i -e "/libdir/s;'/usr;'$SYSROOT/usr;g" {} \;
 }
 

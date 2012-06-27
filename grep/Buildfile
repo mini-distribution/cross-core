@@ -5,18 +5,18 @@ name=grep
 version=2.12
 release=1
 source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
-depends=cross/libpcre
+depends=libpcre
 
 build() {
-  cd $name-$version
+   cd $name-$version
 
-  ./configure --build=$BUILD \
-              --host=$HOST \
-              --prefix=/usr \
-              --disable-nls
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr \
+               --disable-nls
 
-  make -j $JOBS
-  make DESTDIR=$PKG install
+   make -j $JOBS
+   make DESTDIR=$PKG install
 
-  rm -r $PKG/usr/share/info
+   rm -r $PKG/usr/share/info
 }

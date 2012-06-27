@@ -8,20 +8,20 @@ source=(http://roy.marples.name/downloads/dhcpcd/$name-$version.tar.bz2
         dhcpcd@.service)
 
 build () {
-  cd $name-$version
+   cd $name-$version
 
-  ./configure --build=$BUILD \
-              --host=$HOST \
-              --prefix=/usr \
-              --libexecdir=/usr/lib/dhcpcd \
-              --dbdir=/var/lib/dhcpcd \
-              --sysconfdir=/etc/dhcpcd \
-              --os=linux \
-              --with-hooks=none
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr \
+               --libexecdir=/usr/lib/dhcpcd \
+               --dbdir=/var/lib/dhcpcd \
+               --sysconfdir=/etc/dhcpcd \
+               --os=linux \
+               --with-hooks=none
 
-  make -j $JOBS
-  make DESTDIR=$PKG install
+   make -j $JOBS
+   make DESTDIR=$PKG install
 
-  install -Dm644 $SRC/dhcpcd@.service $PKG/etc/systemd/system/dhcpcd@.service
-  chmod -R u+w $PKG
+   install -Dm644 $SRC/dhcpcd@.service $PKG/etc/systemd/system/dhcpcd@.service
+   chmod -R u+w $PKG
 }

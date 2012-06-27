@@ -7,15 +7,16 @@ release=1
 source=(http://witch.dl.sourceforge.net/project/$name/$name-1.0/$name-$version/$name-$version.tar.bz2)
 
 build () {
-  cd $name-$version
+   cd $name-$version
   
-  ./configure --build=$BUILD \
-              --host=$HOST \
-              --prefix=/usr
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr
 
-  make -j $JOBS
-  make DESTDIR=$PKG install
+   make -j $JOBS
+   make DESTDIR=$PKG install
 
-  # Fix .la files
-  find $PKG -name "*.la" -exec sed -i -e "s;/usr;$CROSS_SYSROOT/usr;g" "{}" \;
+   # Fix .la files
+   find $PKG -name "*.la" -exec sed -i -e "/dependency_libs/s; /usr; $SYSROOT/usr;g" {} \;
+   find $PKG -name "*.la" -exec sed -i -e "/libdir/s;'/usr;'$SYSROOT/usr;g" {} \;
 }

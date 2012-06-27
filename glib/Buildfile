@@ -5,10 +5,11 @@ name=glib
 version=2.33.1
 release=1
 source=(http://ftp.gnome.org/pub/gnome/sources/glib/2.33/$name-$version.tar.xz glib-gio-dependecy-fix.patch)
-depends=(cross/zlib cross/libffi)
+depends=(zlib libffi)
 
 build() {
    cd $name-$version
+
    patch -p1 < $SRC/glib-gio-dependecy-fix.patch
 
    # Apply known hacks for cross compiling glib
@@ -36,5 +37,6 @@ build() {
    rm -r $PKG/usr/share/locale
 
    # Fix .la files
-   find $PKG -name "*.la" -exec sed -i -e "s;/usr;$CROSS_SYSROOT/usr;g" "{}" \;
+   find $PKG -name "*.la" -exec sed -i -e "/dependency_libs/s; /usr; $SYSROOT/usr;g" {} \;
+   find $PKG -name "*.la" -exec sed -i -e "/libdir/s;'/usr;'$SYSROOT/usr;g" {} \;
 }

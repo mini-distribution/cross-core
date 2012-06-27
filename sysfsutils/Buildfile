@@ -7,15 +7,18 @@ release=1
 source=(http://heanet.dl.sourceforge.net/project/linux-diag/$name/$version/$name-$version.tar.gz)
 
 build() {
-  cd $name-$version
-  ./configure --build=$BUILD \
-              --host=$HOST \
-              --prefix=/usr
-  make
-  make DESTDIR=$PKG install
-  rm -f $PKG/usr/bin/dlist_test
+   cd $name-$version
 
-  # Fix .la files
-  find $PKG -name "*.la" -exec sed -i -e "/dependency_libs/s; /usr; $CROSS_SYSROOT/usr;g" {} \;
-  find $PKG -name "*.la" -exec sed -i -e "/libdir/s;'/usr;'$CROSS_SYSROOT/usr;g" {} \;
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr
+
+   make
+   make DESTDIR=$PKG install
+
+   rm -f $PKG/usr/bin/dlist_test
+
+   # Fix .la files
+   find $PKG -name "*.la" -exec sed -i -e "/dependency_libs/s; /usr; $SYSROOT/usr;g" {} \;
+   find $PKG -name "*.la" -exec sed -i -e "/libdir/s;'/usr;'$SYSROOT/usr;g" {} \;
 }

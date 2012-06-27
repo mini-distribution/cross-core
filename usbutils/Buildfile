@@ -5,7 +5,7 @@ name=usbutils
 version=005
 release=1
 source=(http://crux.s3.amazonaws.com/dist/$name-$version.tar.xz)
-depends=(cross/libusb)
+depends=libusb
 
 build() {
    cd $name-$version
@@ -13,9 +13,9 @@ build() {
    ./configure --prefix=/usr \
                --build=$BUILD \
                --host=$HOST \
-	       --disable-zlib \
-	       --datarootdir=/usr/lib \
-	       --mandir=/usr/share/man
+               --disable-zlib \
+               --datarootdir=/usr/lib \
+               --mandir=/usr/share/man
    
    make -j $JOBS
    make DESTDIR=$PKG install

@@ -5,7 +5,7 @@ name=libcap
 version=2.22
 release=1
 source=(http://ftp.is.co.za/mirror/archlinux.org/other/libcap/$name-$version.tar.gz)
-depends=cross/attr
+depends=attr
 
 build() {
    cd $name-$version

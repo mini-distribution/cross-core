@@ -7,17 +7,17 @@ release=1
 source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
 
 build() {
-  cd $name-$version
+   cd $name-$version
 
-  ./configure --build=$BUILD \
-              --host=$HOST \
-              --prefix=/usr \
-              --libexecdir=/usr/lib \
-              --enable-switch \
-              --disable-nls
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr \
+               --libexecdir=/usr/lib \
+               --enable-switch \
+               --disable-nls
 
-  make -j $JOBS
-  make DESTDIR=$PKG install
+   make -j $JOBS
+   make DESTDIR=$PKG install
 
-  rm -r $PKG/usr/share/info
+   rm -r $PKG/usr/share/info
 }

@@ -8,7 +8,7 @@ source=(http://ftp.openbsd.dk/pub/OpenBSD/OpenSSH/portable/$name-$version.tar.gz
         sshdgenkeys.service
         sshd@.service
         sshd.socket)
-depends=(cross/zlib cross/openssl)
+depends=(zlib openssl)
 
 build() {
    cd $name-$version

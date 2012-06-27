@@ -5,21 +5,22 @@ name=acl
 version=2.2.51
 release=1
 source=(http://mirrors.zerg.biz/nongnu/$name/$name-$version.src.tar.gz)
-depends=cross/attr
+depends=attr
 
 build() {
-  cd $name-$version
+   cd $name-$version
 
-  ./configure --build=$BUILD \
-              --host=$HOST \
-              --prefix=/usr \
-              --libexecdir=/usr/lib
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr \
+               --libexecdir=/usr/lib
 
-  make -j $JOBS
-  make DIST_ROOT=$PKG install install-lib install-dev 
+   make -j $JOBS
+   make DIST_ROOT=$PKG install install-lib install-dev
 
-  rm -r $PKG/usr/share/{doc,locale}
+   rm -r $PKG/usr/share/{doc,locale}
 
-  # Fix .la files
-  find $PKG -name "*.la" -exec sed -i -e "s;/usr;$CROSS_SYSROOT/usr;g" "{}" \;
+   # Fix .la files
+   find $PKG -name "*.la" -exec sed -i -e "/dependency_libs/s; /usr; $SYSROOT/usr;g" {} \;
+   find $PKG -name "*.la" -exec sed -i -e "/libdir/s;'/usr;'$SYSROOT/usr;g" {} \;
 }
