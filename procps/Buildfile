@@ -15,7 +15,7 @@ build() {
    patch -p1 -i $SRC/$name-$version.patch
    patch -p0 -i $SRC/$name-$version-linux-ver-init.patch
 
-   make CC="$HOST-gcc"
+   make -j $JOBS CC="$HOST-gcc"
    make DESTDIR=$PKG \
         ldconfig=true \
         bin=$PKG/usr/bin/ \

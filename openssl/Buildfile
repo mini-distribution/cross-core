@@ -4,11 +4,14 @@
 name=openssl
 version=1.0.1c
 release=1
-source=(http://www.openssl.org/source/$name-$version.tar.gz)
+source=(http://www.openssl.org/source/$name-$version.tar.gz
+        openssl-1.0.1-parallel-build.patch)
 depends=zlib
 
 build() {
    cd $name-$version
+
+   patch -p1 < $SRC/openssl-1.0.1-parallel-build.patch
 
    ./Configure --prefix=/usr \
                --cross-compile-prefix=$HOST- \
@@ -20,6 +23,6 @@ build() {
                shared \
                linux-generic32
 
-  make
+  make -j $JOBS
   make MANDIR=/usr/share/man MANSUFFIX=ssl install
 }

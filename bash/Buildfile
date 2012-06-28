@@ -25,7 +25,7 @@ build() {
                --disable-nls \
                --without-bash-malloc \
                --with-curses
-   make
+   make -j $JOBS
    make DESTDIR=$PKG install
 
    install -D -m 644 $SRC/profile $PKG/etc/profile

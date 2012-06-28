@@ -21,7 +21,7 @@ build() {
                --datadir=/usr/share/kbd \
                --disable-nls \
                --cache-file=config.cache
-   make
+   make -j $JOBS
    make DESTDIR=$PKG install
 
    ln -sf default8x9.psfu.gz $PKG/usr/share/kbd/consolefonts/default.gz

@@ -13,7 +13,7 @@ build() {
                --host=$HOST \
                --prefix=/usr
 
-   make
+   make -j $JOBS
    make DESTDIR=$PKG install
 
    rm -f $PKG/usr/bin/dlist_test

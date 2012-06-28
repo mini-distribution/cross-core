@@ -20,7 +20,7 @@ build() {
                --host=$HOST \
                --prefix=/usr \
                --mandir=/usr/man
-   make SHLIB_LIBS=-lncurses
+   make -j $JOBS SHLIB_LIBS=-lncurses
    make DESTDIR=$PKG install
 
    install -D -m 644 $SRC/inputrc $PKG/etc/inputrc

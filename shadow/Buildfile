@@ -26,7 +26,7 @@ build() {
                --without-audit \
                --cache-file=config.cache
 
-   make
+   make -j $JOBS
    make DESTDIR=$PKG install
 
    install -d $PKG/etc/cron/daily $PKG/var/log
