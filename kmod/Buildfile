@@ -1,5 +1,5 @@
 # Description: Library to deal with kernel modules
-# URL: http://git.profusion.mobi/cgit.cgi/kmod.git/
+# URL: http://git.profusion.mobi/cgit.cgi/kmod.git
 
 name=kmod
 version=8
