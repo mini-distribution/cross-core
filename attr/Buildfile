@@ -20,3 +20,7 @@ build() {
    find $PKG -name "*.la" -exec sed -i -e "/libdir/s;'/usr;'$SYSROOT/usr;g" {} \;
 }
 
+check() {
+   # Test for preinstalled msgfmt tool
+   type msgfmt
+}
