@@ -22,5 +22,5 @@ build() {
 
 check() {
    # Test for preinstalled msgfmt tool
-   type msgfmt
+   check_tool msgfmt
 }

@@ -32,5 +32,5 @@ build() {
 
 check() {
    # Test for preinstalled grn tool
-   type grn
+   check_tool grn
 }

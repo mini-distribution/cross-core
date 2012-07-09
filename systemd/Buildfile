@@ -43,5 +43,5 @@ build() {
 
 check() {
    # Test for preinstalled intltool-update tool
-   type intltool-update
+   check_tool intltool-update
 }

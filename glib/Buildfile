@@ -43,5 +43,5 @@ build() {
 
 check() {
    # Test for preinstalled glib-genmarshal tool
-   type glib-genmarshal
+   check_tool glib-genmarshal
 }
