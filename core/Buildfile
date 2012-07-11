@@ -1,0 +1,27 @@
+# Description: Includes all core builds
+
+name=core
+version=1.0
+release=1
+depends=(fs-skeleton
+         systemd
+         coreutils
+         sysvinit
+         shadow
+         procps
+         kbd
+         gzip
+         util-linux
+         openssh
+         dhcpcd
+         findutils
+         bash
+         man
+         gawk
+         nano
+         kmod
+         grep
+         wget
+         psmisc
+         net-tools
+         iputils)
