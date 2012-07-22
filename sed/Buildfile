@@ -1,0 +1,21 @@
+# Description: Sed - streams editor
+# URL: http://www.gnu.org/software/sed/sed.html
+
+name=sed
+version=4.2.1
+release=1
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.bz2)
+
+build() {
+  cd $name-$version
+
+  ./configure --build=$BUILD \
+              --host=$HOST \
+              --prefix=/usr \
+              --disable-nls
+
+  make -j $JOBS
+  make DESTDIR=$PKG install
+
+  rm -r $PKG/usr/share/info
+}
