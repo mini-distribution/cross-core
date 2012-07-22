@@ -15,7 +15,7 @@ build() {
    sed -e "s|arping.o -lsysfs|arping.o $SYSROOT/usr/lib/libsysfs.so|" \
        -e 's/IPV6_TARGETS=*/IPV6_TARGETS=/' -i Makefile
 
-   patch -p1 -i $SRC/iputils-s20101006-fixes-1.patch
+   patch -p1 < $SRC/iputils-s20101006-fixes-1.patch
 
    make -j $JOBS CC="$HOST-gcc"
   
@@ -24,7 +24,7 @@ build() {
    install arping $PKG/usr/sbin
    install tracepath clockdiff rarpd rdisc ipg $PKG/usr/sbin
    cp -d $SRC/$name-man-$version/* $PKG/usr/man/man8
+   chmod u+s $PKG/usr/bin/ping
 
    rm $PKG/usr/man/man8/*6.*
-   chmod u+s $PKG/usr/bin/ping
 }
