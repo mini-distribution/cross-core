@@ -17,6 +17,9 @@ build() {
    echo "glib_cv_uscore=no" >> config.cache
    echo "ac_cv_func_posix_getpwuid_r=yes" >> config.cache
    echo "ac_cv_func_posix_getgrgid_r=yes" >> config.cache
+   echo "ac_cv_alignof_guint32=4" >> config.cache
+   echo "ac_cv_alignof_guint64=8" >> config.cache
+   echo "ac_cv_alignof_unsigned_long=4" >> config.cache
 
    ./configure --prefix=/usr \
                --build=$BUILD \
