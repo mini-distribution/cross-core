@@ -2,7 +2,7 @@
 # URL: http://www.freedesktop.org/wiki/Software/systemd
 
 name=systemd
-version=185
+version=187
 release=1
 source=(http://www.freedesktop.org/software/systemd/$name-$version.tar.xz
         vconsole.conf)
@@ -10,6 +10,9 @@ depends=(libcap dbus kmod util-linux usbutils pciutils glib)
 
 build() {
    cd $name-$version
+
+   # Fix hardcoded cpp call
+   sed -e "s|cpp|$HOST-cpp|g" -i Makefile.in
 
    ./configure --prefix=/usr \
                --build=$BUILD \
