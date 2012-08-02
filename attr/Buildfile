@@ -9,9 +9,10 @@ source=(http://mirrors.zerg.biz/nongnu/attr/$name-$version.src.tar.gz)
 build() {
    cd $name-$version
 
-   ./configure --prefix=/usr \
-               --build=$BUILD \
-               --host=$HOST
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr
+
    make -j $JOBS
    make DIST_ROOT=$PKG install install-lib install-dev
 

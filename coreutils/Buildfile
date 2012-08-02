@@ -14,9 +14,9 @@ build() {
    echo "gl_cv_func_working_mkstemp=yes" >> config.cache
    echo "ac_cv_func_canonicalize_file_name=no" >> config.cache
 
-   ./configure --prefix=/usr \
-               --build=$BUILD \
+   ./configure --build=$BUILD \
                --host=$HOST \
+               --prefix=/usr \
                --libexecdir=/usr/lib \
                --disable-nls \
                --disable-assert \

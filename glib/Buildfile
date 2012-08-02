@@ -21,9 +21,9 @@ build() {
    echo "ac_cv_alignof_guint64=8" >> config.cache
    echo "ac_cv_alignof_unsigned_long=4" >> config.cache
 
-   ./configure --prefix=/usr \
-               --build=$BUILD \
+   ./configure --build=$BUILD \
                --host=$HOST \
+               --prefix=/usr \
                --cache-file=config.cache \
                --enable-debug=no \
                --disable-selinux \

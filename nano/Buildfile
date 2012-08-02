@@ -10,10 +10,10 @@ depends=ncurses
 build(){
    cd $name-$version
 
-   ./configure --prefix=/usr \
-               --disable-nls \
-               --build=$BUILD \
-               --host=$HOST
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr \
+               --disable-nls
 
    make -j $JOBS
    make DESTDIR=$PKG install

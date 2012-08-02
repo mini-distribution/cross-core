@@ -9,9 +9,9 @@ source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
 build() {
    cd $name-$version
 
-   ./configure --prefix=/usr \
-               --build=$BUILD \
+   ./configure --build=$BUILD \
                --host=$HOST \
+               --prefix=/usr \
                --mandir=/usr/share/man \
                --with-normal \
                --with-shared \

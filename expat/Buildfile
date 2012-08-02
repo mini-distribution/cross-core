@@ -9,9 +9,9 @@ source=(http://heanet.dl.sourceforge.net/project/expat/expat/$version/$name-$ver
 build() {
    cd $name-$version
 
-   ./configure --prefix=/usr \
-               --build=$BUILD \
-               --host=$HOST
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr
 
    make -j $JOBS
    make DESTDIR=$PKG install

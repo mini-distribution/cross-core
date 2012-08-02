@@ -10,9 +10,9 @@ depends=libusb
 build() {
    cd $name-$version
 
-   ./configure --prefix=/usr \
-               --build=$BUILD \
+   ./configure --build=$BUILD \
                --host=$HOST \
+               --prefix=/usr \
                --disable-zlib \
                --datarootdir=/usr/lib \
                --mandir=/usr/share/man

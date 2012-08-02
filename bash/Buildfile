@@ -19,8 +19,8 @@ build() {
    touch configure
    ./configure --build=$BUILD \
                --host=$HOST \
-               --cache-file=config.cache \
                --prefix=/usr \
+               --cache-file=config.cache \
                --exec-prefix=/usr \
                --disable-nls \
                --without-bash-malloc \

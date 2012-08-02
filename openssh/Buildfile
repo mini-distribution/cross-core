@@ -13,9 +13,9 @@ depends=(zlib openssl)
 build() {
    cd $name-$version
 
-   ./configure --prefix=/usr \
-               --build=$BUILD \
+   ./configure --build=$BUILD \
                --host=$HOST \
+               --prefix=/usr \
                --sysconfdir=/etc/ssh \
                --disable-strip \
                --with-privsep-user=root \
