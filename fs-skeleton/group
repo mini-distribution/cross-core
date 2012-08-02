@@ -15,3 +15,4 @@ utmp:x:13:
 usb:x:14:
 dbus:x:15:
 cdrom:x:16:
+adm:x:17:
