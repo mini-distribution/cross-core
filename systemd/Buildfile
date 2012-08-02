@@ -38,6 +38,7 @@ build() {
    # Cleanup
    rm $PKG/usr/lib/tmpfiles.d/legacy.conf
    rm $PKG/usr/lib/tmpfiles.d/x11.conf
+   rm $PKG/usr/lib/udev/rules.d/73-seat-late.rules
 
    # Fix libtool files
    fix_la_files $PKG
