@@ -35,10 +35,4 @@ build() {
 
    # Create groups
    cp $SRC/group $PKG/etc/group
-
-   # Create host name
-   echo "panda" > $PKG/etc/hostname
-
-   # Create issue
-   echo -e "Pandaboard Mini Distribution 1.0\n" > $PKG/etc/issue
 }
