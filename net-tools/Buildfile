@@ -13,7 +13,8 @@ source=(http://www.tazenda.demon.co.uk/phil/net-tools/$name-$version.tar.bz2 \
 	$name-$version-manydevs.patch \
 	$name-$version-virtualname.patch \
 	$name-$version-ipv6.patch \
-	$name-$version-miiioctl.patch)
+	$name-$version-miiioctl.patch \
+        $name-$version-linux-vs-netinet-include.patch)
 
 build() {
    cd $name-$version
@@ -27,6 +28,7 @@ build() {
    patch -p1 < ../$name-$version-virtualname.patch
    patch -p1 < ../$name-$version-ipv6.patch
    patch -p1 < ../$name-$version-miiioctl.patch
+   patch -p1 < ../$name-$version-linux-vs-netinet-include.patch
 
    make CC="$HOST-gcc"
    make BASEDIR=$PKG/usr mandir=/share/man install
