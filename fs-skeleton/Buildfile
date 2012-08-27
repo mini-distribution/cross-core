@@ -2,9 +2,9 @@
 # URL: http://www.buildgear.org
 
 name=fs-skeleton
-version=0.1
+version=1.0
 release=1
-source=(group)
+source=(group ld.so.conf)
 
 build() {
    # Create basic directories
@@ -35,4 +35,8 @@ build() {
 
    # Create groups
    cp $SRC/group $PKG/etc/group
+
+   # Create dynamic linker configuration
+   mkdir -p $PKG/etc/ld.so.conf.d
+   cp $SRC/ld.so.conf $PKG/etc
 }

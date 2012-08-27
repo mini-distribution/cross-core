@@ -2,8 +2,8 @@ lrwxrwxrwx	root/root	bin
 drwxr-xr-x	root/root	dev/
 drwxr-xr-x	root/root	etc/
 -rw-r--r--	root/root	etc/group
--rw-r--r--	root/root	etc/hostname
--rw-r--r--	root/root	etc/issue
+-rw-r--r--	root/root	etc/ld.so.conf
+drwxr-xr-x	root/root	etc/ld.so.conf.d/
 -rw-r--r--	root/root	etc/passwd
 drwxr-xr-x	root/root	home/
 drwxr-xr-x	root/root	lib/
