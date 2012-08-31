@@ -413,7 +413,6 @@ drwxr-xr-x	root/root	usr/lib/udev/rules.d/
 -rw-r--r--	root/root	usr/lib/udev/rules.d/70-power-switch.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/70-uaccess.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/71-seat.rules
--rw-r--r--	root/root	usr/lib/udev/rules.d/73-seat-late.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/75-net-description.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/75-probe_mtd.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/75-tty-description.rules
