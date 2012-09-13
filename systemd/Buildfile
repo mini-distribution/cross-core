@@ -35,7 +35,8 @@ build() {
    ln -s /usr/lib/systemd/systemd $PKG/usr/sbin/init
    install -Dm644 $SRC/vconsole.conf $PKG/etc/vconsole.conf
 
-   # Systemd configuration
+   # Initialize network before making getty login available on serial
+   sed -i "/After=/s|$| network.target|" $PKG/usr/lib/systemd/system/serial-getty@.service
 
    # Boot into multi-user target (non-graphical)
    ln -sf multi-user.target $PKG/usr/lib/systemd/system/default.target
