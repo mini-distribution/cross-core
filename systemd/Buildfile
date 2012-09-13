@@ -29,11 +29,16 @@ build() {
    make -j $JOBS
    make DESTDIR=$PKG install
 
-   # Systemd required configuration
+   # Systemd required fixes
    ln -s /proc/self/mounts $PKG/etc/mtab
    mkdir $PKG/usr/sbin
    ln -s /usr/lib/systemd/systemd $PKG/usr/sbin/init
    install -Dm644 $SRC/vconsole.conf $PKG/etc/vconsole.conf
+
+   # Systemd configuration
+
+   # Boot into multi-user target (non-graphical)
+   ln -sf multi-user.target $PKG/usr/lib/systemd/system/default.target
 
    # Cleanup
    rm $PKG/usr/lib/tmpfiles.d/legacy.conf
