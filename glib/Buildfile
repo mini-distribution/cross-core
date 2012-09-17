@@ -5,7 +5,7 @@ name=glib
 version=2.33.1
 release=1
 source=(http://ftp.gnome.org/pub/gnome/sources/glib/2.33/$name-$version.tar.xz glib-gio-dependecy-fix.patch)
-depends=(zlib libffi)
+depends=(zlib libffi dbus)
 
 build() {
    cd $name-$version
