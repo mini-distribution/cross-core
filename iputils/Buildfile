@@ -19,12 +19,13 @@ build() {
 
    make -j $JOBS CC="$HOST-gcc"
   
-   install -d $PKG/usr/{man/man8,bin,sbin}
+   install -d $PKG/usr/share/man/man8
+   install -d $PKG/usr/{bin,sbin}
    install ping $PKG/usr/bin
    install arping $PKG/usr/sbin
    install tracepath clockdiff rarpd rdisc ipg $PKG/usr/sbin
-   cp -d $SRC/$name-man-$version/* $PKG/usr/man/man8
+   cp -d $SRC/$name-man-$version/* $PKG/usr/share/man/man8
    chmod u+s $PKG/usr/bin/ping
 
-   rm $PKG/usr/man/man8/*6.*
+   rm $PKG/usr/share/man/man8/*6.*
 }
