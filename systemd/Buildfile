@@ -2,17 +2,19 @@
 # URL: http://www.freedesktop.org/wiki/Software/systemd
 
 name=systemd
-version=187
+version=191
 release=1
 source=(http://www.freedesktop.org/software/systemd/$name-$version.tar.xz
-        vconsole.conf)
-depends=(libcap dbus kmod util-linux usbutils pciutils glib tcp_wrappers)
+        vconsole.conf
+        segv-fault-bypass.patch
+        mmap-cache.patch)
+depends=(libcap dbus kmod util-linux usbutils pciutils glib tcp_wrappers python libgcrypt)
 
 build() {
    cd $name-$version
 
-   # Fix hardcoded cpp call
-   sed -e "s|cpp|$HOST-cpp|g" -i Makefile.in
+   patch -p1 < $SRC/segv-fault-bypass.patch
+   patch -p1 < $SRC/mmap-cache.patch
 
    ./configure --build=$BUILD \
                --host=$HOST \
@@ -21,17 +23,29 @@ build() {
                --libexecdir=/usr/lib \
                --localstatedir=/var \
                --with-distro=other \
-               --enable-split-usr \
                --with-usb-ids-path=/usr/lib/usb.ids \
                --with-pci-ids-path=/usr/share/pci.ids \
                --disable-nls
 
-   make -j $JOBS
-   make DESTDIR=$PKG install
+   make -j $JOBS \
+        GCRYPT_LIBS="-lgcrypt" \
+        LIBGCRYPT_LIBS="-lgcrypt" \
+        PYTHON_CFLAGS=`pkg-config python --cflags` \
+        PYTHON_LIBS=`pkg-config python --libs`
+
+   # Fix libtool paths
+   find . -name "*.la" -exec sed -i -e "/libdir/s;'/usr;'$SYSROOT/usr;g" {} \;
+
+   # Disable libtool relinking (relinking of rpaths b/c of DESTDIR install relocation)
+   sed -i "s|need_relink=yes|need_relink=no|" libtool
+
+   make DESTDIR=$PKG install \
+        GCRYPT_LIBS="-lgcrypt" \
+        LIBGCRYPT_LIBS="-lgcrypt"
 
    # Systemd required fixes
    ln -s /proc/self/mounts $PKG/etc/mtab
-   mkdir $PKG/usr/sbin
+   install -d $PKG/usr/sbin
    ln -s /usr/lib/systemd/systemd $PKG/usr/sbin/init
    install -Dm644 $SRC/vconsole.conf $PKG/etc/vconsole.conf
 
