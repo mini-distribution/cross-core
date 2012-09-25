@@ -1,0 +1,50 @@
+From 72f1d5a2880d103dc1c1746f5c02e192e054705e Mon Sep 17 00:00:00 2001
+From: Lennart Poettering <lennart@poettering.net>
+Date: Mon, 24 Sep 2012 23:42:03 +0200
+Subject: [PATCH 2/3] journal: also use new VA_FORMAT_ADVANCE() macro in
+ sd_journal_send()
+
+---
+ src/journal/journal-send.c |    9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/src/journal/journal-send.c b/src/journal/journal-send.c
+index b192f1f..d503f3f 100644
+--- a/src/journal/journal-send.c
++++ b/src/journal/journal-send.c
+@@ -25,6 +25,7 @@
+ #include <stddef.h>
+ #include <unistd.h>
+ #include <fcntl.h>
++#include <printf.h>
+ 
+ #define SD_JOURNAL_SUPPRESS_LOCATION
+ 
+@@ -121,6 +122,7 @@ static int fill_iovec_sprintf(const char *format, va_list ap, int extra, struct
+         while (format) {
+                 struct iovec *c;
+                 char *buffer;
++                va_list aq;
+ 
+                 if (i >= n) {
+                         n = MAX(i*2, 4);
+@@ -133,10 +135,15 @@ static int fill_iovec_sprintf(const char *format, va_list ap, int extra, struct
+                         iov = c;
+                 }
+ 
+-                if (vasprintf(&buffer, format, ap) < 0) {
++                va_copy(aq, ap);
++                if (vasprintf(&buffer, format, aq) < 0) {
++                        va_end(aq);
+                         r = -ENOMEM;
+                         goto fail;
+                 }
++                va_end(aq);
++
++                VA_FORMAT_ADVANCE(format, ap);
+ 
+                 IOVEC_SET_STRING(iov[i++], buffer);
+ 
+-- 
+1.7.9.5
+

@@ -6,15 +6,19 @@ version=191
 release=1
 source=(http://www.freedesktop.org/software/systemd/$name-$version.tar.xz
         vconsole.conf
-        mmap-cache.patch
-        log-segv-fault-fix.patch)
+        0000-journal-bring-mmap-cache-prototype-in-sync.patch
+        0001-log-fix-repeated-invocation-of-vsnprintf-vaprintf-in.patch
+        0002-journal-also-use-new-VA_FORMAT_ADVANCE-macro-in-sd_j.patch
+        0003-macro-increase-VA_FORMAT_ADVANCE-type-array-and-hit-.patch)
 depends=(libcap dbus kmod util-linux usbutils pciutils glib tcp_wrappers python libgcrypt)
 
 build() {
    cd $name-$version
 
-   patch -p1 < $SRC/mmap-cache.patch
-   patch -p1 < $SRC/log-segv-fault-fix.patch
+   patch -p1 -i $SRC/0000-journal-bring-mmap-cache-prototype-in-sync.patch
+   patch -p1 -i $SRC/0001-log-fix-repeated-invocation-of-vsnprintf-vaprintf-in.patch
+   patch -p1 -i $SRC/0002-journal-also-use-new-VA_FORMAT_ADVANCE-macro-in-sd_j.patch
+   patch -p1 -i $SRC/0003-macro-increase-VA_FORMAT_ADVANCE-type-array-and-hit-.patch
 
    ./configure --build=$BUILD \
                --host=$HOST \

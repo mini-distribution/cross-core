@@ -1,0 +1,32 @@
+From cecd32f648cdf315ee19c0cf7c8c7cb9fb5d6ee6 Mon Sep 17 00:00:00 2001
+From: Lennart Poettering <lennart@poettering.net>
+Date: Mon, 24 Sep 2012 23:42:29 +0200
+Subject: [PATCH 3/3] macro: increase VA_FORMAT_ADVANCE type array and hit
+ assert when it is reached
+
+---
+ src/shared/macro.h |    6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/src/shared/macro.h b/src/shared/macro.h
+index 0dd210a..dbdf5b3 100644
+--- a/src/shared/macro.h
++++ b/src/shared/macro.h
+@@ -193,10 +193,12 @@ static inline size_t IOVEC_INCREMENT(struct iovec *i, unsigned n, size_t k) {
+ #define _cleanup_closedir_ __attribute__((cleanup(closedirp)))
+ #define _cleanup_umask_ __attribute__((cleanup(umaskp)))
+ 
+-#define VA_FORMAT_ADVANCE(format, ap) do {                              \
+-        int _argtypes[64];                                              \
++#define VA_FORMAT_ADVANCE(format, ap)                                   \
++do {                                                                    \
++        int _argtypes[128];                                             \
+         size_t _i, _k;                                                  \
+         _k = parse_printf_format((format), ELEMENTSOF(_argtypes), _argtypes); \
++        assert(_k < ELEMENTSOF(_argtypes));                             \
+         for (_i = 0; _i < _k; _i++) {                                   \
+                 if (_argtypes[_i] & PA_FLAG_PTR)  {                     \
+                         (void) va_arg(ap, void*);                       \
+-- 
+1.7.9.5
+
