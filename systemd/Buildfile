@@ -5,7 +5,7 @@ name=systemd
 version=192
 release=1
 source=(http://www.freedesktop.org/software/systemd/$name-$version.tar.xz
-        vconsole.conf
+        vconsole.conf)
 depends=(libcap dbus kmod util-linux usbutils pciutils glib tcp_wrappers python libgcrypt)
 
 build() {

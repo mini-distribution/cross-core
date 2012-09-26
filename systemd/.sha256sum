@@ -1,6 +1,2 @@
-1f9304c839c9f6af0fda632c1bdbe09e1ffe9480ba60503c4bafede5b9bf9b7b  0000-journal-bring-mmap-cache-prototype-in-sync.patch
-dd9e0699446f4eb84e94766f7cde8d70e784dbc026b9ea48a3a2d6088fad7b62  0001-log-fix-repeated-invocation-of-vsnprintf-vaprintf-in.patch
-6883b26e619afd62655b0377c39a882081afc80d8eb19acc81e0d99b3f733ce3  0002-journal-also-use-new-VA_FORMAT_ADVANCE-macro-in-sd_j.patch
-587bae77e8a1f797749aa789a20ac02f5395eccdccdbae764d0aa4574ff13286  0003-macro-increase-VA_FORMAT_ADVANCE-type-array-and-hit-.patch
 55c449554ab68c7b237e86584a69b6e60538b4853ef7b6e5317d9d3e78f0c30f  systemd-192.tar.xz
 1fe12e3ec889ce47c85f3ac3a1cd2a3e53f08f9fed1b8631b2e1ca91d7304be3  vconsole.conf
