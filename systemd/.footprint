@@ -86,22 +86,22 @@ lrwxrwxrwx	root/root	usr/lib/libgudev-1.0.so -> libgudev-1.0.so.0.1.2
 lrwxrwxrwx	root/root	usr/lib/libsystemd-daemon.so.0 -> libsystemd-daemon.so.0.0.5
 lrwxrwxrwx	root/root	usr/lib/libsystemd-daemon.so -> libsystemd-daemon.so.0.0.5
 -rwxr-xr-x	root/root	usr/lib/libsystemd-id128.la
--rwxr-xr-x	root/root	usr/lib/libsystemd-id128.so.0.0.13
-lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so.0 -> libsystemd-id128.so.0.0.13
-lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so -> libsystemd-id128.so.0.0.13
+-rwxr-xr-x	root/root	usr/lib/libsystemd-id128.so.0.0.14
+lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so.0 -> libsystemd-id128.so.0.0.14
+lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so -> libsystemd-id128.so.0.0.14
 -rwxr-xr-x	root/root	usr/lib/libsystemd-journal.la
--rwxr-xr-x	root/root	usr/lib/libsystemd-journal.so.0.5.3
-lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so.0 -> libsystemd-journal.so.0.5.3
-lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so -> libsystemd-journal.so.0.5.3
+-rwxr-xr-x	root/root	usr/lib/libsystemd-journal.so.0.5.4
+lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so.0 -> libsystemd-journal.so.0.5.4
+lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so -> libsystemd-journal.so.0.5.4
 -rwxr-xr-x	root/root	usr/lib/libsystemd-login.la
--rwxr-xr-x	root/root	usr/lib/libsystemd-login.so.0.3.7
-lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so.0 -> libsystemd-login.so.0.3.7
-lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so -> libsystemd-login.so.0.3.7
+-rwxr-xr-x	root/root	usr/lib/libsystemd-login.so.0.3.8
+lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so.0 -> libsystemd-login.so.0.3.8
+lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so -> libsystemd-login.so.0.3.8
 -rw-r--r--	root/root	usr/lib/libudev.a
 -rwxr-xr-x	root/root	usr/lib/libudev.la
--rwxr-xr-x	root/root	usr/lib/libudev.so.1.1.4
-lrwxrwxrwx	root/root	usr/lib/libudev.so.1 -> libudev.so.1.1.4
-lrwxrwxrwx	root/root	usr/lib/libudev.so -> libudev.so.1.1.4
+-rwxr-xr-x	root/root	usr/lib/libudev.so.1.1.5
+lrwxrwxrwx	root/root	usr/lib/libudev.so.1 -> libudev.so.1.1.5
+lrwxrwxrwx	root/root	usr/lib/libudev.so -> libudev.so.1.1.5
 drwxr-xr-x	root/root	usr/lib/modules-load.d/
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/gudev-1.0.pc
