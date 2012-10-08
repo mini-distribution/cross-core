@@ -6,7 +6,7 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/eqn
 -rwxr-xr-x	root/root	usr/bin/eqn2graph
 -rwxr-xr-x	root/root	usr/bin/gdiffmk
-lrwxrwxrwx	root/root	usr/bin/geqn
+lrwxrwxrwx	root/root	usr/bin/geqn -> eqn
 -rwxr-xr-x	root/root	usr/bin/grap2graph
 -rwxr-xr-x	root/root	usr/bin/grn
 -rwxr-xr-x	root/root	usr/bin/grodvi
@@ -17,7 +17,7 @@ lrwxrwxrwx	root/root	usr/bin/geqn
 -rwxr-xr-x	root/root	usr/bin/grolj4
 -rwxr-xr-x	root/root	usr/bin/grops
 -rwxr-xr-x	root/root	usr/bin/grotty
-lrwxrwxrwx	root/root	usr/bin/gtbl
+lrwxrwxrwx	root/root	usr/bin/gtbl -> tbl
 -rwxr-xr-x	root/root	usr/bin/hpftodit
 -rwxr-xr-x	root/root	usr/bin/indxbib
 -rwxr-xr-x	root/root	usr/bin/lkbib
@@ -43,7 +43,7 @@ lrwxrwxrwx	root/root	usr/bin/gtbl
 -rwxr-xr-x	root/root	usr/bin/tbl
 -rwxr-xr-x	root/root	usr/bin/tfmtodit
 -rwxr-xr-x	root/root	usr/bin/troff
-lrwxrwxrwx	root/root	usr/bin/zsoelim
+lrwxrwxrwx	root/root	usr/bin/zsoelim -> soelim
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/groff/
 drwxr-xr-x	root/root	usr/lib/groff/groffer/
@@ -392,7 +392,7 @@ drwxr-xr-x	root/root	usr/share/groff/1.21/tmac/mm/
 -rw-r--r--	root/root	usr/share/groff/1.21/tmac/www.tmac
 -rw-r--r--	root/root	usr/share/groff/1.21/tmac/Xps.tmac
 -rw-r--r--	root/root	usr/share/groff/1.21/tmac/X.tmac
-lrwxrwxrwx	root/root	usr/share/groff/current
+lrwxrwxrwx	root/root	usr/share/groff/current -> 1.21
 drwxr-xr-x	root/root	usr/share/groff/site-font/
 drwxr-xr-x	root/root	usr/share/groff/site-tmac/
 -rw-r--r--	root/root	usr/share/groff/site-tmac/man.local

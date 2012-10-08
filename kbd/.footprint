@@ -60,7 +60,7 @@ drwxr-xr-x	root/root	usr/share/kbd/consolefonts/
 -rw-r--r--	root/root	usr/share/kbd/consolefonts/cyr-sun16.psfu.gz
 -rw-r--r--	root/root	usr/share/kbd/consolefonts/default8x16.psfu.gz
 -rw-r--r--	root/root	usr/share/kbd/consolefonts/default8x9.psfu.gz
-lrwxrwxrwx	root/root	usr/share/kbd/consolefonts/default.gz
+lrwxrwxrwx	root/root	usr/share/kbd/consolefonts/default.gz -> default8x9.psfu.gz
 -rw-r--r--	root/root	usr/share/kbd/consolefonts/drdos8x14.psfu.gz
 -rw-r--r--	root/root	usr/share/kbd/consolefonts/drdos8x16.psfu.gz
 -rw-r--r--	root/root	usr/share/kbd/consolefonts/drdos8x6.psfu.gz

@@ -1,4 +1,4 @@
-lrwxrwxrwx	root/root	bin
+lrwxrwxrwx	root/root	bin -> /usr/bin
 drwxr-xr-x	root/root	dev/
 drwxr-xr-x	root/root	etc/
 -rw-r--r--	root/root	etc/group
@@ -11,13 +11,13 @@ drwxr-xr-x	root/root	media/
 drwxr-xr-x	root/root	mnt/
 drwxr-xr-x	root/root	opt/
 drwxr-xr-x	root/root	proc/
-drwxr-xr-x	root/root	root/
+drwxr-xr-x	root/root	root/root         0 2012-09-12 13:44 root/
 drwxr-xr-x	root/root	run/
-lrwxrwxrwx	root/root	sbin
+lrwxrwxrwx	root/root	sbin -> /usr/sbin
 drwxr-xr-x	root/root	srv/
 drwxr-xr-x	root/root	sys/
 drwxr-xr-x	root/root	tmp/
 drwxr-xr-x	root/root	usr/
-lrwxrwxrwx	root/root	usr/var
+lrwxrwxrwx	root/root	usr/var -> ../var
 drwxr-xr-x	root/root	var/
-lrwxrwxrwx	root/root	var/run
+lrwxrwxrwx	root/root	var/run -> ../run

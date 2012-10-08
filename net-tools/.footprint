@@ -1,11 +1,11 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
-lrwxrwxrwx	root/root	usr/bin/dnsdomainname
-lrwxrwxrwx	root/root	usr/bin/domainname
+lrwxrwxrwx	root/root	usr/bin/dnsdomainname -> hostname
+lrwxrwxrwx	root/root	usr/bin/domainname -> hostname
 -rwxr-xr-x	root/root	usr/bin/hostname
 -rwxr-xr-x	root/root	usr/bin/netstat
-lrwxrwxrwx	root/root	usr/bin/nisdomainname
-lrwxrwxrwx	root/root	usr/bin/ypdomainname
+lrwxrwxrwx	root/root	usr/bin/nisdomainname -> hostname
+lrwxrwxrwx	root/root	usr/bin/ypdomainname -> hostname
 drwxr-xr-x	root/root	usr/sbin/
 -rwxr-xr-x	root/root	usr/sbin/arp
 -rwxr-xr-x	root/root	usr/sbin/ifconfig
