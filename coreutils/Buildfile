@@ -2,7 +2,7 @@
 # URL: http://www.gnu.org/software/coreutils
 
 name=coreutils
-version=8.17
+version=8.19
 release=1
 source=(http://ftp.gnu.org/gnu/coreutils/$name-$version.tar.xz)
 depends=(libcap attr acl libgmp)
