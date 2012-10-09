@@ -2,7 +2,7 @@
 # URL: http://mj.ucw.cz/pciutils.shtml
 
 name=pciutils
-version=3.1.7
+version=3.1.10
 release=1
 source=(http://www.kernel.org/pub/software/utils/$name/$name-$version.tar.gz)
 
