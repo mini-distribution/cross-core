@@ -2,7 +2,7 @@
 # URL: http://psmisc.sourceforge.net/
 
 name=psmisc
-version=22.17
+version=22.20
 release=1
 source=(http://heanet.dl.sourceforge.net/project/psmisc/psmisc/$name-$version.tar.gz)
 depends=ncurses
