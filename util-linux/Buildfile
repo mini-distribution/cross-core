@@ -2,9 +2,9 @@
 # URL: http://kernel.org/~kzak/util-linux
 
 name=util-linux
-version=2.21
+version=2.22
 release=1
-source=(http://www.kernel.org/pub/linux/utils/util-linux/v2.21/$name-$version.tar.xz)
+source=(http://www.kernel.org/pub/linux/utils/util-linux/v2.22/$name-$version.tar.xz)
 depends=(ncurses zlib)
 
 build() {
@@ -19,7 +19,7 @@ build() {
                --bindir=/usr/bin \
                --sbindir=/usr/sbin \
                --libdir=/usr/lib \
-               --disable-{nls,elvtune,wall,fallocate} \
+               --disable-{nls,elvtune,wall,fallocate,login,su} \
                --enable-{write,rdev,raw,kill} \
                --cache-file=config.cache
 

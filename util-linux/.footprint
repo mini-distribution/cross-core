@@ -1,7 +1,6 @@
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/cal
--rwxr-xr-x	root/root	usr/bin/chkdupexe
 -rwxr-xr-x	root/root	usr/bin/chrt
 -rwxr-xr-x	root/root	usr/bin/col
 -rwxr-xr-x	root/root	usr/bin/colcrt
@@ -9,6 +8,7 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/column
 -rwxr-xr-x	root/root	usr/bin/cytune
 -rwxr-xr-x	root/root	usr/bin/dmesg
+-rwxr-xr-x	root/root	usr/bin/eject
 -rwxr-xr-x	root/root	usr/bin/findmnt
 -rwxr-xr-x	root/root	usr/bin/flock
 -rwxr-xr-x	root/root	usr/bin/getopt
@@ -25,6 +25,7 @@ lrwxrwxrwx	root/root	usr/bin/linux64 -> setarch
 -rwxr-xr-x	root/root	usr/bin/look
 -rwxr-xr-x	root/root	usr/bin/lsblk
 -rwxr-xr-x	root/root	usr/bin/lscpu
+-rwxr-xr-x	root/root	usr/bin/lslocks
 -rwxr-xr-x	root/root	usr/bin/mcookie
 -rwxr-xr-x	root/root	usr/bin/more
 -rwsr-xr-x	root/root	usr/bin/mount
@@ -45,7 +46,9 @@ lrwxrwxrwx	root/root	usr/bin/linux64 -> setarch
 -rwxr-xr-x	root/root	usr/bin/ul
 -rwsr-xr-x	root/root	usr/bin/umount
 -rwxr-xr-x	root/root	usr/bin/unshare
+-rwxr-xr-x	root/root	usr/bin/utmpdump
 -rwxr-xr-x	root/root	usr/bin/uuidgen
+-rwxr-xr-x	root/root	usr/bin/wdctl
 -rwxr-xr-x	root/root	usr/bin/whereis
 -rwxr-sr-x	root/tty	usr/bin/write
 drwxr-xr-x	root/root	usr/include/
@@ -104,10 +107,12 @@ drwxr-xr-x	root/root	usr/sbin/
 -rwxr-xr-x	root/root	usr/sbin/pivot_root
 -rwxr-xr-x	root/root	usr/sbin/raw
 -rwxr-xr-x	root/root	usr/sbin/readprofile
+-rwxr-xr-x	root/root	usr/sbin/resizepart
 -rwxr-xr-x	root/root	usr/sbin/rtcwake
 -rwxr-xr-x	root/root	usr/sbin/sfdisk
+-rwxr-xr-x	root/root	usr/sbin/sulogin
 -rwxr-xr-x	root/root	usr/sbin/swaplabel
-lrwxrwxrwx	root/root	usr/sbin/swapoff -> swapon
+-rwxr-xr-x	root/root	usr/sbin/swapoff
 -rwxr-xr-x	root/root	usr/sbin/swapon
 -rwxr-xr-x	root/root	usr/sbin/switch_root
 -rwxr-xr-x	root/root	usr/sbin/tunelp
@@ -120,13 +125,13 @@ drwxr-xr-x	root/root	usr/share/getopt/
 drwxr-xr-x	root/root	usr/share/man/
 drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/cal.1
--rw-r--r--	root/root	usr/share/man/man1/chkdupexe.1
 -rw-r--r--	root/root	usr/share/man/man1/chrt.1
 -rw-r--r--	root/root	usr/share/man/man1/col.1
 -rw-r--r--	root/root	usr/share/man/man1/colcrt.1
 -rw-r--r--	root/root	usr/share/man/man1/colrm.1
 -rw-r--r--	root/root	usr/share/man/man1/column.1
 -rw-r--r--	root/root	usr/share/man/man1/dmesg.1
+-rw-r--r--	root/root	usr/share/man/man1/eject.1
 -rw-r--r--	root/root	usr/share/man/man1/flock.1
 -rw-r--r--	root/root	usr/share/man/man1/getopt.1
 -rw-r--r--	root/root	usr/share/man/man1/hexdump.1
@@ -155,6 +160,7 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/taskset.1
 -rw-r--r--	root/root	usr/share/man/man1/ul.1
 -rw-r--r--	root/root	usr/share/man/man1/unshare.1
+-rw-r--r--	root/root	usr/share/man/man1/utmpdump.1
 -rw-r--r--	root/root	usr/share/man/man1/uuidgen.1
 -rw-r--r--	root/root	usr/share/man/man1/whereis.1
 -rw-r--r--	root/root	usr/share/man/man1/write.1
@@ -199,6 +205,7 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/linux64.8
 -rw-r--r--	root/root	usr/share/man/man8/losetup.8
 -rw-r--r--	root/root	usr/share/man/man8/lsblk.8
+-rw-r--r--	root/root	usr/share/man/man8/lslocks.8
 -rw-r--r--	root/root	usr/share/man/man8/mkfs.8
 -rw-r--r--	root/root	usr/share/man/man8/mkfs.bfs.8
 -rw-r--r--	root/root	usr/share/man/man8/mkfs.minix.8
@@ -208,9 +215,11 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/pivot_root.8
 -rw-r--r--	root/root	usr/share/man/man8/raw.8
 -rw-r--r--	root/root	usr/share/man/man8/readprofile.8
+-rw-r--r--	root/root	usr/share/man/man8/resizepart.8
 -rw-r--r--	root/root	usr/share/man/man8/rtcwake.8
 -rw-r--r--	root/root	usr/share/man/man8/setarch.8
 -rw-r--r--	root/root	usr/share/man/man8/sfdisk.8
+-rw-r--r--	root/root	usr/share/man/man8/sulogin.8
 -rw-r--r--	root/root	usr/share/man/man8/swaplabel.8
 -rw-r--r--	root/root	usr/share/man/man8/swapoff.8
 -rw-r--r--	root/root	usr/share/man/man8/swapon.8
@@ -218,4 +227,5 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/tunelp.8
 -rw-r--r--	root/root	usr/share/man/man8/umount.8
 -rw-r--r--	root/root	usr/share/man/man8/uuidd.8
+-rw-r--r--	root/root	usr/share/man/man8/wdctl.8
 -rw-r--r--	root/root	usr/share/man/man8/wipefs.8
