@@ -3,7 +3,7 @@
 
 name=procps
 version=3.2.8
-release=3
+release=1
 source=(http://procps.sourceforge.net/$name-$version.tar.gz \
         sysctl.conf \
         $name-$version.patch \
