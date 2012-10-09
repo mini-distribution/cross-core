@@ -2,15 +2,13 @@
 # URL: http://developer.gnome.org/glib
 
 name=glib
-version=2.33.1
+version=2.34.0
 release=1
-source=(http://ftp.gnome.org/pub/gnome/sources/glib/2.33/$name-$version.tar.xz glib-gio-dependecy-fix.patch)
+source=(http://ftp.gnome.org/pub/gnome/sources/glib/2.34/$name-$version.tar.xz)
 depends=(zlib libffi dbus)
 
 build() {
    cd $name-$version
-
-   patch -p1 < $SRC/glib-gio-dependecy-fix.patch
 
    # Apply known hacks for cross compiling glib
    echo "glib_cv_stack_grows=yes" >> config.cache
@@ -46,4 +44,9 @@ build() {
 check() {
    # Test for preinstalled glib-genmarshal tool
    check_tool glib-genmarshal
+   check_tool xsltproc
+   check_tool xmlcatalog
+
+   # Test for DocBook 4.1.2
+   check_lib /usr/share/xml/docbook/schema/dtd/4.1.2/catalog
 }
