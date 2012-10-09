@@ -2,7 +2,7 @@
 # URL: http://www.gnu.org/software/wget/
 
 name=wget
-version=1.13
+version=1.14
 release=1
 source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz \
         wgetrc)
