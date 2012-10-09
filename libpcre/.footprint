@@ -20,12 +20,12 @@ lrwxrwxrwx	root/root	usr/lib/libpcrecpp.so -> libpcrecpp.so.0.0.0
 -rwxr-xr-x	root/root	usr/lib/libpcre.la
 -rw-r--r--	root/root	usr/lib/libpcreposix.a
 -rwxr-xr-x	root/root	usr/lib/libpcreposix.la
--rwxr-xr-x	root/root	usr/lib/libpcreposix.so.0.0.0
-lrwxrwxrwx	root/root	usr/lib/libpcreposix.so.0 -> libpcreposix.so.0.0.0
-lrwxrwxrwx	root/root	usr/lib/libpcreposix.so -> libpcreposix.so.0.0.0
--rwxr-xr-x	root/root	usr/lib/libpcre.so.1.0.0
-lrwxrwxrwx	root/root	usr/lib/libpcre.so.1 -> libpcre.so.1.0.0
-lrwxrwxrwx	root/root	usr/lib/libpcre.so -> libpcre.so.1.0.0
+-rwxr-xr-x	root/root	usr/lib/libpcreposix.so.0.0.1
+lrwxrwxrwx	root/root	usr/lib/libpcreposix.so.0 -> libpcreposix.so.0.0.1
+lrwxrwxrwx	root/root	usr/lib/libpcreposix.so -> libpcreposix.so.0.0.1
+-rwxr-xr-x	root/root	usr/lib/libpcre.so.1.0.1
+lrwxrwxrwx	root/root	usr/lib/libpcre.so.1 -> libpcre.so.1.0.1
+lrwxrwxrwx	root/root	usr/lib/libpcre.so -> libpcre.so.1.0.1
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libpcrecpp.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libpcre.pc
