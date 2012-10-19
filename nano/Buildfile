@@ -15,7 +15,7 @@ build(){
                --prefix=/usr \
                --disable-nls
 
-   make -j $JOBS
+   make -j $JOBS LDFLAGS=-ltinfo
    make DESTDIR=$PKG install
 
    rm $PKG/usr/bin/rnano $PKG/usr/share/man/man1/rnano.1
