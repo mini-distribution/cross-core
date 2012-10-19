@@ -2,12 +2,16 @@
 # URL: http://kernel.org/~kzak/util-linux
 
 name=util-linux
-version=2.22
+version=2.22.1
 release=1
-source=(http://www.kernel.org/pub/linux/utils/util-linux/v2.22/$name-$version.tar.xz)
+source=(http://www.kernel.org/pub/linux/utils/util-linux/v2.22/$name-$version.tar.xz
+	dso.patch)
 depends=(ncurses zlib)
 
 build() {
+
+   patch -p1 < $SRC/dso.patch
+
    cd $name-$version
 
    echo "scanf_cv_alloc_modifier=ms" > config.cache
@@ -20,13 +24,13 @@ build() {
                --sbindir=/usr/sbin \
                --libdir=/usr/lib \
                --disable-{nls,elvtune,wall,fallocate,login,su} \
-               --enable-{write,rdev,raw,kill} \
-               --cache-file=config.cache
+               --enable-{write,raw,kill} \
+               --cache-file=config.cache \
 
    make -j $JOBS
    make DESTDIR=$PKG install
 
-   rm -r $PKG/usr/share/man/ru
+   rm -rf $PKG/usr/share/man/ru
   
    # Fix libtool files
    fix_la_files $PKG
