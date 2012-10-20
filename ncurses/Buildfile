@@ -15,10 +15,11 @@ build() {
                --mandir=/usr/share/man \
                --with-normal \
                --with-shared \
-               --with-termlib \
+               --without-termlib \
                --without-debug \
                --without-ada \
-               --enable-sp-funcs
+               --enable-sp-funcs \
+	       --with-termcap
 
     make -j $JOBS
     make DESTDIR=$PKG install
