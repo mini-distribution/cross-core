@@ -14,13 +14,11 @@ build() {
                --prefix=/usr \
                --mandir=/usr/share/man \
                --with-normal \
-               --with-shared \
-               --without-termlib \
                --without-debug \
                --without-ada \
-               --enable-sp-funcs \
-	       --with-termcap
+               --with-shared \
 
     make -j $JOBS
     make DESTDIR=$PKG install
+
 }
