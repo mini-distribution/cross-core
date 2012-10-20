@@ -4,13 +4,10 @@
 name=util-linux
 version=2.22.1
 release=1
-source=(http://www.kernel.org/pub/linux/utils/util-linux/v2.22/$name-$version.tar.xz
-	dso.patch)
+source=(http://www.kernel.org/pub/linux/utils/util-linux/v2.22/$name-$version.tar.xz)
 depends=(ncurses zlib)
 
 build() {
-
-   patch -p1 < $SRC/dso.patch
 
    cd $name-$version
 
