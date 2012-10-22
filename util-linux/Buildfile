@@ -23,6 +23,7 @@ build() {
                --disable-{nls,elvtune,wall,fallocate,login,su} \
                --enable-{write,raw,kill} \
                --cache-file=config.cache \
+               LDFLAGS=-ltinfo
 
    make -j $JOBS
    make DESTDIR=$PKG install

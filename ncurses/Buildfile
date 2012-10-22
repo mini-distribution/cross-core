@@ -17,6 +17,7 @@ build() {
                --without-debug \
                --without-ada \
                --with-shared \
+               --with-termlib
 
     make -j $JOBS
     make DESTDIR=$PKG install

@@ -13,7 +13,8 @@ build(){
    ./configure --build=$BUILD \
                --host=$HOST \
                --prefix=/usr \
-               --disable-nls
+               --disable-nls \
+               LDFLAGS=-ltinfo
 
    make -j $JOBS
    make DESTDIR=$PKG install
