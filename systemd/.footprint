@@ -9,6 +9,8 @@ drwxr-xr-x	root/root	etc/dbus-1/system.d/
 -rw-r--r--	root/root	etc/dbus-1/system.d/org.freedesktop.login1.conf
 -rw-r--r--	root/root	etc/dbus-1/system.d/org.freedesktop.systemd1.conf
 -rw-r--r--	root/root	etc/dbus-1/system.d/org.freedesktop.timedate1.conf
+drwxr-xr-x	root/root	etc/init.d/
+-rw-r--r--	root/root	etc/init.d/README
 drwxr-xr-x	root/root	etc/modules-load.d/
 lrwxrwxrwx	root/root	etc/mtab -> /proc/self/mounts
 drwxr-xr-x	root/root	etc/rpm/
@@ -38,7 +40,9 @@ drwxr-xr-x	root/root	etc/xdg/systemd/
 lrwxrwxrwx	root/root	etc/xdg/systemd/user -> /etc/systemd/user
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/hostnamectl
 -rwxr-xr-x	root/root	usr/bin/journalctl
+-rwxr-xr-x	root/root	usr/bin/localectl
 -rwxr-xr-x	root/root	usr/bin/loginctl
 -rwxr-xr-x	root/root	usr/bin/systemctl
 -rwxr-xr-x	root/root	usr/bin/systemd-analyze
@@ -46,6 +50,7 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/systemd-cat
 -rwxr-xr-x	root/root	usr/bin/systemd-cgls
 -rwxr-xr-x	root/root	usr/bin/systemd-cgtop
+-rwxr-xr-x	root/root	usr/bin/systemd-coredumpctl
 -rwxr-xr-x	root/root	usr/bin/systemd-delta
 -rwxr-xr-x	root/root	usr/bin/systemd-detect-virt
 -rwxr-xr-x	root/root	usr/bin/systemd-inhibit
@@ -55,6 +60,7 @@ drwxr-xr-x	root/root	usr/bin/
 -rwxr-xr-x	root/root	usr/bin/systemd-stdio-bridge
 -rwxr-xr-x	root/root	usr/bin/systemd-tmpfiles
 -rwxr-xr-x	root/root	usr/bin/systemd-tty-ask-password-agent
+-rwxr-xr-x	root/root	usr/bin/timedatectl
 -rwxr-xr-x	root/root	usr/bin/udevadm
 drwxr-xr-x	root/root	usr/include/
 drwxr-xr-x	root/root	usr/include/gudev-1.0/
@@ -86,22 +92,22 @@ lrwxrwxrwx	root/root	usr/lib/libgudev-1.0.so -> libgudev-1.0.so.0.1.2
 lrwxrwxrwx	root/root	usr/lib/libsystemd-daemon.so.0 -> libsystemd-daemon.so.0.0.5
 lrwxrwxrwx	root/root	usr/lib/libsystemd-daemon.so -> libsystemd-daemon.so.0.0.5
 -rwxr-xr-x	root/root	usr/lib/libsystemd-id128.la
--rwxr-xr-x	root/root	usr/lib/libsystemd-id128.so.0.0.14
-lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so.0 -> libsystemd-id128.so.0.0.14
-lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so -> libsystemd-id128.so.0.0.14
+-rwxr-xr-x	root/root	usr/lib/libsystemd-id128.so.0.0.15
+lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so.0 -> libsystemd-id128.so.0.0.15
+lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so -> libsystemd-id128.so.0.0.15
 -rwxr-xr-x	root/root	usr/lib/libsystemd-journal.la
--rwxr-xr-x	root/root	usr/lib/libsystemd-journal.so.0.5.4
-lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so.0 -> libsystemd-journal.so.0.5.4
-lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so -> libsystemd-journal.so.0.5.4
+-rwxr-xr-x	root/root	usr/lib/libsystemd-journal.so.0.6.0
+lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so.0 -> libsystemd-journal.so.0.6.0
+lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so -> libsystemd-journal.so.0.6.0
 -rwxr-xr-x	root/root	usr/lib/libsystemd-login.la
--rwxr-xr-x	root/root	usr/lib/libsystemd-login.so.0.3.8
-lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so.0 -> libsystemd-login.so.0.3.8
-lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so -> libsystemd-login.so.0.3.8
+-rwxr-xr-x	root/root	usr/lib/libsystemd-login.so.0.3.9
+lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so.0 -> libsystemd-login.so.0.3.9
+lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so -> libsystemd-login.so.0.3.9
 -rw-r--r--	root/root	usr/lib/libudev.a
 -rwxr-xr-x	root/root	usr/lib/libudev.la
--rwxr-xr-x	root/root	usr/lib/libudev.so.1.1.5
-lrwxrwxrwx	root/root	usr/lib/libudev.so.1 -> libudev.so.1.1.5
-lrwxrwxrwx	root/root	usr/lib/libudev.so -> libudev.so.1.1.5
+-rwxr-xr-x	root/root	usr/lib/libudev.so.1.1.6
+lrwxrwxrwx	root/root	usr/lib/libudev.so.1 -> libudev.so.1.1.6
+lrwxrwxrwx	root/root	usr/lib/libudev.so -> libudev.so.1.1.6
 drwxr-xr-x	root/root	usr/lib/modules-load.d/
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/gudev-1.0.pc
@@ -110,17 +116,6 @@ drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/libsystemd-journal.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libsystemd-login.pc
 -rw-r--r--	root/root	usr/lib/pkgconfig/libudev.pc
-drwxr-xr-x	root/root	usr/lib/python2.7/
-drwxr-xr-x	root/root	usr/lib/python2.7/dist-packages/
-drwxr-xr-x	root/root	usr/lib/python2.7/dist-packages/systemd/
--rw-r--r--	root/root	usr/lib/python2.7/dist-packages/systemd/__init__.py
--rw-r--r--	root/root	usr/lib/python2.7/dist-packages/systemd/__init__.pyc
--rw-r--r--	root/root	usr/lib/python2.7/dist-packages/systemd/__init__.pyo
--rwxr-xr-x	root/root	usr/lib/python2.7/dist-packages/systemd/_journal.la
--rw-r--r--	root/root	usr/lib/python2.7/dist-packages/systemd/journal.py
--rw-r--r--	root/root	usr/lib/python2.7/dist-packages/systemd/journal.pyc
--rw-r--r--	root/root	usr/lib/python2.7/dist-packages/systemd/journal.pyo
--rwxr-xr-x	root/root	usr/lib/python2.7/dist-packages/systemd/_journal.so
 drwxr-xr-x	root/root	usr/lib/sysctl.d/
 -rw-r--r--	root/root	usr/lib/sysctl.d/coredump.conf
 drwxr-xr-x	root/root	usr/lib/systemd/
@@ -482,8 +477,10 @@ drwxr-xr-x	root/root	usr/share/doc/systemd/
 -rw-r--r--	root/root	usr/share/doc/systemd/sd-readahead.h
 drwxr-xr-x	root/root	usr/share/man/
 drwxr-xr-x	root/root	usr/share/man/man1/
+-rw-r--r--	root/root	usr/share/man/man1/hostnamectl.1
 -rw-r--r--	root/root	usr/share/man/man1/init.1
 -rw-r--r--	root/root	usr/share/man/man1/journalctl.1
+-rw-r--r--	root/root	usr/share/man/man1/localectl.1
 -rw-r--r--	root/root	usr/share/man/man1/loginctl.1
 -rw-r--r--	root/root	usr/share/man/man1/systemctl.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd.1
@@ -492,6 +489,7 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/systemd-cat.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-cgls.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-cgtop.1
+-rw-r--r--	root/root	usr/share/man/man1/systemd-coredumpctl.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-delta.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-detect-virt.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-inhibit.1
@@ -499,6 +497,7 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/systemd-notify.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-nspawn.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-tty-ask-password-agent.1
+-rw-r--r--	root/root	usr/share/man/man1/timedatectl.1
 drwxr-xr-x	root/root	usr/share/man/man3/
 -rw-r--r--	root/root	usr/share/man/man3/SD_ALERT.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_booted.3
@@ -511,6 +510,7 @@ drwxr-xr-x	root/root	usr/share/man/man3/
 -rw-r--r--	root/root	usr/share/man/man3/sd_get_sessions.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_get_uids.3
 -rw-r--r--	root/root	usr/share/man/man3/sd-id128.3
+-rw-r--r--	root/root	usr/share/man/man3/SD_ID128_CONST_STR.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_id128_equal.3
 -rw-r--r--	root/root	usr/share/man/man3/SD_ID128_FORMAT_STR.3
 -rw-r--r--	root/root	usr/share/man/man3/SD_ID128_FORMAT_VAL.3
@@ -534,10 +534,12 @@ drwxr-xr-x	root/root	usr/share/man/man3/
 -rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_APPEND.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_close.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_enumerate_data.3
+-rw-r--r--	root/root	usr/share/man/man3/sd_journal_enumerate_unique.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_flush_matches.3
 -rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_FOREACH.3
 -rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_FOREACH_BACKWARDS.3
 -rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_FOREACH_DATA.3
+-rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_FOREACH_UNIQUE.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_get_cursor.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_get_cutoff_monotonic_usec.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_get_cutoff_realtime_usec.3
@@ -559,7 +561,9 @@ drwxr-xr-x	root/root	usr/share/man/man3/
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_print.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_printv.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_process.3
+-rw-r--r--	root/root	usr/share/man/man3/sd_journal_query_unique.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_restart_data.3
+-rw-r--r--	root/root	usr/share/man/man3/sd_journal_restart_unique.3
 -rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_RUNTIME_ONLY.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_seek_cursor.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_seek_head.3
@@ -571,6 +575,7 @@ drwxr-xr-x	root/root	usr/share/man/man3/
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_stream_fd.3
 -rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_SUPPRESS_LOCATION.3
 -rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_SYSTEM_ONLY.3
+-rw-r--r--	root/root	usr/share/man/man3/sd_journal_test_cursor.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_wait.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_listen_fds.3
 -rw-r--r--	root/root	usr/share/man/man3/SD_LISTEN_FDS_START.3
@@ -619,7 +624,6 @@ drwxr-xr-x	root/root	usr/share/man/man5/
 -rw-r--r--	root/root	usr/share/man/man5/systemd.automount.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.conf.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.device.5
--rw-r--r--	root/root	usr/share/man/man5/systemd.directives.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.exec.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.kill.5
 -rw-r--r--	root/root	usr/share/man/man5/systemd.mount.5
@@ -733,3 +737,5 @@ drwxr-xr-x	root/root	usr/share/systemd/
 drwxr-xr-x	root/root	var/
 drwxr-xr-x	root/root	var/lib/
 drwxr-xr-x	root/root	var/lib/systemd/
+drwxr-xr-x	root/root	var/log/
+-rw-r--r--	root/root	var/log/README
