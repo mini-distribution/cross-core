@@ -1,0 +1,12 @@
+diff -Naur a/src/journal/journalctl.c b/src/journal/journalctl.c
+--- a/src/journal/journalctl.c	2012-11-14 14:45:01.432064595 +0100
++++ b/src/journal/journalctl.c	2012-11-14 15:01:14.144021137 +0100
+@@ -646,7 +646,7 @@
+         if (ioctl(fd, FS_IOC_GETFLAGS, &attr) < 0)
+                 log_warning("FS_IOC_GETFLAGS failed: %m");
+ 
+-        attr |= FS_SECRM_FL|FS_NODUMP_FL|FS_SYNC_FL|FS_NOCOW_FL;
++        attr |= FS_SECRM_FL|FS_NODUMP_FL|FS_SYNC_FL;
+ 
+         if (ioctl(fd, FS_IOC_SETFLAGS, &attr) < 0)
+                 log_warning("FS_IOC_SETFLAGS failed: %m");
