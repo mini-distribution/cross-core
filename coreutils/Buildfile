@@ -5,7 +5,7 @@ name=coreutils
 version=8.19
 release=1
 source=(http://ftp.gnu.org/gnu/coreutils/$name-$version.tar.xz)
-depends=(libcap attr acl libgmp)
+depends=(libcap attr acl gmp)
 
 build() {
    cd $name-$version
