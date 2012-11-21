@@ -32,6 +32,7 @@ drwxr-xr-x	root/root	etc/systemd/user/
 -rw-r--r--	root/root	etc/systemd/user.conf
 drwxr-xr-x	root/root	etc/tmpfiles.d/
 drwxr-xr-x	root/root	etc/udev/
+drwxr-xr-x	root/root	etc/udev/hwdb.d/
 drwxr-xr-x	root/root	etc/udev/rules.d/
 -rw-r--r--	root/root	etc/udev/udev.conf
 -rw-r--r--	root/root	etc/vconsole.conf
@@ -88,26 +89,26 @@ drwxr-xr-x	root/root	usr/lib/binfmt.d/
 lrwxrwxrwx	root/root	usr/lib/libgudev-1.0.so.0 -> libgudev-1.0.so.0.1.2
 lrwxrwxrwx	root/root	usr/lib/libgudev-1.0.so -> libgudev-1.0.so.0.1.2
 -rwxr-xr-x	root/root	usr/lib/libsystemd-daemon.la
--rwxr-xr-x	root/root	usr/lib/libsystemd-daemon.so.0.0.5
-lrwxrwxrwx	root/root	usr/lib/libsystemd-daemon.so.0 -> libsystemd-daemon.so.0.0.5
-lrwxrwxrwx	root/root	usr/lib/libsystemd-daemon.so -> libsystemd-daemon.so.0.0.5
+-rwxr-xr-x	root/root	usr/lib/libsystemd-daemon.so.0.0.6
+lrwxrwxrwx	root/root	usr/lib/libsystemd-daemon.so.0 -> libsystemd-daemon.so.0.0.6
+lrwxrwxrwx	root/root	usr/lib/libsystemd-daemon.so -> libsystemd-daemon.so.0.0.6
 -rwxr-xr-x	root/root	usr/lib/libsystemd-id128.la
--rwxr-xr-x	root/root	usr/lib/libsystemd-id128.so.0.0.15
-lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so.0 -> libsystemd-id128.so.0.0.15
-lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so -> libsystemd-id128.so.0.0.15
+-rwxr-xr-x	root/root	usr/lib/libsystemd-id128.so.0.0.16
+lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so.0 -> libsystemd-id128.so.0.0.16
+lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so -> libsystemd-id128.so.0.0.16
 -rwxr-xr-x	root/root	usr/lib/libsystemd-journal.la
--rwxr-xr-x	root/root	usr/lib/libsystemd-journal.so.0.6.0
-lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so.0 -> libsystemd-journal.so.0.6.0
-lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so -> libsystemd-journal.so.0.6.0
+-rwxr-xr-x	root/root	usr/lib/libsystemd-journal.so.0.7.0
+lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so.0 -> libsystemd-journal.so.0.7.0
+lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so -> libsystemd-journal.so.0.7.0
 -rwxr-xr-x	root/root	usr/lib/libsystemd-login.la
--rwxr-xr-x	root/root	usr/lib/libsystemd-login.so.0.3.9
-lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so.0 -> libsystemd-login.so.0.3.9
-lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so -> libsystemd-login.so.0.3.9
+-rwxr-xr-x	root/root	usr/lib/libsystemd-login.so.0.3.10
+lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so.0 -> libsystemd-login.so.0.3.10
+lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so -> libsystemd-login.so.0.3.10
 -rw-r--r--	root/root	usr/lib/libudev.a
 -rwxr-xr-x	root/root	usr/lib/libudev.la
--rwxr-xr-x	root/root	usr/lib/libudev.so.1.1.6
-lrwxrwxrwx	root/root	usr/lib/libudev.so.1 -> libudev.so.1.1.6
-lrwxrwxrwx	root/root	usr/lib/libudev.so -> libudev.so.1.1.6
+-rwxr-xr-x	root/root	usr/lib/libudev.so.1.2.0
+lrwxrwxrwx	root/root	usr/lib/libudev.so.1 -> libudev.so.1.2.0
+lrwxrwxrwx	root/root	usr/lib/libudev.so -> libudev.so.1.2.0
 drwxr-xr-x	root/root	usr/lib/modules-load.d/
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/gudev-1.0.pc
@@ -119,6 +120,8 @@ drwxr-xr-x	root/root	usr/lib/pkgconfig/
 drwxr-xr-x	root/root	usr/lib/sysctl.d/
 -rw-r--r--	root/root	usr/lib/sysctl.d/coredump.conf
 drwxr-xr-x	root/root	usr/lib/systemd/
+drwxr-xr-x	root/root	usr/lib/systemd/catalog/
+-rw-r--r--	root/root	usr/lib/systemd/catalog/systemd.catalog
 drwxr-xr-x	root/root	usr/lib/systemd/ntp-units.d/
 drwxr-xr-x	root/root	usr/lib/systemd/system/
 lrwxrwxrwx	root/root	usr/lib/systemd/system/autovt@.service -> getty@.service
@@ -178,7 +181,7 @@ drwxr-xr-x	root/root	usr/lib/systemd/system-generators/
 drwxr-xr-x	root/root	usr/lib/systemd/system/graphical.target.wants/
 -rw-r--r--	root/root	usr/lib/systemd/system/halt.target
 -rw-r--r--	root/root	usr/lib/systemd/system/hibernate.target
--rw-r--r--	root/root	usr/lib/systemd/system/http-daemon.target
+-rw-r--r--	root/root	usr/lib/systemd/system/hybrid-sleep.target
 -rw-r--r--	root/root	usr/lib/systemd/system/kexec.target
 -rw-r--r--	root/root	usr/lib/systemd/system/local-fs-pre.target
 -rw-r--r--	root/root	usr/lib/systemd/system/local-fs.target
@@ -278,6 +281,7 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/sysinit.target.wants/systemd-vconsol
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-halt.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-hibernate.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-hostnamed.service
+-rw-r--r--	root/root	usr/lib/systemd/system/systemd-hybrid-sleep.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-initctl.service
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-initctl.socket
 -rw-r--r--	root/root	usr/lib/systemd/system/systemd-journald.service
@@ -339,6 +343,13 @@ drwxr-xr-x	root/root	usr/lib/udev/
 -rwxr-xr-x	root/root	usr/lib/udev/cdrom_id
 -rwxr-xr-x	root/root	usr/lib/udev/collect
 -rwxr-xr-x	root/root	usr/lib/udev/findkeyboards
+drwxr-xr-x	root/root	usr/lib/udev/hwdb.d/
+-rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-acpi-vendor.hwdb
+-rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-OUI.hwdb
+-rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-pci-classes.hwdb
+-rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-pci-vendor-product.hwdb
+-rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-usb-classes.hwdb
+-rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-usb-vendor-product.hwdb
 -rwxr-xr-x	root/root	usr/lib/udev/keyboard-force-release.sh
 -rwxr-xr-x	root/root	usr/lib/udev/keymap
 drwxr-xr-x	root/root	usr/lib/udev/keymaps/
@@ -371,6 +382,7 @@ drwxr-xr-x	root/root	usr/lib/udev/keymaps/force-release/
 -rw-r--r--	root/root	usr/lib/udev/keymaps/hewlett-packard
 -rw-r--r--	root/root	usr/lib/udev/keymaps/hewlett-packard-2510p_2530p
 -rw-r--r--	root/root	usr/lib/udev/keymaps/hewlett-packard-compaq_elitebook
+-rw-r--r--	root/root	usr/lib/udev/keymaps/hewlett-packard_elitebook-8440p
 -rw-r--r--	root/root	usr/lib/udev/keymaps/hewlett-packard-pavilion
 -rw-r--r--	root/root	usr/lib/udev/keymaps/hewlett-packard-presario-2100
 -rw-r--r--	root/root	usr/lib/udev/keymaps/hewlett-packard-tablet
@@ -540,6 +552,8 @@ drwxr-xr-x	root/root	usr/share/man/man3/
 -rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_FOREACH_BACKWARDS.3
 -rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_FOREACH_DATA.3
 -rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_FOREACH_UNIQUE.3
+-rw-r--r--	root/root	usr/share/man/man3/sd_journal_get_catalog.3
+-rw-r--r--	root/root	usr/share/man/man3/sd_journal_get_catalog_for_message_id.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_get_cursor.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_get_cutoff_monotonic_usec.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_get_cutoff_realtime_usec.3
@@ -562,6 +576,7 @@ drwxr-xr-x	root/root	usr/share/man/man3/
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_printv.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_process.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_query_unique.3
+-rw-r--r--	root/root	usr/share/man/man3/sd_journal_reliable_fd.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_restart_data.3
 -rw-r--r--	root/root	usr/share/man/man3/sd_journal_restart_unique.3
 -rw-r--r--	root/root	usr/share/man/man3/SD_JOURNAL_RUNTIME_ONLY.3
@@ -667,6 +682,7 @@ drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/systemd-hibernate.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-hostnamed.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-hostnamed.service.8
+-rw-r--r--	root/root	usr/share/man/man8/systemd-hybrid-sleep.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-initctl.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-initctl.service.8
 -rw-r--r--	root/root	usr/share/man/man8/systemd-initctl.socket.8
