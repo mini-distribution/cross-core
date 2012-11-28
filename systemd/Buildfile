@@ -6,6 +6,7 @@ version=196
 release=1
 source=(http://www.freedesktop.org/software/systemd/$name-$version.tar.xz
         systemd-disable-pager.patch
+        systemd-journalctl-enable-all-option.patch
         systemd-journal-disable-FS_NOCOW_FL-attr.patch
         vconsole.conf)
 depends=(libcap dbus kmod util-linux usbutils pciutils glib tcp_wrappers libgcrypt)
@@ -14,6 +15,7 @@ build() {
    cd $name-$version
 
    patch -p1 < $SRC/systemd-disable-pager.patch
+   patch -p1 < $SRC/systemd-journalctl-enable-all-option.patch
    patch -p1 < $SRC/systemd-journal-disable-FS_NOCOW_FL-attr.patch
 
    ./configure --build=$BUILD \
