@@ -1,0 +1,11 @@
+[Unit]
+Description=Kernel Modules Configuration
+ConditionPathExists=!/lib/modules/`uname -r`/modules.dep
+
+[Service]
+Type=oneshot
+ExecStart=/bin/depmod -ae
+RemainAfterExit=yes
+
+[Install]
+WantedBy=basic.target
