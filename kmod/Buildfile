@@ -5,7 +5,7 @@ name=kmod
 version=11
 release=1
 source=(http://www.kernel.org/pub/linux/utils/kernel/kmod/$name-$version.tar.xz
-        config_modules.service)
+        kmod-depmod.service)
 
 build(){
    cd $name-$version
@@ -26,11 +26,11 @@ build(){
    ln -s /usr/bin/kmod $PKG/usr/bin/depmod
 
    #Install depmod configure script
-   install -D -m 0644 $SRC/config_modules.service \
-      $PKG/etc/systemd/system/config_modules.service
+   install -D -m 0644 $SRC/kmod-depmod.service \
+      $PKG/etc/systemd/system/kmod-depmod.service
    mkdir -p $PKG/etc/systemd/system/basic.target.wants
-   ln -s /etc/systemd/system/config_modules.service \
-      $PKG/etc/systemd/system/basic.target.wants/config_modules.service
+   ln -s /etc/systemd/system/kmod-depmod.service \
+      $PKG/etc/systemd/system/basic.target.wants/kmod-depmod.service
 
    # Fix libtool files
    fix_la_files $PKG

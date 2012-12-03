@@ -1,6 +1,5 @@
 [Unit]
-Description=Kernel Modules Configuration
-ConditionPathExists=!/lib/modules/`uname -r`/modules.dep
+Description=Kernel Modules Dependency Update Service
 
 [Service]
 Type=oneshot
