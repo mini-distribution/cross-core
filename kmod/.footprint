@@ -2,8 +2,8 @@ drwxr-xr-x	root/root	etc/
 drwxr-xr-x	root/root	etc/systemd/
 drwxr-xr-x	root/root	etc/systemd/system/
 drwxr-xr-x	root/root	etc/systemd/system/basic.target.wants/
-lrwxrwxrwx	root/root	etc/systemd/system/basic.target.wants/config_modules.service -> /etc/systemd/system/config_modules.service
--rw-r--r--	root/root	etc/systemd/system/config_modules.service
+lrwxrwxrwx	root/root	etc/systemd/system/basic.target.wants/kmod-depmod.service -> /etc/systemd/system/kmod-depmod.service
+-rw-r--r--	root/root	etc/systemd/system/kmod-depmod.service
 drwxr-xr-x	root/root	usr/
 drwxr-xr-x	root/root	usr/bin/
 lrwxrwxrwx	root/root	usr/bin/depmod -> /usr/bin/kmod

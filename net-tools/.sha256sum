@@ -1,6 +1,6 @@
 ec41919f4ca043c3465b3188af727c8392d1eb432da98ddbf914caea5174a02d  net-tools-1.60-arp.patch
 44cdc7799ecbf95ab43673c1f6d5cf07acc215349da3edf21ef4d644094e7e48  net-tools-1.60-compile_fixes.patch
-9703689502322da1ba4ff18e5fbce68c3f65a47ac9b567074463750e1ac05342  net-tools-1.60-config.patch
+531027d6c975c826613b3ab51820c77beaf1b99064dd5db7ed68984a116e43d9  net-tools-1.60-config.patch
 bbcf21901a24e0f75f7b4c460a24023089995fe392f5ee840d45c52eabb8db0b  net-tools-1.60-ipv6.patch
 e272a12a77e702177a75a4145d884cc84918a0c8593e866675ccc7b39e53f66b  net-tools-1.60-linux-vs-netinet-include.patch
 7416bf69b904c3bef8add004cceee72fca4d1b0bfbcde05cb3f3ae11fe1f5ef7  net-tools-1.60-man.patch
