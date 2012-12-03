@@ -3,7 +3,7 @@ Description=Kernel Modules Dependency Update Service
 
 [Service]
 Type=oneshot
-ExecStart=/bin/depmod -ae
+ExecStart=/bin/depmod -a
 RemainAfterExit=yes
 
 [Install]
