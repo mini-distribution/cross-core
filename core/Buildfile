@@ -22,6 +22,7 @@ depends=(fs-skeleton
          kmod
          grep
          wget
+         sed
          psmisc
          net-tools
          iputils)
