@@ -47,6 +47,6 @@ check() {
    check_tool xsltproc
    check_tool xmlcatalog
 
-   # Test for DocBook 4.1.2
-   check_lib /usr/share/xml/docbook/schema/dtd/4.1.2/catalog
+   # Test for DocBook
+   check_lib /usr/share/xml/docbook
 }
