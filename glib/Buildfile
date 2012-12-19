@@ -48,5 +48,5 @@ check() {
    check_tool xmlcatalog
 
    # Test for DocBook
-   check_lib /usr/share/xml/docbook
+   check_exist /usr/share/xml/docbook
 }
