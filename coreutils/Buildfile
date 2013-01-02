@@ -2,7 +2,7 @@
 # URL: http://www.gnu.org/software/coreutils
 
 name=coreutils
-version=8.19
+version=8.20
 release=1
 source=(http://ftp.gnu.org/gnu/coreutils/$name-$version.tar.xz)
 depends=(libcap attr acl gmp)
@@ -20,7 +20,22 @@ build() {
                --libexecdir=/usr/lib \
                --disable-nls \
                --disable-assert \
+               --with-gmp \
                --cache-file=config.cache
+
+   # Fix cross compile issue with make-prime-list in version 8.20
+   cp -v Makefile{,.orig}
+   sed '/src_make_prime_list/d' Makefile.orig > Makefile
+   depbase=`echo src/make-prime-list.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+      gcc -std=gnu99  -I. -I./lib  -Ilib -I./lib -Isrc -I./src  \
+      -fdiagnostics-show-option -funit-at-a-time -g -O2 -MT \
+      src/make-prime-list.o -MD -MP -MF $depbase.Tpo -c -o src/make-prime-list.o \
+      src/make-prime-list.c &&
+   mv -f $depbase.Tpo $depbase.Po
+   gcc -std=gnu99 -fdiagnostics-show-option -funit-at-a-time -g -O2 \
+      -Wl,--as-needed  -o src/make-prime-list src/make-prime-list.o
+   cp -v Makefile{,.bak}
+   sed -e '/hostname.1/d' Makefile.bak > Makefile
 
    make -j $JOBS
    make DESTDIR=$PKG install
