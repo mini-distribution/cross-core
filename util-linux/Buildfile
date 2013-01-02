@@ -2,7 +2,7 @@
 # URL: http://kernel.org/~kzak/util-linux
 
 name=util-linux
-version=2.22.1
+version=2.22.2
 release=1
 source=(http://www.kernel.org/pub/linux/utils/util-linux/v2.22/$name-$version.tar.xz)
 depends=(ncurses zlib)
