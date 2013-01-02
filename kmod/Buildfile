@@ -2,7 +2,7 @@
 # URL: http://git.profusion.mobi/cgit.cgi/kmod.git
 
 name=kmod
-version=11
+version=12
 release=1
 source=(http://www.kernel.org/pub/linux/utils/kernel/kmod/$name-$version.tar.xz
         kmod-depmod.service)
@@ -13,7 +13,7 @@ build(){
    ./configure --build=$BUILD \
                --host=$HOST \
                --prefix=/usr \
-               --disable-nls
+               --disable-gtk-doc-html
 
    make -j $JOBS
    make DESTDIR=$PKG install
