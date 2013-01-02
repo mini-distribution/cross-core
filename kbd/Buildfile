@@ -2,7 +2,7 @@
 # URL: ftp://ftp.win.tue.nl/pub/linux-local/utils/kbd/
 
 name=kbd
-version=1.15.3
+version=1.15.5
 release=1
 source=(ftp://ftp.altlinux.org/pub/people/legion/kbd/$name-$version.tar.gz)
 
@@ -20,6 +20,7 @@ build() {
                --prefix=/usr \
                --datadir=/usr/share/kbd \
                --disable-nls \
+               --disable-vlock \
                --cache-file=config.cache
    make -j $JOBS
    make DESTDIR=$PKG install
