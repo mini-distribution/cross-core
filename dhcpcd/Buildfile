@@ -2,9 +2,9 @@
 # URL: http://roy.marples.name/dhcpcd
 
 name=dhcpcd
-version=5.5.6
+version=5.6.2
 release=1
-source=(http://roy.marples.name/downloads/dhcpcd/$name-$version.tar.bz2
+source=(ftp://ftp.osuosl.org/pub/gentoo/distfiles/$name-$version.tar.bz2
         dhcpcd@.service)
 
 build () {
