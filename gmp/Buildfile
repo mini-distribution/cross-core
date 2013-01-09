@@ -12,7 +12,8 @@ build() {
    ./configure --build=$BUILD \
                --host=$HOST \
                --prefix=/usr \
-               --enable-cxx
+               --enable-cxx \
+               --without-readline
 
    make -j $JOBS
    make DESTDIR=$PKG install

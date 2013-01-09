@@ -17,7 +17,13 @@ build() {
                --without-debug \
                --without-ada \
                --with-shared \
-               --with-termlib
+               --with-termlib \
+               --enable-pc-files \
+               --without-profile \
+               --without-ticlib \
+               --without-gpm \
+               --without-sysmouse \
+               --disable-termcap
 
     make -j $JOBS
     make DESTDIR=$PKG install

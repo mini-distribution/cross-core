@@ -2,7 +2,7 @@
 # URL: http://www.pcre.org
 
 name=libpcre
-version=8.31
+version=8.32
 release=1
 source=(ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-$version.tar.bz2)
 

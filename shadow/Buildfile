@@ -24,6 +24,9 @@ build() {
                --without-selinux \
                --without-libpam \
                --without-audit \
+               --without-acl \
+               --without-attr \
+               --without-tcb \
                --cache-file=config.cache
 
    make -j $JOBS
