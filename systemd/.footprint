@@ -83,32 +83,32 @@ drwxr-xr-x	root/root	usr/include/systemd/
 -rw-r--r--	root/root	usr/include/systemd/sd-shutdown.h
 drwxr-xr-x	root/root	usr/lib/
 drwxr-xr-x	root/root	usr/lib/binfmt.d/
--rw-r--r--	root/root	usr/lib/libgudev-1.0.a
 -rwxr-xr-x	root/root	usr/lib/libgudev-1.0.la
--rwxr-xr-x	root/root	usr/lib/libgudev-1.0.so.0.1.2
-lrwxrwxrwx	root/root	usr/lib/libgudev-1.0.so.0 -> libgudev-1.0.so.0.1.2
-lrwxrwxrwx	root/root	usr/lib/libgudev-1.0.so -> libgudev-1.0.so.0.1.2
+-rwxr-xr-x	root/root	usr/lib/libgudev-1.0.so.0.1.3
+lrwxrwxrwx	root/root	usr/lib/libgudev-1.0.so.0 -> libgudev-1.0.so.0.1.3
+lrwxrwxrwx	root/root	usr/lib/libgudev-1.0.so -> libgudev-1.0.so.0.1.3
+-rwxr-xr-x	root/root	usr/lib/libnss_myhostname.la
+-rwxr-xr-x	root/root	usr/lib/libnss_myhostname.so.2
 -rwxr-xr-x	root/root	usr/lib/libsystemd-daemon.la
--rwxr-xr-x	root/root	usr/lib/libsystemd-daemon.so.0.0.6
-lrwxrwxrwx	root/root	usr/lib/libsystemd-daemon.so.0 -> libsystemd-daemon.so.0.0.6
-lrwxrwxrwx	root/root	usr/lib/libsystemd-daemon.so -> libsystemd-daemon.so.0.0.6
+-rwxr-xr-x	root/root	usr/lib/libsystemd-daemon.so.0.0.7
+lrwxrwxrwx	root/root	usr/lib/libsystemd-daemon.so.0 -> libsystemd-daemon.so.0.0.7
+lrwxrwxrwx	root/root	usr/lib/libsystemd-daemon.so -> libsystemd-daemon.so.0.0.7
 -rwxr-xr-x	root/root	usr/lib/libsystemd-id128.la
--rwxr-xr-x	root/root	usr/lib/libsystemd-id128.so.0.0.16
-lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so.0 -> libsystemd-id128.so.0.0.16
-lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so -> libsystemd-id128.so.0.0.16
+-rwxr-xr-x	root/root	usr/lib/libsystemd-id128.so.0.0.17
+lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so.0 -> libsystemd-id128.so.0.0.17
+lrwxrwxrwx	root/root	usr/lib/libsystemd-id128.so -> libsystemd-id128.so.0.0.17
 -rwxr-xr-x	root/root	usr/lib/libsystemd-journal.la
--rwxr-xr-x	root/root	usr/lib/libsystemd-journal.so.0.7.0
-lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so.0 -> libsystemd-journal.so.0.7.0
-lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so -> libsystemd-journal.so.0.7.0
+-rwxr-xr-x	root/root	usr/lib/libsystemd-journal.so.0.7.1
+lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so.0 -> libsystemd-journal.so.0.7.1
+lrwxrwxrwx	root/root	usr/lib/libsystemd-journal.so -> libsystemd-journal.so.0.7.1
 -rwxr-xr-x	root/root	usr/lib/libsystemd-login.la
--rwxr-xr-x	root/root	usr/lib/libsystemd-login.so.0.3.10
-lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so.0 -> libsystemd-login.so.0.3.10
-lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so -> libsystemd-login.so.0.3.10
--rw-r--r--	root/root	usr/lib/libudev.a
+-rwxr-xr-x	root/root	usr/lib/libsystemd-login.so.0.3.11
+lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so.0 -> libsystemd-login.so.0.3.11
+lrwxrwxrwx	root/root	usr/lib/libsystemd-login.so -> libsystemd-login.so.0.3.11
 -rwxr-xr-x	root/root	usr/lib/libudev.la
--rwxr-xr-x	root/root	usr/lib/libudev.so.1.2.0
-lrwxrwxrwx	root/root	usr/lib/libudev.so.1 -> libudev.so.1.2.0
-lrwxrwxrwx	root/root	usr/lib/libudev.so -> libudev.so.1.2.0
+-rwxr-xr-x	root/root	usr/lib/libudev.so.1.2.1
+lrwxrwxrwx	root/root	usr/lib/libudev.so.1 -> libudev.so.1.2.1
+lrwxrwxrwx	root/root	usr/lib/libudev.so -> libudev.so.1.2.1
 drwxr-xr-x	root/root	usr/lib/modules-load.d/
 drwxr-xr-x	root/root	usr/lib/pkgconfig/
 -rw-r--r--	root/root	usr/lib/pkgconfig/gudev-1.0.pc
@@ -135,6 +135,7 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/ctrl-alt-del.target -> reboot.target
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-ac-power
 -rwxr-xr-x	root/root	usr/lib/systemd/systemd-binfmt
+-rwxr-xr-x	root/root	usr/lib/systemd/systemd-bootchart
 lrwxrwxrwx	root/root	usr/lib/systemd/system/dbus-org.freedesktop.hostname1.service -> systemd-hostnamed.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/dbus-org.freedesktop.locale1.service -> systemd-localed.service
 lrwxrwxrwx	root/root	usr/lib/systemd/system/dbus-org.freedesktop.login1.service -> systemd-logind.service
@@ -174,11 +175,13 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/default.target -> multi-user.target
 drwxr-xr-x	root/root	usr/lib/systemd/system-generators/
 -rwxr-xr-x	root/root	usr/lib/systemd/system-generators/systemd-fstab-generator
 -rwxr-xr-x	root/root	usr/lib/systemd/system-generators/systemd-getty-generator
+-rwxr-xr-x	root/root	usr/lib/systemd/system-generators/systemd-rc-local-generator
 -rwxr-xr-x	root/root	usr/lib/systemd/system-generators/systemd-system-update-generator
 -rw-r--r--	root/root	usr/lib/systemd/system/getty@.service
 -rw-r--r--	root/root	usr/lib/systemd/system/getty.target
 -rw-r--r--	root/root	usr/lib/systemd/system/graphical.target
 drwxr-xr-x	root/root	usr/lib/systemd/system/graphical.target.wants/
+-rw-r--r--	root/root	usr/lib/systemd/system/halt-local.service
 -rw-r--r--	root/root	usr/lib/systemd/system/halt.target
 -rw-r--r--	root/root	usr/lib/systemd/system/hibernate.target
 -rw-r--r--	root/root	usr/lib/systemd/system/hybrid-sleep.target
@@ -204,6 +207,7 @@ lrwxrwxrwx	root/root	usr/lib/systemd/system/multi-user.target.wants/systemd-user
 -rw-r--r--	root/root	usr/lib/systemd/system/proc-sys-fs-binfmt_misc.automount
 -rw-r--r--	root/root	usr/lib/systemd/system/proc-sys-fs-binfmt_misc.mount
 -rw-r--r--	root/root	usr/lib/systemd/system/quotaon.service
+-rw-r--r--	root/root	usr/lib/systemd/system/rc-local.service
 -rw-r--r--	root/root	usr/lib/systemd/system/reboot.target
 -rw-r--r--	root/root	usr/lib/systemd/system/remote-fs-pre.target
 -rw-r--r--	root/root	usr/lib/systemd/system/remote-fs.target
@@ -345,6 +349,7 @@ drwxr-xr-x	root/root	usr/lib/udev/
 -rwxr-xr-x	root/root	usr/lib/udev/findkeyboards
 drwxr-xr-x	root/root	usr/lib/udev/hwdb.d/
 -rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-acpi-vendor.hwdb
+-rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-bluetooth-vendor-product.hwdb
 -rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-OUI.hwdb
 -rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-pci-classes.hwdb
 -rw-r--r--	root/root	usr/lib/udev/hwdb.d/20-pci-vendor-product.hwdb
@@ -369,8 +374,8 @@ drwxr-xr-x	root/root	usr/lib/udev/keymaps/force-release/
 -rw-r--r--	root/root	usr/lib/udev/keymaps/force-release/dell-touchpad
 -rw-r--r--	root/root	usr/lib/udev/keymaps/force-release/dell-xps
 -rw-r--r--	root/root	usr/lib/udev/keymaps/force-release/hp-other
--rw-r--r--	root/root	usr/lib/udev/keymaps/force-release/samsung-90x3a
 -rw-r--r--	root/root	usr/lib/udev/keymaps/force-release/samsung-other
+-rw-r--r--	root/root	usr/lib/udev/keymaps/force-release/samsung-series-9
 -rw-r--r--	root/root	usr/lib/udev/keymaps/fujitsu-amilo_li_2732
 -rw-r--r--	root/root	usr/lib/udev/keymaps/fujitsu-amilo_pa_2548
 -rw-r--r--	root/root	usr/lib/udev/keymaps/fujitsu-amilo_pro_edition_v3505
@@ -412,8 +417,8 @@ drwxr-xr-x	root/root	usr/lib/udev/keymaps/force-release/
 -rw-r--r--	root/root	usr/lib/udev/keymaps/olpc-xo
 -rw-r--r--	root/root	usr/lib/udev/keymaps/onkyo
 -rw-r--r--	root/root	usr/lib/udev/keymaps/oqo-model2
--rw-r--r--	root/root	usr/lib/udev/keymaps/samsung-90x3a
 -rw-r--r--	root/root	usr/lib/udev/keymaps/samsung-other
+-rw-r--r--	root/root	usr/lib/udev/keymaps/samsung-series-9
 -rw-r--r--	root/root	usr/lib/udev/keymaps/samsung-sq1us
 -rw-r--r--	root/root	usr/lib/udev/keymaps/samsung-sx20s
 -rw-r--r--	root/root	usr/lib/udev/keymaps/toshiba-satellite_a100
@@ -441,6 +446,7 @@ drwxr-xr-x	root/root	usr/lib/udev/rules.d/
 -rw-r--r--	root/root	usr/lib/udev/rules.d/75-tty-description.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/78-sound-card.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/80-drivers.rules
+-rw-r--r--	root/root	usr/lib/udev/rules.d/80-net-name-slot.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/95-keyboard-force-release.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/95-keymap.rules
 -rw-r--r--	root/root	usr/lib/udev/rules.d/95-udev-late.rules
@@ -498,6 +504,7 @@ drwxr-xr-x	root/root	usr/share/man/man1/
 -rw-r--r--	root/root	usr/share/man/man1/systemd.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-analyze.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-ask-password.1
+-rw-r--r--	root/root	usr/share/man/man1/systemd-bootchart.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-cat.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-cgls.1
 -rw-r--r--	root/root	usr/share/man/man1/systemd-cgtop.1
@@ -659,9 +666,11 @@ drwxr-xr-x	root/root	usr/share/man/man7/
 -rw-r--r--	root/root	usr/share/man/man7/kernel-command-line.7
 -rw-r--r--	root/root	usr/share/man/man7/systemd.journal-fields.7
 -rw-r--r--	root/root	usr/share/man/man7/systemd.special.7
+-rw-r--r--	root/root	usr/share/man/man7/systemd.time.7
 -rw-r--r--	root/root	usr/share/man/man7/udev.7
 drwxr-xr-x	root/root	usr/share/man/man8/
 -rw-r--r--	root/root	usr/share/man/man8/halt.8
+-rw-r--r--	root/root	usr/share/man/man8/nss-myhostname.8
 -rw-r--r--	root/root	usr/share/man/man8/pam_systemd.8
 -rw-r--r--	root/root	usr/share/man/man8/poweroff.8
 -rw-r--r--	root/root	usr/share/man/man8/reboot.8

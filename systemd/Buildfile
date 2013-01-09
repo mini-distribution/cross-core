@@ -2,7 +2,7 @@
 # URL: http://www.freedesktop.org/wiki/Software/systemd
 
 name=systemd
-version=196
+version=197
 release=1
 source=(http://www.freedesktop.org/software/systemd/$name-$version.tar.xz
         systemd-disable-pager.patch
@@ -24,21 +24,13 @@ build() {
                --sysconfdir=/etc \
                --libexecdir=/usr/lib \
                --localstatedir=/var \
-               --with-distro=other \
-               --with-usb-ids-path=/usr/lib/usb.ids \
-               --with-pci-ids-path=/usr/share/pci.ids \
                --disable-nls \
-               --without-python
+               --without-python \
+               ac_cv_func_malloc_0_nonnull=yes
 
    make -j $JOBS \
         GCRYPT_LIBS="-lgcrypt" \
         LIBGCRYPT_LIBS="-lgcrypt"
-
-   # Fix libtool paths
-   find . -name "*.la" -exec sed -i -e "/libdir/s;'/usr;'$SYSROOT/usr;g" {} \;
-
-   # Disable libtool relinking (relinking of rpaths b/c of DESTDIR install relocation)
-   sed -i "s|need_relink=yes|need_relink=no|" libtool
 
    make DESTDIR=$PKG install \
         GCRYPT_LIBS="-lgcrypt" \
