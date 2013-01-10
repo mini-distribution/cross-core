@@ -18,7 +18,6 @@ build() {
                --without-ada \
                --with-shared \
                --with-termlib \
-               --enable-pc-files \
                --without-profile \
                --without-ticlib \
                --without-gpm \
