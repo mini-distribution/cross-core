@@ -4,7 +4,7 @@
 name=libcap
 version=2.22
 release=1
-source=(http://ftp.is.co.za/mirror/archlinux.org/other/libcap/$name-$version.tar.gz)
+source=(http://mirror.linux.org.au/linux/libs/security/linux-privs/libcap2/$name-$version.tar.bz2)
 depends=attr
 
 build() {
