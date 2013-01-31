@@ -17,6 +17,7 @@ build() {
                --cross-compile-prefix=$HOST- \
                --install_prefix=$PKG \
                --openssldir=/etc/ssl \
+               -DHAVE_CRYPTODEV \
                no-krb5 \
                zlib-dynamic \
                threads \
