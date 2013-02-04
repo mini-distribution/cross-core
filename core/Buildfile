@@ -13,7 +13,6 @@ depends=(fs-skeleton
          gzip
          util-linux
          openssh
-         dhcpcd
          findutils
          bash
          man
