@@ -1,0 +1,11 @@
+diff -Naur a/mpi/config.links b/mpi/config.links
+--- a/mpi/config.links	2011-02-04 20:15:39.000000000 +0100
++++ b/mpi/config.links	2012-11-19 09:01:30.068754271 +0100
+@@ -40,6 +40,7 @@
+ if test "$try_asm_modules" = "yes" ; then
+ case "${host}" in
+     powerpc-apple-darwin*          | \
++    i686*-*-linux-gnu              | \
+     i[34567]86*-*-openbsd[12]*     | \
+     i[34567]86*-*-openbsd3.[0123]*)
+        echo '/* No working assembler modules available */' >>./mpi/asm-syntax.h

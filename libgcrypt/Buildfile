@@ -1,0 +1,32 @@
+# Description: A general purpose cryptographic library based on GnuPG
+# URL:         http://www.gnupg.org
+
+name=libgcrypt
+version=1.5.0
+release=1
+source=(ftp://ftp.gnupg.org/gcrypt/libgcrypt/$name-$version.tar.bz2
+        disable-broken-mpi-asm-support-for-i686.patch)
+depends=libgpg-error
+
+build() {
+   cd $name-$version
+
+   patch -p1 -i $SRC/disable-broken-mpi-asm-support-for-i686.patch
+
+   GPG_ERROR_CFLAGS="-I$SYSROOT/usr/include" \
+   GPG_ERROR_LIBS="-L$SYSROOT/usr/lib" \
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr \
+               --disable-padlock-support \
+               --with-gpg-error-prefix=$SYSROOT/usr
+
+   make -j $JOBS
+   make DESTDIR=$PKG install
+
+   rm -rf $PKG/usr/sbin
+   rm -rf $PKG/usr/share/info
+
+   # Fix libtool files
+   fix_la_files $PKG
+}
