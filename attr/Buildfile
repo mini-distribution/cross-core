@@ -22,5 +22,5 @@ build() {
 
 check() {
    # Test for preinstalled msgfmt tool
-   check_tool msgfmt
+   check_tool msgfmt "Can be found in the Ubuntu repos in package gettext"
 }

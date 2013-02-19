@@ -43,10 +43,10 @@ build() {
 
 check() {
    # Test for preinstalled glib-genmarshal tool
-   check_tool glib-genmarshal
+   check_tool glib-genmarshal "Can be found in the Ubuntu repos in package libglib2.0-dev"
    check_tool xsltproc
-   check_tool xmlcatalog
+   check_tool xmlcatalog "Can be found in the Ubuntu repos in package libxml2-utils"
 
    # Test for DocBook
-   check_exist /usr/share/xml/docbook
+   check_exist /usr/share/xml/docbook "Can be found in the Ubuntu repos in package docbook-xml"
 }

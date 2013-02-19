@@ -32,5 +32,5 @@ build() {
 
 check() {
    # Test for preinstalled grn tool
-   check_tool grn
+   check_tool grn "Can be found in the Ubuntu repos in package groff"
 }
