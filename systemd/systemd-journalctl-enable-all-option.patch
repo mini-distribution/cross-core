@@ -1,12 +1,12 @@
 diff -Naur a/src/journal/journalctl.c b/src/journal/journalctl.c
---- a/src/journal/journalctl.c	2012-11-28 10:37:41.682794653 +0100
-+++ b/src/journal/journalctl.c	2012-11-28 10:39:08.842792118 +0100
+--- a/src/journal/journalctl.c	2013-03-08 14:57:41.511372586 +0100
++++ b/src/journal/journalctl.c	2013-03-08 14:58:07.935052656 +0100
 @@ -58,7 +58,7 @@
  static OutputMode arg_output = OUTPUT_SHORT;
+ static bool arg_pager_end = false;
  static bool arg_follow = false;
- static bool arg_full = false;
--static bool arg_all = false;
-+static bool arg_all = true;
+-static bool arg_full = false;
++static bool arg_full = true;
+ static bool arg_all = false;
  static bool arg_no_pager = true;
- static unsigned arg_lines = 0;
- static bool arg_no_tail = false;
+ static int arg_lines = -1;

@@ -1,18 +1,18 @@
 diff -Naur a/src/cgls/cgls.c b/src/cgls/cgls.c
---- a/src/cgls/cgls.c	2012-05-08 13:54:22.471851284 +0200
-+++ b/src/cgls/cgls.c	2012-11-02 21:05:46.320524728 +0100
-@@ -34,7 +34,7 @@
- #include "pager.h"
+--- a/src/cgls/cgls.c	2013-03-08 10:23:25.536527269 +0100
++++ b/src/cgls/cgls.c	2013-03-08 10:32:40.098426261 +0100
+@@ -35,7 +35,7 @@
  #include "build.h"
+ #include "output-mode.h"
  
 -static bool arg_no_pager = false;
 +static bool arg_no_pager = true;
  static bool arg_kernel_threads = false;
  static bool arg_all = false;
- 
+ static int arg_full = -1;
 diff -Naur a/src/delta/delta.c b/src/delta/delta.c
---- a/src/delta/delta.c	2012-09-19 22:12:41.556506161 +0200
-+++ b/src/delta/delta.c	2012-11-02 21:05:35.408525212 +0100
+--- a/src/delta/delta.c	2013-03-08 10:23:25.524526608 +0100
++++ b/src/delta/delta.c	2013-03-08 10:32:55.062259299 +0100
 @@ -32,7 +32,7 @@
  #include "pager.h"
  #include "build.h"
@@ -23,21 +23,21 @@ diff -Naur a/src/delta/delta.c b/src/delta/delta.c
  
  static enum {
 diff -Naur a/src/journal/journalctl.c b/src/journal/journalctl.c
---- a/src/journal/journalctl.c	2012-10-19 00:07:55.673607152 +0200
-+++ b/src/journal/journalctl.c	2012-11-02 21:05:13.080526209 +0100
-@@ -58,7 +58,7 @@
- static OutputMode arg_output = OUTPUT_SHORT;
+--- a/src/journal/journalctl.c	2013-03-08 10:23:25.528526904 +0100
++++ b/src/journal/journalctl.c	2013-03-08 10:33:15.662027667 +0100
+@@ -60,7 +60,7 @@
  static bool arg_follow = false;
+ static bool arg_full = false;
  static bool arg_all = false;
 -static bool arg_no_pager = false;
 +static bool arg_no_pager = true;
- static unsigned arg_lines = 0;
+ static int arg_lines = -1;
  static bool arg_no_tail = false;
  static bool arg_quiet = false;
 diff -Naur a/src/locale/localectl.c b/src/locale/localectl.c
---- a/src/locale/localectl.c	2012-10-19 04:49:02.420333151 +0200
-+++ b/src/locale/localectl.c	2012-11-02 21:04:54.600527033 +0100
-@@ -37,7 +37,7 @@
+--- a/src/locale/localectl.c	2013-03-08 10:23:25.528526904 +0100
++++ b/src/locale/localectl.c	2013-03-08 10:33:32.045859292 +0100
+@@ -38,7 +38,7 @@
  #include "set.h"
  #include "path-util.h"
  
@@ -47,21 +47,21 @@ diff -Naur a/src/locale/localectl.c b/src/locale/localectl.c
          TRANSPORT_NORMAL,
          TRANSPORT_SSH,
 diff -Naur a/src/login/loginctl.c b/src/login/loginctl.c
---- a/src/login/loginctl.c	2012-10-19 00:07:55.579606893 +0200
-+++ b/src/login/loginctl.c	2012-11-02 21:05:25.416525658 +0100
-@@ -39,7 +39,7 @@
- 
+--- a/src/login/loginctl.c	2013-03-08 10:23:25.528526904 +0100
++++ b/src/login/loginctl.c	2013-03-08 10:33:50.293649162 +0100
+@@ -41,7 +41,7 @@
  static char **arg_property = NULL;
  static bool arg_all = false;
+ static bool arg_full = false;
 -static bool arg_no_pager = false;
 +static bool arg_no_pager = true;
  static const char *arg_kill_who = NULL;
  static int arg_signal = SIGTERM;
  static enum transport {
 diff -Naur a/src/systemctl/systemctl.c b/src/systemctl/systemctl.c
---- a/src/systemctl/systemctl.c	2012-10-23 00:12:33.203009139 +0200
-+++ b/src/systemctl/systemctl.c	2012-11-02 21:03:47.248530036 +0100
-@@ -73,13 +73,13 @@
+--- a/src/systemctl/systemctl.c	2013-03-08 10:23:25.524526608 +0100
++++ b/src/systemctl/systemctl.c	2013-03-08 10:34:17.321352676 +0100
+@@ -76,7 +76,7 @@
  static UnitFileScope arg_scope = UNIT_FILE_SYSTEM;
  static bool arg_no_block = false;
  static bool arg_no_legend = false;
@@ -70,18 +70,11 @@ diff -Naur a/src/systemctl/systemctl.c b/src/systemctl/systemctl.c
  static bool arg_no_wtmp = false;
  static bool arg_no_wall = false;
  static bool arg_no_reload = false;
- static bool arg_dry = false;
- static bool arg_quiet = false;
--static bool arg_full = false;
-+static bool arg_full = true;
- static int arg_force = 0;
- static bool arg_ask_password = true;
- static bool arg_failed = false;
 diff -Naur a/src/timedate/timedatectl.c b/src/timedate/timedatectl.c
---- a/src/timedate/timedatectl.c	2012-10-19 04:53:45.690147795 +0200
-+++ b/src/timedate/timedatectl.c	2012-11-02 21:06:08.708523728 +0100
-@@ -35,7 +35,7 @@
- #include "pager.h"
+--- a/src/timedate/timedatectl.c	2013-03-08 10:23:25.528526904 +0100
++++ b/src/timedate/timedatectl.c	2013-03-08 10:34:31.453197840 +0100
+@@ -37,7 +37,7 @@
+ #include "time-dst.h"
  
  static bool arg_adjust_system_clock = false;
 -static bool arg_no_pager = false;
