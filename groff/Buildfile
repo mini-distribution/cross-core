@@ -2,7 +2,7 @@
 # URL: http://www.gnu.org/software/groff/groff.html
 
 name=groff
-version=1.22.1
+version=1.22.2
 release=1
 source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
 
