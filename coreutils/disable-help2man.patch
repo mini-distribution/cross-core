@@ -1,0 +1,14 @@
+diff -Nurp a/Makefile b/Makefile
+--- a/Makefile	2013-03-26 10:35:40.632762392 +0100
++++ b/Makefile	2013-03-26 10:36:11.432387205 +0100
+@@ -3380,8 +3380,8 @@ find_upper_case_var = \
+      }				\
+    END {$$m and (warn "$@: do not use upper case in \@var{...}\n"), exit 1}'
+ 
+-#run_help2man = $(SHELL) $(srcdir)/man/dummy-man
+-run_help2man = $(PERL) -- $(srcdir)/man/help2man
++run_help2man = $(SHELL) $(srcdir)/man/dummy-man
++#run_help2man = $(PERL) -- $(srcdir)/man/help2man
+ ALL_MANS = $(man1_MANS) $(EXTRA_MANS)
+ 
+ # Dependencies common to all man pages.  Updated below.

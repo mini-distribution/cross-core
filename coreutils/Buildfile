@@ -2,9 +2,10 @@
 # URL: http://www.gnu.org/software/coreutils
 
 name=coreutils
-version=8.20
+version=8.21
 release=1
-source=(http://ftp.gnu.org/gnu/coreutils/$name-$version.tar.xz)
+source=(http://ftp.gnu.org/gnu/coreutils/$name-$version.tar.xz
+        disable-help2man.patch)
 depends=(libcap attr acl gmp)
 
 build() {
@@ -13,6 +14,7 @@ build() {
    echo "fu_cv_sys_stat_statfs2_bsize=yes" >> config.cache
    echo "gl_cv_func_working_mkstemp=yes" >> config.cache
    echo "ac_cv_func_canonicalize_file_name=no" >> config.cache
+   echo "gl_cv_func_working_acl_get_file=yes" >> config.cache
 
    ./configure --build=$BUILD \
                --host=$HOST \
@@ -21,6 +23,7 @@ build() {
                --disable-nls \
                --disable-assert \
                --with-gmp \
+               --disable-perl \
                --cache-file=config.cache
 
    # Fix cross compile issue with make-prime-list in version 8.20
@@ -36,6 +39,8 @@ build() {
       -Wl,--as-needed  -o src/make-prime-list src/make-prime-list.o
    cp -v Makefile{,.bak}
    sed -e '/hostname.1/d' Makefile.bak > Makefile
+
+   patch -p1 < $SRC/disable-help2man.patch
 
    make -j $JOBS
    make DESTDIR=$PKG install
