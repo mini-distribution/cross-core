@@ -2,7 +2,7 @@
 # URL: http://www.openssl.org/
 
 name=openssl
-version=1.0.1c
+version=1.0.1e
 release=1
 source=(http://www.openssl.org/source/$name-$version.tar.gz
         openssl-1.0.1-parallel-build.patch)
