@@ -2,7 +2,7 @@
 # URL:         http://www.gnupg.org
 
 name=libgcrypt
-version=1.5.0
+version=1.5.1
 release=1
 source=(ftp://ftp.gnupg.org/gcrypt/libgcrypt/$name-$version.tar.bz2
         disable-broken-mpi-asm-support-for-i686.patch)
