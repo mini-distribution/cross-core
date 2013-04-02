@@ -2,7 +2,7 @@
 # URL: http://www.freedesktop.org/wiki/Software/systemd
 
 name=systemd
-version=199
+version=200
 release=1
 source=(http://www.freedesktop.org/software/systemd/$name-$version.tar.xz
         systemd-disable-pager.patch
