@@ -9,7 +9,7 @@ source=(ftp://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
 build() {
    cd $name-$version
 
-   ./configure --build=$BUILD \
+   CC_FOR_BUILD=cc ./configure --build=$BUILD \
                --host=$HOST \
                --prefix=/usr \
                --enable-cxx \
