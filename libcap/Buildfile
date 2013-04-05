@@ -10,7 +10,16 @@ depends=attr
 build() {
    cd $name-$version
 
-   make -j $JOBS CC=$HOST-gcc AR=$HOST-ar RANLIB=$HOST-ranlib BUILD_CC=gcc
-   make -C libcap DESTDIR=$PKG lib=usr/lib install
+   make -j $JOBS \
+         BUILD_CC=gcc \
+         CC=$HOST-gcc \
+         AR=$HOST-ar \
+         RANLIB=$HOST-ranlib \
+         PAM_CAP=no
+
+   make -C libcap \
+         DESTDIR=$PKG \
+         lib=usr/lib \
+         install
 }
 
