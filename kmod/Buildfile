@@ -2,7 +2,7 @@
 # URL: http://git.profusion.mobi/cgit.cgi/kmod.git
 
 name=kmod
-version=12
+version=13
 release=1
 source=(http://www.kernel.org/pub/linux/utils/kernel/kmod/$name-$version.tar.xz
         kmod-depmod.service)
