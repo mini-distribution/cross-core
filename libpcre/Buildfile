@@ -13,7 +13,8 @@ build() {
                --host=$HOST \
                --prefix=/usr \
                --enable-utf8 \
-               --enable-unicode-properties
+               --enable-unicode-properties \
+               --enable-pcre{16,32}
 
    make -j $JOBS
    make DESTDIR=$PKG install
