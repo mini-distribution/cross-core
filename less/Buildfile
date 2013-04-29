@@ -2,7 +2,7 @@
 # URL: http://www.greenwoodsoftware.com/less/
 
 name=less
-version=451
+version=458
 release=1
 source=(http://www.greenwoodsoftware.com/less/$name-$version.tar.gz \
         filter)
