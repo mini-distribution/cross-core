@@ -2,9 +2,9 @@
 # URL: http://www.zlib.net
 
 name=zlib
-version=1.2.7
+version=1.2.8
 release=1
-source=http://www.zlib.net/$name-$version.tar.bz2
+source=http://www.zlib.net/$name-$version.tar.xz
 
 build() {
    cd $name-$version
