@@ -2,7 +2,7 @@
 # URL: http://savannah.nongnu.org/projects/attr
 
 name=attr
-version=2.4.46
+version=2.4.47
 release=1
 source=(http://mirrors.zerg.biz/nongnu/attr/$name-$version.src.tar.gz)
 
