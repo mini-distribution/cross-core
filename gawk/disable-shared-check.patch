@@ -1,0 +1,12 @@
+diff -Nurp a/gawk-4.1.0/extension/Makefile.in b/gawk-4.1.0/extension/Makefile.in
+--- a/gawk-4.1.0/extension/Makefile.in	2013-05-09 15:00:15.000000000 +0200
++++ b/gawk-4.1.0/extension/Makefile.in	2013-05-21 14:43:58.379971392 +0200
+@@ -1194,7 +1194,7 @@ uninstall-man: uninstall-man3
+ #
+ # Given the workaround in configure, this isn't strictly necessary, but
+ # we're leaving it in, in case of some other system needing it.
+-check-recursive all-recursive: check-for-shared-lib-support
++check-recursive all-recursive:
+ 
+ check-for-shared-lib-support:
+ 	@if ../gawk$(EXEEXT) --version | sed 1q | grep API > /dev/null; \
