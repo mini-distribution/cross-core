@@ -2,12 +2,15 @@
 # URL: http://www.gnu.org/software/gawk/gawk.html
 
 name=gawk
-version=4.0.2
+version=4.1.0
 release=1
-source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz
+        disable-shared-check.patch)
 
 build() {
    cd $name-$version
+
+   patch -p2 < $SRC/disable-shared-check.patch
 
    ./configure --build=$BUILD \
                --host=$HOST \
