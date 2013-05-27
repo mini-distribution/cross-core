@@ -59,5 +59,6 @@ build() {
 
 check() {
    # Test for preinstalled intltool-update tool
-   check_tool intltool-update "Can be found in the Ubuntu repos in package intltool"
+   check_tool intltool-update "Please install intltool"
+   check_exist /usr/share/xml/docbook/stylesheet/docbook-xsl "Please install docbook-xsl"
 }
