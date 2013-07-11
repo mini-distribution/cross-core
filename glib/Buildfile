@@ -2,7 +2,7 @@
 # URL: http://developer.gnome.org/glib
 
 name=glib
-version=2.36.1
+version=2.36.3
 release=1
 source=(http://ftp.gnome.org/pub/gnome/sources/glib/2.36/$name-$version.tar.xz)
 depends=(zlib libffi dbus)
@@ -32,6 +32,9 @@ build() {
                --disable-xattr \
                --enable-man \
                --disable-Bsymbolic
+
+   # Work around from https://bugzilla.gnome.org/show_bug.cgi?id=700350
+   find  -type f -name Makefile.in -exec touch {} \;
 
    make -j $JOBS
    make DESTDIR=$PKG install
