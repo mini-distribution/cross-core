@@ -2,9 +2,9 @@
 # URL:  https://github.com/gregkh/usbutils
 
 name=usbutils
-version=005
+version=007
 release=1
-source=(http://crux.s3.amazonaws.com/dist/$name-$version.tar.xz)
+source=(https://www.kernel.org/pub/linux/utils/usb/$name/$name-$version.tar.xz)
 depends=libusb
 
 build() {
