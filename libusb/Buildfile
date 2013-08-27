@@ -1,13 +1,14 @@
 # Description: Library giving userland programs access to USB devices
-# URL: http://libusb.sourceforge.net/
+# URL: http://libusb.org/
 
 name=libusb
-version=1.0.9
+version=1.0.16
 release=1
-source=(http://switch.dl.sourceforge.net/project/$name/$name-1.0/$name-$version/$name-$version.tar.bz2)
+source=(http://downloads.sourceforge.net/libusbx/libusbx-$version.tar.bz2)
+depends=systemd
 
 build () {
-   cd $name-$version
+   cd libusbx-$version
   
    ./configure --build=$BUILD \
                --host=$HOST \
