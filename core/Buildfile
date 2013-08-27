@@ -24,4 +24,5 @@ depends=(fs-skeleton
          sed
          psmisc
          net-tools
-         iputils)
+         iputils
+         usbutils)
