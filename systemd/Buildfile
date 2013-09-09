@@ -26,6 +26,7 @@ build() {
                --localstatedir=/var \
                --disable-nls \
                --without-python \
+               --with-firmware-path=/lib/firmware \
                ac_cv_func_malloc_0_nonnull=yes
 
    make -j $JOBS \
