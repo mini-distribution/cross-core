@@ -1,5 +1,6 @@
 # Description: The /proc file system utilities
 # URL: http://procps.sourceforge.net/
+# License: GPL-2.0+, LGPL-2.0+
 
 name=procps
 version=3.2.8

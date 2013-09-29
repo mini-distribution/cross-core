@@ -1,5 +1,6 @@
 # Description: Library to deal with kernel modules
-# URL: http://git.profusion.mobi/cgit.cgi/kmod.git
+# URL: http://git.kernel.org/cgit/utils/kernel/kmod/kmod.git
+# License: GPL-2.0+
 
 name=kmod
 version=15

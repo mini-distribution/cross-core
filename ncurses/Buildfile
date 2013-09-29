@@ -1,5 +1,6 @@
 # Description: A System V Release 4.0 curses emulation library
 # URL: http://www.gnu.org/software/ncurses/ncurses.html
+# License: MIT
 
 name=ncurses
 version=5.9

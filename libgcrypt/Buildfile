@@ -1,5 +1,6 @@
 # Description: A general purpose cryptographic library based on GnuPG
-# URL:         http://www.gnupg.org
+# URL: http://www.gnupg.org
+# License: GPL-3.0+
 
 name=libgcrypt
 version=1.5.3

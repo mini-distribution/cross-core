@@ -1,5 +1,6 @@
 # Description: A terminal based program for viewing text files
 # URL: http://www.greenwoodsoftware.com/less/
+# License: GPL-3.0+
 
 name=less
 version=458

@@ -1,5 +1,6 @@
 # Description: Shadow password file utilities
 # URL: http://pkg-shadow.alioth.debian.org/
+# License: BSD-3.0
 
 name=shadow
 version=4.1.5.1

@@ -1,5 +1,6 @@
 # Description: Sed - streams editor
 # URL: http://www.gnu.org/software/sed/sed.html
+# License: GPL-3.0+
 
 name=sed
 version=4.2.2

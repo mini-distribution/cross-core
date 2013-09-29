@@ -1,5 +1,6 @@
 # Description: A compression/decompression Library
 # URL: http://www.zlib.net
+# License: ZLIB
 
 name=zlib
 version=1.2.8

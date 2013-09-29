@@ -1,5 +1,6 @@
 # Description: Basic networking applet
-# URL: http://www.linux-foundation.org/en/Net:Iputils
+# URL: http://www.linuxfoundation.org/collaborate/workgroups/networking/iputils
+# License: Modified BSD-3.0
 
 name=iputils
 version=s20101006

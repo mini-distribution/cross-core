@@ -1,5 +1,6 @@
 # Description: GNU grep, egrep and fgrep
 # URL: http://www.gnu.org/software/grep/grep.html
+# License: GPL-3.0+
 
 name=grep
 version=2.14

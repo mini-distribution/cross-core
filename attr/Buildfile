@@ -1,5 +1,6 @@
 # Description: Commands for Manipulating Filesystem Extended Attributes
 # URL: http://savannah.nongnu.org/projects/attr
+# License: GPL-2.0+
 
 name=attr
 version=2.4.47

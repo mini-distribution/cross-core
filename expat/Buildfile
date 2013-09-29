@@ -1,5 +1,6 @@
 # Description: XML parser
 # URL: http://expat.sourceforge.net
+# License: MIT
 
 name=expat
 version=2.1.0

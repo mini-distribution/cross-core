@@ -1,5 +1,6 @@
 # Description: A pattern scanning and processing language
 # URL: http://www.gnu.org/software/gawk/gawk.html
+# License: GPL-3.0+
 
 name=gawk
 version=4.1.0

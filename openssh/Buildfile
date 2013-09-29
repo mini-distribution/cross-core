@@ -1,5 +1,6 @@
 # Description: OpenSSH SSH client and server
 # URL: http://www.openssh.org/
+# License: BSD
 
 name=openssh
 version=6.3p1

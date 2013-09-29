@@ -1,5 +1,6 @@
 # Description: A Portable Foreign Function Interface Library 
 # URL: http://sourceware.org/libffi/
+# License: MIT
 
 name=libffi
 version=3.0.13

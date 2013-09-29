@@ -1,5 +1,6 @@
 # Description: Perl Compatible Regular Expressions
 # URL: http://www.pcre.org
+# License: BSD-3.0
 
 name=libpcre
 version=8.33
