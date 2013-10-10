@@ -1,6 +1,6 @@
 # Description: The GNU troff text-formatting system
 # URL: http://www.gnu.org/software/groff/groff.html
-# License: GPL-3.0+
+# License: GPLv3+
 
 name=groff
 version=1.22.2

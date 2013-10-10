@@ -1,6 +1,6 @@
 # Description: Library and utilities to access the PCI bus configuration registers
 # URL: http://mj.ucw.cz/pciutils.shtml
-# License: GPL-2.0+
+# License: GPLv2+
 
 name=pciutils
 version=3.2.0

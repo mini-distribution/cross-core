@@ -1,6 +1,6 @@
 # Description: The man page suite used to read most of the documentation for Linux
 # URL: http://primates.ximian.com/~flucifredi/man/
-# License: GPL-2.0
+# License: GPLv2
 
 name=man
 version=1.6g

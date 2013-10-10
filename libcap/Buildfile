@@ -1,6 +1,6 @@
 # Description: Library for managing Linux capabilities
 # URL: https://sites.google.com/site/fullycapable
-# License: BSD-3.0, GPL-2.0+
+# License: BSD GPLv2+
 
 name=libcap
 version=2.22

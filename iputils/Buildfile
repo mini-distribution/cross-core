@@ -1,6 +1,6 @@
 # Description: Basic networking applet
 # URL: http://www.linuxfoundation.org/collaborate/workgroups/networking/iputils
-# License: Modified BSD-3.0
+# License: BSD GPLv2 Rdisc
 
 name=iputils
 version=s20101006

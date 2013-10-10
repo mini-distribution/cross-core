@@ -1,6 +1,6 @@
 # Description: Basic directory searching utilities
 # URL: http://www.gnu.org/software/findutils/
-# License: GPL-3.0+
+# License: GPLv3+
 
 name=findutils
 version=4.4.2

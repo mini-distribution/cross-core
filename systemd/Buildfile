@@ -1,6 +1,6 @@
 # Description: System and service manager for Linux
 # URL: http://www.freedesktop.org/wiki/Software/systemd
-# License: LGPL-2.1+, MIT, PD, GPL-2.0+
+# License: LGPLv2.1+ MIT PD GPLv2+
 
 name=systemd
 version=207

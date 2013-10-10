@@ -1,6 +1,6 @@
 # Description: Secure Sockets Layer and Transport Layer Security tools
 # URL: http://www.openssl.org/
-# License: Modifed BSD
+# License: OpenSSL
 
 name=openssl
 version=1.0.1e

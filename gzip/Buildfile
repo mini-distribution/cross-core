@@ -1,6 +1,6 @@
 # Description: GNU compression utility
 # URL: http://www.gzip.org/
-# License: GPL-2.0+
+# License: GPLv2+
 
 name=gzip
 version=1.6

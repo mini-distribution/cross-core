@@ -1,6 +1,6 @@
 # Description: Monitors and Controls incoming TCP connections
 # URL: ftp://ftp.porcupine.org/pub/security/index.html
-# License: ?
+# License: BSD
 
 name=tcp_wrappers
 version=7.6

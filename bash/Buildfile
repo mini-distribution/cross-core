@@ -1,6 +1,6 @@
 # Description: An sh-compatible command language interpreter
 # URL: http://cnswww.cns.cwru.edu/~chet/bash/bashtop.html
-# License: GPL-3.0+
+# License: GPLv3+
 
 name=bash
 version=4.2

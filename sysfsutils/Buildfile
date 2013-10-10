@@ -1,6 +1,6 @@
 # Description: System Utilities Based on Sysfs
 # URL: http://linux-diag.sourceforge.net/Sysfsutils.html
-# License: GPL-2.0+, LGPL-2.1+
+# License: GPLv2+ LGPLv2.1+
 
 name=sysfsutils
 version=2.1.0

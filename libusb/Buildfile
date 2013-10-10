@@ -1,6 +1,6 @@
 # Description: Library giving userland programs access to USB devices
 # URL: http://libusb.org/
-# License: LGPL-2.1+
+# License: LGPLv2.1+
 
 name=libusb
 version=1.0.17
