@@ -3,7 +3,7 @@
 # License: LGPLv3+
 
 name=gmp
-version=5.1.2
+version=5.1.3
 release=1
 source=(ftp://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
 
