@@ -1,0 +1,24 @@
+# Description: A unit testing framework for C
+# URL: http://check.sourceforge.net/
+# License: LGPLv2
+
+name=check
+version=0.9.11
+release=1
+source=http://netcologne.dl.sourceforge.net/project/$name/$name/$version/$name-$version.tar.gz
+
+build() {
+   cd $name-$version
+
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr
+
+   make -j $JOBS
+   make DESTDIR=$PKG install
+
+   rm -r $PKG/usr/share/doc
+
+   # Fix libtool files
+   fix_la_files $PKG
+}
