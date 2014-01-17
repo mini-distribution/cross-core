@@ -16,3 +16,4 @@ usb:x:14:
 dbus:x:15:
 cdrom:x:16:
 adm:x:17:
+systemd-journal:x:18:
