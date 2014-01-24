@@ -1,6 +1,6 @@
 # Description: Free library for arbitrary precision arithmetic
-# URL: http://gmplib.org/
-# License: LGPLv3+
+# URL: http://gmplib.org
+# License: LGPLv3
 
 name=gmp
 version=5.1.3

@@ -1,6 +1,6 @@
 # Description: A network utility for downloading content from the Web
-# URL: http://www.gnu.org/software/wget/
-# License: GPLv3+
+# URL: http://www.gnu.org/software/wget
+# License: GPLv3
 
 name=wget
 version=1.14

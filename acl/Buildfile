@@ -1,6 +1,6 @@
 # Description: Access Control Lists library
 # URL: http://savannah.nongnu.org/projects/acl
-# License: GPLv2+
+# License: GPLv2
 
 name=acl
 version=2.2.52

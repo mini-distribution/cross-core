@@ -1,6 +1,6 @@
 # Description: The Linux System V Init tools
-# URL: ftp://ftp.cistron.nl/pub/people/miquels/sysvinit/
-# License: GPLv2+
+# URL: ftp://ftp.cistron.nl/pub/people/miquels/sysvinit
+# License: GPLv2
 
 name=sysvinit
 version=2.88

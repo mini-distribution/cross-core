@@ -1,6 +1,6 @@
 # Description: pciutils-like utilities for USB
 # URL:  https://github.com/gregkh/usbutils
-# License: GPLv2+
+# License: GPLv2
 
 name=usbutils
 version=007

@@ -1,6 +1,6 @@
 # Description: Basic file, shell and text manipulation utilities
 # URL: http://www.gnu.org/software/coreutils
-# License: GPLv3+
+# License: GPLv3
 
 name=coreutils
 version=8.21

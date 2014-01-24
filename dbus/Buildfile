@@ -1,6 +1,6 @@
 # Description: Application message bus system
 # URL: http://www.freedesktop.org/wiki/Software/dbus
-# License: AFL-2.1 GPLv2+
+# License: AFL-2.1 GPLv2
 
 name=dbus
 version=1.6.18

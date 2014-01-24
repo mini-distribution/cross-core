@@ -1,5 +1,5 @@
 # Description: Shadow password file utilities
-# URL: http://pkg-shadow.alioth.debian.org/
+# URL: http://pkg-shadow.alioth.debian.org
 # License: BSD
 
 name=shadow

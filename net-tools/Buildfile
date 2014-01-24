@@ -1,6 +1,6 @@
 # Description: Network utilities
-# URL: http://www.tazenda.demon.co.uk/phil/net-tools/
-# License: GPLv2+
+# URL: http://www.tazenda.demon.co.uk/phil/net-tools
+# License: GPLv2
 
 name=net-tools
 version=1.60

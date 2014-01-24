@@ -1,5 +1,5 @@
 # Description: Secure Sockets Layer and Transport Layer Security tools
-# URL: http://www.openssl.org/
+# URL: http://www.openssl.org
 # License: OpenSSL
 
 name=openssl

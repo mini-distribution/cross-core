@@ -27,5 +27,4 @@ build() {
 
     make -j $JOBS
     make DESTDIR=$PKG install
-
 }

@@ -1,6 +1,6 @@
 # Description: Library to deal with kernel modules
 # URL: http://git.kernel.org/cgit/utils/kernel/kmod/kmod.git
-# License: GPLv2+
+# License: GPLv2
 
 name=kmod
 version=15

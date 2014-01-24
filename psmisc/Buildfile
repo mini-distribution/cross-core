@@ -1,5 +1,5 @@
 # Description: Small utilities that use the /proc filesystem
-# URL: http://psmisc.sourceforge.net/
+# URL: http://psmisc.sourceforge.net
 # License: BSD GPLv2
 
 name=psmisc

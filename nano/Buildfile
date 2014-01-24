@@ -1,6 +1,6 @@
 # Description: GNU pico clone (a tiny text editor)
 # URL: http://www.nano-editor.org
-# License: GPLv3+
+# License: GPLv3
 
 name=nano
 version=2.2.6

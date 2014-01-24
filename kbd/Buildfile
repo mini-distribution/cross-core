@@ -1,6 +1,6 @@
 # Description: Keytable files and keyboard utilities
-# URL: ftp://ftp.win.tue.nl/pub/linux-local/utils/kbd/
-# License: GPLv2+
+# URL: ftp://ftp.win.tue.nl/pub/linux-local/utils/kbd
+# License: GPLv2
 
 name=kbd
 version=2.0.1

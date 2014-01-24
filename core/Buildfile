@@ -1,28 +1,49 @@
-# Description: Includes all core builds
+# Description: All core builds
 
 name=core
-version=1.0
+version=1.1
 release=1
-depends=(fs-skeleton
-         systemd
-         coreutils
-         sysvinit
-         shadow
-         procps
-         kbd
-         gzip
-         util-linux
-         openssh
-         findutils
+depends=(acl
          bash
-         man
+         dbus
+         findutils
          gawk
-         nano
-         kmod
-         grep
-         wget
-         sed
-         psmisc
-         net-tools
+         gmp
+         groff
          iputils
-         usbutils)
+         kmod
+         libcap
+         libgcrypt
+         libpcre
+         man
+         ncurses
+         openssh
+         pciutils
+         psmisc
+         shadow
+         systemd
+         tcp_wrappers
+         util-linux
+         zlib
+         attr
+         check
+         coreutils
+         expat
+         fs-skeleton
+         glib
+         grep
+         gzip
+         kbd
+         less
+         libffi
+         libgpg-error
+         libusb
+         nano
+         net-tools
+         openssl
+         procps-ng
+         sed
+         sysfsutils
+         sysvinit
+         usbutils
+         wget)

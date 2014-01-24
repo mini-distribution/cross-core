@@ -1,6 +1,6 @@
 # Description: Miscellaneous system utilities
 # URL: http://kernel.org/~kzak/util-linux
-# License: GPLv2+ LGPLv2+ BSD PD
+# License: GPLv2 LGPLv2 BSD PD
 
 name=util-linux
 version=2.24
