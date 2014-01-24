@@ -1,0 +1,39 @@
+# Description: The /proc file system utilities
+# URL: http://procps-ng.sourceforge.net
+# License: GPLv2 LGPLv2
+
+name=procps-ng
+version=3.3.9
+release=1
+source=(http://skylink.dl.sourceforge.net/project/procps-ng/Production/$name-$version.tar.xz \
+        99-sysctl.conf)
+depends=(ncurses systemd)
+
+build() {
+   cd $name-$version
+
+   export LIBS=-ltinfo
+
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr \
+               --exec-prefix=/ \
+               --sysconfdir=/etc \
+               --libdir=/usr/lib \
+               --bindir=/usr/bin \
+               --sbindir=/usr/sbin \
+               --with-ncurses \
+               --with-systemd \
+               ac_cv_func_malloc_0_nonnull=yes \
+               ac_cv_func_realloc_0_nonnull=yes
+
+   make -j $JOBS
+   make DESTDIR=$PKG install
+
+   install -D -m644 $SRC/kernel $PKG/etc/sysctl.d/kernel
+
+   rm -rf $PKG/usr/share/doc
+
+   # Fix libtool files
+   fix_la_files $PKG
+}
