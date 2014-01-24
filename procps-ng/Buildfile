@@ -30,7 +30,7 @@ build() {
    make -j $JOBS
    make DESTDIR=$PKG install
 
-   install -D -m644 $SRC/kernel $PKG/etc/sysctl.d/kernel
+   install -D -m644 $SRC/99-sysctl.conf $PKG/etc/sysctl.d/99-sysctl.conf
 
    rm -rf $PKG/usr/share/doc
 
