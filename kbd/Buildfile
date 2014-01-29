@@ -1,11 +1,11 @@
 # Description: Keytable files and keyboard utilities
-# URL: ftp://ftp.win.tue.nl/pub/linux-local/utils/kbd
+# URL: http://www.kbd-project.org
 # License: GPLv2
 
 name=kbd
 version=2.0.1
 release=1
-source=(ftp://ftp.altlinux.org/pub/people/legion/kbd/$name-$version.tar.gz)
+source=(http://www.kbd-project.org/download/$name-$version.tar.xz)
 depends=check
 
 build() {
