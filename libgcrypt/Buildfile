@@ -3,9 +3,9 @@
 # License: GPLv3
 
 name=libgcrypt
-version=1.5.3
+version=1.6.1
 release=1
-source=(ftp://ftp.gnupg.org/gcrypt/libgcrypt/$name-$version.tar.bz2
+source=(http://buildgear.org/mirror/$name-$version.tar.bz2
         disable-broken-mpi-asm-support-for-i686.patch)
 depends=libgpg-error
 
