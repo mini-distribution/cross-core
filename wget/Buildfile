@@ -3,7 +3,7 @@
 # License: GPLv3
 
 name=wget
-version=1.14
+version=1.15
 release=1
 source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz \
         wgetrc)
@@ -21,7 +21,9 @@ build() {
                --disable-nls
 
    make -j $JOBS
+
    make DESTDIR=$PKG install
+
    install -D -m 0644 $SRC/wgetrc $PKG/etc/wgetrc
 
    rm -r $PKG/usr/share/info
