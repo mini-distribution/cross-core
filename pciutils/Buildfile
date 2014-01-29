@@ -3,13 +3,23 @@
 # License: GPLv2
 
 name=pciutils
-version=3.2.0
+version=3.2.1
 release=1
-source=(http://www.kernel.org/pub/software/utils/$name/$name-$version.tar.gz)
+source=(http://www.kernel.org/pub/software/utils/$name/$name-$version.tar.xz)
 
 build() {
    cd $name-$version
 
-   make -j $JOBS CC="$HOST-gcc" AR="$HOST-ar" RANLIB="$HOST-ranlib" PREFIX=/usr ZLIB=no
-   make DESTDIR=$PKG PREFIX=/usr MANDIR=/usr/share/man STRIP="" install install-lib
+   make -j $JOBS \
+        CC="$HOST-gcc" \
+        AR="$HOST-ar" \
+        RANLIB="$HOST-ranlib" \
+        PREFIX=/usr \
+        ZLIB=no
+
+   make DESTDIR=$PKG \
+        PREFIX=/usr \
+        MANDIR=/usr/share/man \
+        STRIP="" \
+        install install-lib
 }
