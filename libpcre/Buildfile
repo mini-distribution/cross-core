@@ -3,7 +3,7 @@
 # License: BSD
 
 name=libpcre
-version=8.33
+version=8.34
 release=1
 source=(ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-$version.tar.bz2)
 
