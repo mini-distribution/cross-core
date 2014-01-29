@@ -3,9 +3,9 @@
 # License: BSD GPLv2
 
 name=libcap
-version=2.22
+version=2.24
 release=1
-source=(http://mirror.linux.org.au/linux/libs/security/linux-privs/libcap2/$name-$version.tar.bz2)
+source=(https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/$name-$version.tar.xz)
 depends=attr
 
 build() {
