@@ -3,7 +3,7 @@
 # License: AFL-2.1 GPLv2
 
 name=dbus
-version=1.6.18
+version=1.8.0
 release=1
 source=(http://dbus.freedesktop.org/releases/dbus/$name-$version.tar.gz)
 depends=expat
@@ -30,4 +30,3 @@ build() {
    # Fix libtool files
    fix_la_files $PKG
 }
-
