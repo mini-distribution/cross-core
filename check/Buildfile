@@ -3,7 +3,7 @@
 # License: LGPLv2
 
 name=check
-version=0.9.11
+version=0.9.12
 release=1
 source=http://netcologne.dl.sourceforge.net/project/$name/$name/$version/$name-$version.tar.gz
 
