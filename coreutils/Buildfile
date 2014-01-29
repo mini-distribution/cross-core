@@ -3,14 +3,18 @@
 # License: GPLv3
 
 name=coreutils
-version=8.21
+version=8.22
 release=1
 source=(http://ftp.gnu.org/gnu/coreutils/$name-$version.tar.xz
-        disable-help2man.patch)
+        coreutils-8.22-noman-1.patch
+        coreutils-8.22-uname-1.patch)
 depends=(libcap attr acl gmp)
 
 build() {
    cd $name-$version
+
+   patch -p1 < $SRC/coreutils-8.22-noman-1.patch
+   patch -p1 < $SRC/coreutils-8.22-uname-1.patch
 
    echo "fu_cv_sys_stat_statfs2_bsize=yes" >> config.cache
    echo "gl_cv_func_working_mkstemp=yes" >> config.cache
@@ -24,27 +28,12 @@ build() {
                --disable-nls \
                --disable-assert \
                --with-gmp \
-               --disable-perl \
                --cache-file=config.cache
 
-   # Fix cross compile issue with make-prime-list in version 8.20
-   cp -v Makefile{,.orig}
-   sed '/src_make_prime_list/d' Makefile.orig > Makefile
-   depbase=`echo src/make-prime-list.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
-      gcc -std=gnu99  -I. -I./lib  -Ilib -I./lib -Isrc -I./src  \
-      -fdiagnostics-show-option -funit-at-a-time -g -O2 -MT \
-      src/make-prime-list.o -MD -MP -MF $depbase.Tpo -c -o src/make-prime-list.o \
-      src/make-prime-list.c &&
-   mv -f $depbase.Tpo $depbase.Po
-   gcc -std=gnu99 -fdiagnostics-show-option -funit-at-a-time -g -O2 \
-      -Wl,--as-needed  -o src/make-prime-list src/make-prime-list.o
-   cp -v Makefile{,.bak}
-   sed -e '/hostname.1/d' Makefile.bak > Makefile
-
-   patch -p1 < $SRC/disable-help2man.patch
-
    make -j $JOBS
+
    make DESTDIR=$PKG install
+
    rm -r $PKG/usr/share
 }
 
