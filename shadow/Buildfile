@@ -5,7 +5,7 @@
 name=shadow
 version=4.1.5.1
 release=1
-source=(http://pkg-shadow.alioth.debian.org/releases/$name-$version.tar.bz2 \
+source=(http://ftp.cross-lfs.org/pub/clfs/conglomeration/shadow/$name-$version.tar.bz2 \
         pwck login.defs)
 
 build() {
