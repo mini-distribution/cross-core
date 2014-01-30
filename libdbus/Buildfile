@@ -2,14 +2,14 @@
 # URL: http://www.freedesktop.org/wiki/Software/dbus
 # License: AFL-2.1 GPLv2
 
-name=dbus
+name=libdbus
 version=1.8.0
 release=1
-source=(http://dbus.freedesktop.org/releases/dbus/$name-$version.tar.gz)
-depends=(expat systemd libdbus)
+source=(http://dbus.freedesktop.org/releases/dbus/dbus-$version.tar.gz)
+depends=(expat)
 
 build() {
-   cd $name-$version
+   cd dbus-$version
 
    ./configure --build=$BUILD \
                --host=$HOST \
@@ -17,17 +17,17 @@ build() {
                --sysconfdir=/etc \
                --libexecdir=/usr/lib/dbus-1.0 \
                --localstatedir=/var \
-               --with-systemdsystemunitdir=/etc/systemd/system \
                --enable-abstract-sockets \
                --with-dbus-user=root \
                --disable-tests \
-               --enable-systemd
+               --disable-systemd
 
    make -j $JOBS
    make DESTDIR=$PKG install
 
-   rm -r $PKG/usr/include
-   rm -r $PKG/usr/lib
+   rm -r $PKG/etc
+   rm -r $PKG/usr/bin
+   rm -r $PKG/usr/share
    rm -r $PKG/var
 
    # Fix libtool files
