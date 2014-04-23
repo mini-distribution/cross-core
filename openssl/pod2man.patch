@@ -1,0 +1,13 @@
+*** a/Makefile	2014-04-22 15:08:15.770935188 +0300
+--- b/Makefile	2014-04-22 15:08:08.466935437 +0300
+***************
+*** 648,651 ****
+! 	@pod2man="`cd ./util; ./pod2mantest $(PERL)`"; \
+  	here="`pwd`"; \
+  	filecase=; \
+  	if [ "$(PLATFORM)" = "DJGPP" -o "$(PLATFORM)" = "Cygwin" -o "$(PLATFORM)" = "mingw" ]; then \
+--- 648,651 ----
+! 	@pod2man="`cd ./util; ./pod2mantest $(PERL)` -errors=stderr"; \
+  	here="`pwd`"; \
+  	filecase=; \
+  	if [ "$(PLATFORM)" = "DJGPP" -o "$(PLATFORM)" = "Cygwin" -o "$(PLATFORM)" = "mingw" ]; then \
