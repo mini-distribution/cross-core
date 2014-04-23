@@ -3,10 +3,10 @@
 # License: OpenSSL
 
 name=openssl
-version=1.0.1f
+version=1.0.1g
 release=1
 source=(http://www.openssl.org/source/$name-$version.tar.gz
-        openssl-1.0.1-parallel-build.patch)
+	openssl-1.0.1-parallel-build.patch pod2man.patch)
 depends=zlib
 
 build() {
@@ -23,6 +23,8 @@ build() {
                threads \
                shared \
                linux-generic32
+
+  patch -p1 < $SRC/pod2man.patch
 
   make -j $JOBS
   make MANDIR=/usr/share/man MANSUFFIX=ssl install
