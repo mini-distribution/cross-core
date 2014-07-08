@@ -3,7 +3,7 @@
 # License: BSD GPLv2
 
 name=psmisc
-version=22.20
+version=22.21
 release=1
 source=(http://heanet.dl.sourceforge.net/project/psmisc/psmisc/$name-$version.tar.gz)
 depends=ncurses
