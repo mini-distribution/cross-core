@@ -3,7 +3,7 @@
 # License: OpenSSL
 
 name=openssl
-version=1.0.1g
+version=1.0.1h
 release=1
 source=(http://www.openssl.org/source/$name-$version.tar.gz
 	openssl-1.0.1-parallel-build.patch pod2man.patch)
