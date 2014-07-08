@@ -3,15 +3,12 @@
 # License: GPLv3
 
 name=gawk
-version=4.1.0
+version=4.1.1
 release=1
-source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz
-        disable-shared-check.patch)
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
 
 build() {
    cd $name-$version
-
-   patch -p2 < $SRC/disable-shared-check.patch
 
    ./configure --build=$BUILD \
                --host=$HOST \
