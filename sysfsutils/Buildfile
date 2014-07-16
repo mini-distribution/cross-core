@@ -5,7 +5,7 @@
 name=sysfsutils
 version=2.1.0
 release=1
-source=(http://heanet.dl.sourceforge.net/project/linux-diag/$name/$version/$name-$version.tar.gz)
+source=(http://downloads.sourceforge.net/project/linux-diag/$name/$version/$name-$version.tar.gz)
 
 build() {
    cd $name-$version

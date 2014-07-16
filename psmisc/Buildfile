@@ -5,7 +5,7 @@
 name=psmisc
 version=22.21
 release=1
-source=(http://heanet.dl.sourceforge.net/project/psmisc/psmisc/$name-$version.tar.gz)
+source=(http://downloads.sourceforge.net/project/psmisc/psmisc/$name-$version.tar.gz)
 depends=ncurses
 
 build() {
@@ -19,7 +19,7 @@ build() {
                --prefix=/usr \
                --disable-nls \
                --cache-file=config.cache
-  
+
    make -j $JOBS
    make DESTDIR=$PKG install
 
