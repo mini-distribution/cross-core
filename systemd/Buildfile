@@ -3,21 +3,17 @@
 # License: LGPLv2.1 MIT PD GPLv2
 
 name=systemd
-version=208
+version=215
 release=1
 source=(http://www.freedesktop.org/software/systemd/$name-$version.tar.xz
-        systemd-disable-pager.patch
-        systemd-journalctl-enable-all-option.patch
-        systemd-journal-disable-FS_NOCOW_FL-attr.patch
         vconsole.conf)
-depends=(libcap kmod util-linux pciutils glib libdbus tcp_wrappers libgcrypt)
+depends=(libcap kmod util-linux pciutils glib tcp_wrappers libgcrypt)
 
 build() {
    cd $name-$version
 
-   patch -p1 < $SRC/systemd-disable-pager.patch
-   patch -p1 < $SRC/systemd-journalctl-enable-all-option.patch
-   patch -p1 < $SRC/systemd-journal-disable-FS_NOCOW_FL-attr.patch
+   # Disable LTO compilation, which currently breaks cross builds
+   sed -i 's/-flto/-fno-lto/' configure
 
    ./configure --build=$BUILD \
                --host=$HOST \
@@ -28,24 +24,27 @@ build() {
                --disable-nls \
                --without-python \
                --with-firmware-path=/lib/firmware \
+               --enable-compat-libs \
+               --disable-audit \
+               --disable-ima \
+               --disable-kdbus \
+               --disable-selinux \
+               --disable-pam \
+               --disable-libcryptsetup \
+               --disable-gtk-doc \
+               --disable-dbus \
+               --disable-tests \
+               --disable-efi \
                ac_cv_func_malloc_0_nonnull=yes
 
-   make -j $JOBS \
-        GCRYPT_LIBS="-lgcrypt" \
-        LIBGCRYPT_LIBS="-lgcrypt"
-
-   make DESTDIR=$PKG install \
-        GCRYPT_LIBS="-lgcrypt" \
-        LIBGCRYPT_LIBS="-lgcrypt"
+   make -j $JOBS
+   make DESTDIR=$PKG install
 
    # Systemd required fixes
    ln -s /proc/self/mounts $PKG/etc/mtab
    install -d $PKG/usr/sbin
    ln -s /usr/lib/systemd/systemd $PKG/usr/sbin/init
    install -Dm644 $SRC/vconsole.conf $PKG/etc/vconsole.conf
-
-   # Initialize network before making getty login available on serial
-   sed -i "/After=/s|$| network.target|" $PKG/usr/lib/systemd/system/serial-getty@.service
 
    # Boot into multi-user target (non-graphical)
    ln -sf multi-user.target $PKG/usr/lib/systemd/system/default.target
