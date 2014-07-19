@@ -27,6 +27,7 @@ build() {
    make DESTDIR=$PKG install
 
    install -D -m 644 $SRC/profile $PKG/etc/profile
+   install -d $PKG/etc/profile.d
 
    # Make bash default shell
    ln -s bash $PKG/usr/bin/sh
