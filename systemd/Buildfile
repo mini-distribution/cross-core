@@ -7,7 +7,7 @@ version=215
 release=1
 source=(http://www.freedesktop.org/software/systemd/$name-$version.tar.xz
         vconsole.conf)
-depends=(libcap kmod util-linux pciutils glib tcp_wrappers libgcrypt)
+depends=(libcap kmod util-linux pciutils glib tcp_wrappers libgcrypt libdbus)
 
 build() {
    cd $name-$version
@@ -35,6 +35,7 @@ build() {
                --disable-dbus \
                --disable-tests \
                --disable-efi \
+               --disable-networkd \
                ac_cv_func_malloc_0_nonnull=yes
 
    make -j $JOBS
@@ -48,6 +49,10 @@ build() {
 
    # Boot into multi-user target (non-graphical)
    ln -sf multi-user.target $PKG/usr/lib/systemd/system/default.target
+
+   # Disable annoying systemd pager
+   install -d $PKG/etc/profile.d
+   echo 'export PAGER=' > $PKG/etc/profile.d/systemd
 
    # Cleanup
    rm $PKG/usr/lib/tmpfiles.d/legacy.conf
