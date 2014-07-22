@@ -12,10 +12,14 @@ build() {
 
    ./configure --build=$BUILD \
                --host=$HOST \
-               --prefix=/usr
+               --prefix=/usr \
+               --disable-static \
+               --disable-nls
 
    make -j $JOBS
    make DIST_ROOT=$PKG install install-lib install-dev
+
+   rm -rf $PKG/usr/share/{doc,locale}
 
    # Fix libtool files
    fix_la_files $PKG
@@ -23,5 +27,5 @@ build() {
 
 check() {
    # Test for preinstalled msgfmt tool
-   check_tool msgfmt "Can be found in the Ubuntu repos in package gettext"
+   check_tool msgfmt "Please install msgfmt"
 }
