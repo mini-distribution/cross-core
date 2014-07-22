@@ -14,6 +14,7 @@ build() {
    ./configure --build=$BUILD \
                --host=$HOST \
                --prefix=/usr \
+               --disable-static \
                --libexecdir=/usr/lib
 
    make -j $JOBS
