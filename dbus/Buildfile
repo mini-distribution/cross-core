@@ -14,6 +14,7 @@ build() {
    ./configure --build=$BUILD \
                --host=$HOST \
                --prefix=/usr \
+               --disable-static \
                --sysconfdir=/etc \
                --libexecdir=/usr/lib/dbus-1.0 \
                --localstatedir=/var \
@@ -26,8 +27,8 @@ build() {
    make -j $JOBS
    make DESTDIR=$PKG install
 
-   rm -r $PKG/usr/include
-   rm -r $PKG/usr/lib
+   rm -r $PKG/usr/share/doc
+   rm -r $PKG/usr/{include,lib}
    rm -r $PKG/var
 
    # Fix libtool files
