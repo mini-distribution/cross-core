@@ -10,9 +10,11 @@ source=(ftp://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
 build() {
    cd $name-6.0.0
 
-   CC_FOR_BUILD=cc ./configure --build=$BUILD \
+   CC_FOR_BUILD=cc \
+   ./configure --build=$BUILD \
                --host=$HOST \
                --prefix=/usr \
+               --disable-static \
                --enable-cxx \
                --without-readline
 
