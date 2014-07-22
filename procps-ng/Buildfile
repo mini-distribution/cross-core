@@ -17,6 +17,7 @@ build() {
    ./configure --build=$BUILD \
                --host=$HOST \
                --prefix=/usr \
+               --disable-static \
                --exec-prefix=/ \
                --sysconfdir=/etc \
                --libdir=/usr/lib \
