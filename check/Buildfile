@@ -12,12 +12,13 @@ build() {
 
    ./configure --build=$BUILD \
                --host=$HOST \
-               --prefix=/usr
+               --prefix=/usr \
+               --disable-static
 
    make -j $JOBS
    make DESTDIR=$PKG install
 
-   rm -r $PKG/usr/share/doc
+   rm -r $PKG/usr/share/{doc,info}
 
    # Fix libtool files
    fix_la_files $PKG
