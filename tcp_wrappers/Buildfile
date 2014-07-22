@@ -33,7 +33,6 @@ build() {
 
   install -m 0755 safe_finger tcpd tcpdchk tcpdmatch try-from $PKG/usr/sbin
   install -m 0644 tcpd.h $PKG/usr/include
-  install -m 0644 libwrap.a $PKG/usr/lib
   cp --no-dereference --preserve=links libwrap.so* $PKG/usr/lib
 
   install -m 0644 *.3 $PKG/usr/share/man/man3
