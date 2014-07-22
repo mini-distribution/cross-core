@@ -22,5 +22,6 @@ build() {
          DESTDIR=$PKG \
          lib=usr/lib \
          install
-}
 
+   rm $PKG/usr/lib/libcap.a
+}
