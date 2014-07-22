@@ -15,7 +15,8 @@ build() {
         AR="$HOST-ar" \
         RANLIB="$HOST-ranlib" \
         PREFIX=/usr \
-        ZLIB=no
+        ZLIB=no \
+        SHARED=yes
 
    make DESTDIR=$PKG \
         PREFIX=/usr \
