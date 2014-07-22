@@ -15,4 +15,6 @@ build() {
 
    make -j $JOBS
    make DESTDIR=$PKG install
+
+   rm $PKG/usr/lib/libz.a
 }
