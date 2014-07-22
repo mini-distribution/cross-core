@@ -7,22 +7,23 @@ release=1
 source=(group ld.so.conf)
 
 build() {
+
    # Create basic directories
-   mkdir -p $PKG/home
-   mkdir -p $PKG/root
-   mkdir -p $PKG/usr
-   mkdir -p $PKG/etc
-   mkdir -p $PKG/dev
-   mkdir -p $PKG/proc
-   mkdir -p $PKG/sys
-   mkdir -p $PKG/tmp
-   mkdir -p $PKG/media
-   mkdir -p $PKG/mnt
-   mkdir -p $PKG/lib
-   mkdir -p $PKG/srv
-   mkdir -p $PKG/opt
-   mkdir -p $PKG/var
-   mkdir -p $PKG/run
+   install -d $PKG/home
+   install -d $PKG/root
+   install -d $PKG/usr
+   install -d $PKG/etc
+   install -d $PKG/dev
+   install -d $PKG/proc
+   install -d $PKG/sys
+   install -d $PKG/tmp
+   install -d $PKG/media
+   install -d $PKG/mnt
+   install -d $PKG/lib
+   install -d $PKG/srv
+   install -d $PKG/opt
+   install -d $PKG/var
+   install -d $PKG/run
 
    # Create symlinks
    ln -s /usr/bin $PKG/bin
@@ -37,6 +38,6 @@ build() {
    cp $SRC/group $PKG/etc/group
 
    # Create dynamic linker configuration
-   mkdir -p $PKG/etc/ld.so.conf.d
+   install -d $PKG/etc/ld.so.conf.d
    cp $SRC/ld.so.conf $PKG/etc
 }
