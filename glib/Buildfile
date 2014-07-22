@@ -26,6 +26,7 @@ build() {
    ./configure --build=$BUILD \
                --host=$HOST \
                --prefix=/usr \
+               --disable-static \
                --cache-file=config.cache \
                --enable-debug=no \
                --disable-selinux \
