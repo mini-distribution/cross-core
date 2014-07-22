@@ -19,6 +19,7 @@ build() {
    ./configure --build=$BUILD \
                --host=$HOST \
                --prefix=/usr \
+               --disable-static \
                --disable-padlock-support \
                --with-gpg-error-prefix=$SYSROOT/usr
 
