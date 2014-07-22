@@ -23,6 +23,7 @@ build() {
                --disable-nls \
                --without-bash-malloc \
                --with-curses
+
    make -j $JOBS
    make DESTDIR=$PKG install
 
@@ -33,5 +34,5 @@ build() {
    ln -s bash $PKG/usr/bin/sh
    ln -s bash.1 $PKG/usr/share/man/man1/sh.1
 
-   rm -r $PKG/usr/share/info
+   rm -r $PKG/usr/share/{info,doc}
 }
