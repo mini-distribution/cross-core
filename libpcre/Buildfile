@@ -13,6 +13,7 @@ build() {
    ./configure --build=$BUILD \
                --host=$HOST \
                --prefix=/usr \
+               --disable-static \
                --enable-utf8 \
                --enable-unicode-properties \
                --enable-pcre{16,32}
