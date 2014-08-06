@@ -45,5 +45,6 @@ depends=(acl
          sed
          sysfsutils
          sysvinit
+         tar
          usbutils
          wget)
