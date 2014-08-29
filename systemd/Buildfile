@@ -31,6 +31,7 @@ build() {
                --disable-kdbus \
                --disable-selinux \
                --disable-pam \
+               --with-libgcrypt-prefix=$SYSROOT/usr \
                --disable-libcryptsetup \
                --disable-gtk-doc \
                --disable-dbus \
