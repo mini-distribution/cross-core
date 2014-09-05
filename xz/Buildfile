@@ -1,0 +1,27 @@
+# Description: XZ Utils is a free general-purpose data compression software
+# URL: http://tukaani.org/xz
+# License: PD LGPLv2.1 GPLv2 GPLv3
+
+name=xz
+version=5.0.5
+release=1
+source=(http://tukaani.org/xz/$name-$version.tar.gz)
+
+build () {
+   cd $name-$version
+  
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr \
+               --disable-static \
+               --disable-nls \
+               --disable-rpath
+
+   make -j $JOBS
+   make DESTDIR=$PKG install
+
+   rm -r $PKG/usr/share/doc
+
+   # Fix libtool files
+   fix_la_files $PKG
+}
