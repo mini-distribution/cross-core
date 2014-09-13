@@ -22,8 +22,13 @@ umask 022
 
 alias ls='ls --color'
 
-if [ -f /etc/profile.d/* ]; then
-   source /etc/profile.d/*
+if [ -d /etc/profile.d ]; then
+  for i in /etc/profile.d/*; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
 fi
 
 # End of file
