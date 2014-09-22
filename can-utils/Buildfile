@@ -1,0 +1,23 @@
+# Description: CAN userspace utilities and tools
+# URL: https://gitorious.org/linux-can/can-utils
+# License: LGPLv2
+
+name=can-utils
+version=git-master
+release=1
+
+build() {
+   git clone git://gitorious.org/linux-can/can-utils.git
+   cd can-utils
+   chmod +x autogen.sh
+   ./autogen.sh
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr \
+
+   make -j $JOBS
+   make DESTDIR=$PKG install
+
+   # Fix libtool files
+   fix_la_files $PKG
+}
