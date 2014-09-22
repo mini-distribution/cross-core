@@ -3,16 +3,13 @@
 # License: GPLv3
 
 name=libgcrypt
-version=1.6.1
+version=1.6.2
 release=1
-source=(http://buildgear.org/mirror/$name-$version.tar.bz2
-        disable-broken-mpi-asm-support-for-i686.patch)
+source=(ftp://ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-$version.tar.bz2)
 depends=libgpg-error
 
 build() {
    cd $name-$version
-
-   patch -p1 -i $SRC/disable-broken-mpi-asm-support-for-i686.patch
 
    GPG_ERROR_CFLAGS="-I$SYSROOT/usr/include" \
    GPG_ERROR_LIBS="-L$SYSROOT/usr/lib" \
