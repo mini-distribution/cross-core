@@ -5,11 +5,17 @@
 name=bash
 version=4.3
 release=1
-source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz profile)
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz profile
+        http://buildgear.org/mirror/bash-4.3-patches-25.tar.xz)
 depends=ncurses
 
 build() {
    cd $name-$version
+
+   for file in `ls $SRC/bash-$version-patches-*/*`
+   do
+      patch -p0 -i $file
+   done
 
    echo "bash_cv_sys_named_pipes=yes" >> config.cache
    echo "bash_cv_job_control_missing=present" >> config.cache
