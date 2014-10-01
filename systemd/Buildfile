@@ -56,6 +56,9 @@ build() {
    install -d $PKG/etc/profile.d
    echo 'export PAGER=' > $PKG/etc/profile.d/systemd
 
+   # Disable first boot noise
+   rm $PKG/usr/lib/systemd/system/sysinit.target.wants/systemd-firstboot.service
+
    # Cleanup
    rm $PKG/usr/lib/tmpfiles.d/legacy.conf
    rm $PKG/usr/lib/tmpfiles.d/x11.conf
