@@ -1,4 +1,5 @@
-The mini-distribution "core" buildfiles.
+The mini-distribution "core" buildfile collection
+-------------------------------------------------
 
 These buildfiles constitute what is considered the core system - the minimum set of buildfiles required to boot a basic featured system.
 
