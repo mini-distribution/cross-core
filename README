@@ -1,0 +1,7 @@
+The mini-distribution "core" buildfiles.
+
+These buildfiles constitute what is considered the core system - the minimum set of buildfiles required to boot a basic featured system.
+
+Buildfiles in this repository may not depend on buildfiles outside of core.
+
+All buildfiles in this repository are maintained on a regular basis.
