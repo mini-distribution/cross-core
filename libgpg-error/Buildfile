@@ -3,21 +3,28 @@
 # License: GPLv2 LGPLv2.1
 
 name=libgpg-error
-version=1.12
+version=1.17
 release=1
-source=(ftp://ftp.gnupg.org/gcrypt/$name/$name-$version.tar.bz2)
+source=(ftp://ftp.gnupg.org/gcrypt/$name/$name-$version.tar.bz2
+        libgpg-error-add-arm-cortex_a-syscfg.patch)
 
 build() {
    cd $name-$version
+
+   patch -p1 < $SRC/libgpg-error-add-arm-cortex_a-syscfg.patch
 
    ./configure --build=$BUILD \
                --host=$HOST \
                --prefix=/usr \
                --disable-static \
-               --disable-nls
+               --disable-nls \
+               force_use_syscfg=no
 
    make -j $JOBS
    make DESTDIR=$PKG install
+
+   # Cleanup
+   rm -rf $PKG/usr/share/info
 
    # Fix libtool files
    fix_la_files $PKG
