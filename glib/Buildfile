@@ -1,9 +1,9 @@
-# Description: General-purpose utility library
+# Description: General purpose utility library
 # URL: http://developer.gnome.org/glib
 # License: GPLv2
 
 name=glib
-version=2.40.1
+version=2.42.0
 release=1
 source=(http://ftp.gnome.org/pub/gnome/sources/glib/${version%.*}/$name-$version.tar.xz)
 depends=(zlib libffi)
@@ -33,10 +33,8 @@ build() {
                --disable-fam \
                --disable-xattr \
                --enable-man \
-               --disable-Bsymbolic
-
-   # Work around from https://bugzilla.gnome.org/show_bug.cgi?id=700350
-   find  -type f -name Makefile.in -exec touch {} \;
+               --disable-Bsymbolic \
+               --disable-nls
 
    make -j $JOBS
    make DESTDIR=$PKG install
@@ -44,6 +42,8 @@ build() {
    # Cleanup
    rm -r $PKG/usr/share/gtk-doc
    rm -r $PKG/usr/share/locale
+   rm -r $PKG/usr/share/gdb
+   rm -r $PKG/usr/share/glib-2.0/{codegen,gdb}
 
    # Fix libtool files
    fix_la_files $PKG
@@ -51,10 +51,10 @@ build() {
 
 check() {
    # Test for preinstalled glib-genmarshal tool
-   check_tool glib-genmarshal "Can be found in the Ubuntu repos in package libglib2.0-dev"
+   check_tool glib-genmarshal "Available in Ubuntu package libglib2.0-dev"
    check_tool xsltproc
-   check_tool xmlcatalog "Can be found in the Ubuntu repos in package libxml2-utils"
+   check_tool xmlcatalog "Available in Ubuntu package libxml2-utils"
 
    # Test for DocBook
-   check_exist /usr/share/xml/docbook "Can be found in the Ubuntu repos in package docbook-xml"
+   check_exist /usr/share/xml/docbook "Available in Ubuntu package docbook-xml"
 }
