@@ -3,13 +3,13 @@
 # License: LGPLv2.1
 
 name=libusb
-version=1.0.18
+version=1.0.19
 release=1
-source=(http://downloads.sourceforge.net/libusbx/libusbx-$version.tar.bz2)
+source=(http://downloads.sourceforge.net/$name/$name-$version.tar.bz2)
 depends=systemd
 
 build () {
-   cd libusbx-$version
+   cd $name-$version
   
    ./configure --build=$BUILD \
                --host=$HOST \
