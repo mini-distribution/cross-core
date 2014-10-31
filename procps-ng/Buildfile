@@ -1,9 +1,9 @@
-# Description: The /proc file system utilities
+# Description: The proc file system utilities
 # URL: http://procps-ng.sourceforge.net
 # License: GPLv2 LGPLv2
 
 name=procps-ng
-version=3.3.9
+version=3.3.10
 release=1
 source=(http://downloads.sourceforge.net/project/procps-ng/Production/$name-$version.tar.xz \
         99-sysctl.conf)
@@ -17,6 +17,7 @@ build() {
    ./configure --build=$BUILD \
                --host=$HOST \
                --prefix=/usr \
+               --disable-nls \
                --disable-static \
                --exec-prefix=/ \
                --sysconfdir=/etc \
