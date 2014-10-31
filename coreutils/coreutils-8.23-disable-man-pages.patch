@@ -1,0 +1,230 @@
+--- a/Makefile.in	2014-07-19 00:22:24.000000000 +0200
++++ b/Makefile.in	2014-10-31 13:29:35.631524296 +0100
+@@ -75,24 +75,6 @@
+ # You should have received a copy of the GNU General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
+-# Make coreutils man pages.				-*-Makefile-*-
+-# This is included by the top-level Makefile.am.
+-
+-# Copyright (C) 2002-2014 Free Software Foundation, Inc.
+-
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU General Public License for more details.
+-
+-# You should have received a copy of the GNU General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-
+ 
+ 
+ VPATH = @srcdir@
+@@ -160,10 +142,10 @@
+ DIST_COMMON = $(top_srcdir)/lib/local.mk $(srcdir)/lib/gnulib.mk \
+ 	$(top_srcdir)/src/local.mk $(srcdir)/src/cu-progs.mk \
+ 	$(top_srcdir)/src/single-binary.mk $(top_srcdir)/doc/local.mk \
+-	$(top_srcdir)/man/local.mk $(top_srcdir)/tests/local.mk \
+-	INSTALL NEWS README AUTHORS ChangeLog $(srcdir)/Makefile.in \
+-	$(srcdir)/Makefile.am $(top_srcdir)/configure \
+-	$(am__configure_deps) $(top_srcdir)/lib/config.hin ABOUT-NLS \
++	$(top_srcdir)/tests/local.mk INSTALL NEWS README AUTHORS \
++	ChangeLog $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
++	$(top_srcdir)/configure $(am__configure_deps) \
++	$(top_srcdir)/lib/config.hin ABOUT-NLS \
+ 	$(top_srcdir)/lib/alloca.c lib/parse-datetime.c \
+ 	$(top_srcdir)/build-aux/depcomp $(top_srcdir)/build-aux/ylwrap \
+ 	$(doc_coreutils_TEXINFOS) $(top_srcdir)/build-aux/mdate-sh \
+@@ -2606,7 +2588,6 @@
+ EOVERFLOW_VALUE = @EOVERFLOW_VALUE@
+ ERRNO_H = @ERRNO_H@
+ EXEEXT = @EXEEXT@
+-EXTRA_MANS = @EXTRA_MANS@
+ FLOAT_H = @FLOAT_H@
+ FNMATCH_H = @FNMATCH_H@
+ GETADDRINFO_LIB = @GETADDRINFO_LIB@
+@@ -3820,7 +3801,6 @@
+ lispdir = @lispdir@
+ localedir = @localedir@
+ localstatedir = @localstatedir@
+-man1_MANS = @man1_MANS@
+ mandir = @mandir@
+ mkdir_p = @mkdir_p@
+ oldincludedir = @oldincludedir@
+@@ -4023,20 +4003,19 @@
+ 	lib/xnanosleep.h lib/xreadlink.h lib/xstrtod.h lib/xstrtol.h \
+ 	lib/xstrtod.c lib/xstrtod.h lib/xalloc.h lib/yesno.h src/dcgen \
+ 	src/dircolors.hin src/primes.h src/tac-pipe.c \
+-	src/extract-magic src/c99-to-c89.diff man/help2man \
+-	man/dummy-man $(man1_MANS:.1=.x) $(EXTRA_MANS:.1=.x) \
+-	$(all_tests) init.cfg tests/Coreutils.pm tests/CuSkip.pm \
+-	tests/CuTmpdir.pm tests/d_type-check tests/envvar-check \
+-	tests/factor/run.sh tests/factor/create-test.sh \
+-	tests/filefrag-extent-compare tests/fiemap-capable \
+-	tests/init.sh tests/lang-default tests/no-perl \
+-	tests/other-fs-tmpdir tests/sample-test $(pr_data)
++	src/extract-magic src/c99-to-c89.diff $(all_tests) init.cfg \
++	tests/Coreutils.pm tests/CuSkip.pm tests/CuTmpdir.pm \
++	tests/d_type-check tests/envvar-check tests/factor/run.sh \
++	tests/factor/create-test.sh tests/filefrag-extent-compare \
++	tests/fiemap-capable tests/init.sh tests/lang-default \
++	tests/no-perl tests/other-fs-tmpdir tests/sample-test \
++	$(pr_data)
+ gen_progs_lists = $(top_srcdir)/build-aux/gen-lists-of-programs.sh
+ gen_single_binary = $(top_srcdir)/build-aux/gen-single-binary.sh
+ ACLOCAL_AMFLAGS = -I m4
+ 
+ # Just prior to distribution, ...
+-# transform the automake-generated rule that runs 'rm -f rm > /dev/null 2>&1 || /bin/rm -f rm'.
++# transform the automake-generated rule that runs 'rm -f rm'.
+ # On some systems, that command would fail with a diagnostic like
+ # "rm: cannot unlink 'rm': Text file busy" when '.' appears so early
+ # in the shell's search path that running 'rm' would run the 'rm'
+@@ -4092,14 +4071,8 @@
+ # once for each program list on $(single_binary_progs). Note that
+ # for [ the macro invocation is:
+ #   SINGLE_BINARY_PROGRAM("[", _)
+-
+-# Most prog.1 man pages depend on src/$prog, except when they are part of a
+-# single binary, in which case they depend on src/coreutils. The exceptions
+-# are handled by converting $name to $prog on the following code.
+-# $(ALL_MANS) includes the $(EXTRA_MANS) so even the programs that are not
+-# being installed will have the right dependency for the manpages.
+ DISTCLEANFILES = VERSION src/fs-latest-magic.h src/coreutils.h \
+-	src/version.c src/version.h man/dynamic-deps.mk
++	src/version.c src/version.h
+ MAINTAINERCLEANFILES = THANKS-to-translators lib/iconv_open-aix.h \
+ 	lib/iconv_open-hpux.h lib/iconv_open-irix.h \
+ 	lib/iconv_open-osf.h lib/iconv_open-solaris.h \
+@@ -4154,7 +4127,7 @@
+ 	lib/ref-add.sed lib/ref-del.sed $(SCRIPTS) \
+ 	$(no_install__progs) src/coreutils_symlinks \
+ 	src/coreutils_shebangs src/fs-def src/fs-magic \
+-	src/fs-kernel-magic $(ALL_MANS) $(factor_tests)
++	src/fs-kernel-magic $(factor_tests)
+ MOSTLYCLEANDIRS = lib/arpa lib/netinet lib/selinux lib/sys lib/sys \
+ 	lib/sys lib/sys lib/sys lib/sys lib/sys lib/sys
+ AM_CPPFLAGS = -Ilib -I$(top_srcdir)/lib -Isrc -I$(top_srcdir)/src
+@@ -4962,17 +4935,6 @@
+      }				\
+    END {$$m and (warn "$@: do not use upper case in \@var{...}\n"), exit 1}'
+ 
+-@HAVE_PERL_FALSE@run_help2man = $(SHELL) $(srcdir)/man/dummy-man
+-@HAVE_PERL_TRUE@run_help2man = $(PERL) -- $(srcdir)/man/help2man
+-ALL_MANS = $(man1_MANS) $(EXTRA_MANS)
+-
+-# Dependencies common to all man pages.  Updated below.
+-
+-# Depend on this to get version number changes.
+-
+-# This is required so that changes to e.g., emit_bug_reporting_address
+-# provoke regeneration of all the manpages.
+-mandeps = .version $(top_srcdir)/src/system.h
+ 
+ # Indirections required so that we'll still be able to know the
+ # complete list of our tests even if the user overrides TESTS
+@@ -5764,10 +5726,10 @@
+ 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
+ 
+ .SUFFIXES:
+-.SUFFIXES: .1 .c .dvi .log .o .obj .pl .pl$(EXEEXT) .ps .sed .sh .sh$(EXEEXT) .sin .trs .x .xpl .xpl$(EXEEXT) .y
++.SUFFIXES: .c .dvi .log .o .obj .pl .pl$(EXEEXT) .ps .sed .sh .sh$(EXEEXT) .sin .trs .xpl .xpl$(EXEEXT) .y
+ am--refresh: Makefile
+ 	@:
+-$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am $(top_srcdir)/lib/local.mk $(srcdir)/lib/gnulib.mk $(top_srcdir)/src/local.mk $(srcdir)/src/cu-progs.mk $(top_srcdir)/src/single-binary.mk $(top_srcdir)/doc/local.mk $(top_srcdir)/man/local.mk $(top_srcdir)/tests/local.mk $(am__configure_deps)
++$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am $(top_srcdir)/lib/local.mk $(srcdir)/lib/gnulib.mk $(top_srcdir)/src/local.mk $(srcdir)/src/cu-progs.mk $(top_srcdir)/src/single-binary.mk $(top_srcdir)/doc/local.mk $(top_srcdir)/tests/local.mk $(am__configure_deps)
+ 	@for dep in $?; do \
+ 	  case '$(am__configure_deps)' in \
+ 	    *$$dep*) \
+@@ -5790,7 +5752,7 @@
+ 	    echo ' cd $(top_builddir) && $(SHELL) ./config.status $@ $(am__depfiles_maybe)'; \
+ 	    cd $(top_builddir) && $(SHELL) ./config.status $@ $(am__depfiles_maybe);; \
+ 	esac;
+-$(top_srcdir)/lib/local.mk $(srcdir)/lib/gnulib.mk $(top_srcdir)/src/local.mk $(srcdir)/src/cu-progs.mk $(top_srcdir)/src/single-binary.mk $(top_srcdir)/doc/local.mk $(top_srcdir)/man/local.mk $(top_srcdir)/tests/local.mk:
++$(top_srcdir)/lib/local.mk $(srcdir)/lib/gnulib.mk $(top_srcdir)/src/local.mk $(srcdir)/src/cu-progs.mk $(top_srcdir)/src/single-binary.mk $(top_srcdir)/doc/local.mk $(top_srcdir)/tests/local.mk:
+ 
+ $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
+ 	$(SHELL) ./config.status --recheck
+@@ -7421,7 +7383,7 @@
+ 	cd "$(DESTDIR)$(bindir)" && rm -f $$files
+ 
+ clean-binPROGRAMS:
+-	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS) > /dev/null 2>&1 || /bin/rm -f $(bin_PROGRAMS)
++	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
+ 
+ clean-noinstPROGRAMS:
+ 	-test -z "$(noinst_PROGRAMS)" || rm -f $(noinst_PROGRAMS)
+@@ -14032,59 +13994,6 @@
+ 	  $(PERL) -lne $(find_upper_case_var) $(texi_files)
+ 
+ check-local: check-texinfo
+-
+-# This is a kludge to remove generated 'man/*.1' from a non-srcdir build.
+-# Without this, "make distcheck" might fail.
+-distclean-local:
+-	test x$(srcdir) = x$(builddir) || rm -f $(ALL_MANS)
+-
+-$(ALL_MANS): $(mandeps)
+-man/dynamic-deps.mk: Makefile
+-	$(AM_V_GEN)rm -f $@ $@-t
+-	$(AM_V_at)for man in $(ALL_MANS); do				\
+-		name=`echo "$$man"|sed 's|.*/||; s|\.1$$||'` || exit 1;	\
+-		case $$name in						\
+-		     arch) prog='uname';;				\
+-		  install) prog='ginstall';;				\
+-		     test) prog='[';;					\
+-			*) prog=$$name;;				\
+-		esac;							\
+-		case " $(single_binary_progs) " in			\
+-			*" $$prog "*)					\
+-				echo $$man: src/coreutils$(EXEEXT);;	\
+-			*)						\
+-				echo $$man: src/$$prog$(EXEEXT);;	\
+-		esac							\
+-	done > $@-t							\
+-	&& mv $@-t $@
+-
+-# Include the generated man dependencies.
+-@AMDEP_TRUE@@am__include@ man/dynamic-deps.mk
+-
+-.x.1:
+-	$(AM_V_GEN)name=`echo $@ | sed 's|.*/||; s|\.1$$||'` || exit 1;	\
+-	case $$name in							\
+-	  install) prog='ginstall'; argv=$$name;;			\
+-	     test) prog='['; argv='[';;					\
+-		*) prog=$$name; argv=$$prog;;				\
+-	esac;								\
+-	rm -f $@ $@-t							\
+-	  && t=$*.td							\
+-	  && rm -rf $$t							\
+-	  && $(MKDIR_P) $$t						\
+-	  && (cd $$t && $(LN_S) '$(abs_top_builddir)/src/'$$prog $$argv) \
+-	  && $(run_help2man)						\
+-		     --source='$(PACKAGE_STRING)'			\
+-		     --include=$(srcdir)/man/$$name.x			\
+-		     --output=$$t/$$name.1 $$t/$$argv			\
+-		     --info-page='coreutils \(aq'$$name' invocation\(aq' \
+-	  && sed \
+-	       -e 's|$*\.td/||g' \
+-	       -e '/For complete documentation/d' \
+-	       $$t/$$name.1 > $@-t			\
+-	  && rm -rf $$t							\
+-	  && chmod a-w $@-t						\
+-	  && mv $@-t $@
+ .PHONY: check-root
+ check-root:
+ 	$(MAKE) check TESTS='$(root_tests)' SUBDIRS=.
+@@ -14098,6 +14007,8 @@
+ 
+ $(TEST_LOGS): $(PROGRAMS)
+ 
++#include $(top_srcdir)/man/local.mk
++
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
+ .NOEXPORT:
