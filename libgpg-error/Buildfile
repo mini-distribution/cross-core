@@ -17,8 +17,7 @@ build() {
                --host=$HOST \
                --prefix=/usr \
                --disable-static \
-               --disable-nls \
-               force_use_syscfg=no
+               --disable-nls
 
    make -j $JOBS
    make DESTDIR=$PKG install
