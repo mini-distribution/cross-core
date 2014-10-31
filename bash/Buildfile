@@ -12,7 +12,7 @@ depends=ncurses
 build() {
    cd $name-$version
 
-   for file in `ls $SRC/bash-$version-patches-*/*`
+   for file in $SRC/bash-$version-patches-*/*
    do
       patch -p0 -i $file
    done
