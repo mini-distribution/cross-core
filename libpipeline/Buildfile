@@ -1,0 +1,27 @@
+# Description: A C library for manipulating pipelines of subprocesses in a flexible and convenient way
+# URL: http://libpipeline.nongnu.org
+# License: GPLv3
+
+name=libpipeline
+version=1.4.0
+release=1
+source=(http://download.savannah.gnu.org/releases/$name/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    
+    ./configure --build=$BUILD \
+                --host=$HOST \
+                --prefix=/usr \
+                --disable-static \
+                --disable-rpath
+
+    make -j $JOBS
+    make DESTDIR=$PKG install
+
+    # Cleanup
+    rm -r $PKG/usr/share
+
+    # Fix libtool files
+    fix_la_files $PKG
+}
