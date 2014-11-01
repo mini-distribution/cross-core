@@ -1,0 +1,29 @@
+# Description: An implementation of the standard Unix documentation system accessed using the man command
+# URL: http://man-db.nongnu.org
+# License: GPLv2
+
+name=man-db
+version=2.7.0.2
+release=1
+source=(http://download.savannah.gnu.org/releases/$name/$name-$version.tar.xz)
+depends=(libpipeline gdbm)
+
+build() {
+    cd $name-$version
+    ./configure --build=$BUILD \
+                --host=$HOST \
+                --prefix=/usr \
+                --libdir=/usr/lib \
+                --libexecdir=/usr/lib/$name \
+                --disable-setuid \
+                --disable-nls
+
+    make -j $JOBS
+    make DESTDIR=$PKG install
+
+    # Cleanup
+    rm -r $PKG/usr/share/doc
+    rm -r $PKG/usr/lib/tmpfiles.d
+
+    install -d $PKG/var/cache/man
+}
