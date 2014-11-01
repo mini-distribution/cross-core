@@ -1,0 +1,19 @@
+diff -Naur a/src/usermod.c b/src/usermod.c
+--- a/src/usermod.c	2014-03-01 19:59:51.000000000 +0100
++++ b/src/usermod.c	2014-11-01 00:21:23.866225462 +0100
+@@ -1361,6 +1361,7 @@
+ 		exit (E_UID_IN_USE);
+ 	}
+ 
++#ifdef ENABLE_SUBIDS
+ 	if (   (vflg || Vflg)
+ 	    && !is_sub_uid) {
+ 		fprintf (stderr,
+@@ -1376,6 +1377,7 @@
+ 		         Prog, sub_gid_dbname (), "-w", "-W");
+ 		exit (E_USAGE);
+ 	}
++#endif
+ }
+ 
+ /*
