@@ -1,0 +1,27 @@
+# Description: GNU database library for C
+# URL: http://www.gnu.org/software/gdbm/gdbm.html
+# License: GPLv2
+
+name=gdbm
+version=1.11
+release=1
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
+
+build() {
+   cd $name-$version
+
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr \
+               --disable-static \
+               --disable-nls \
+               --enable-libgdbm-compat
+
+   make -j $JOBS
+   make prefix=$PKG/usr install
+
+   rm -rf $PKG/usr/info
+
+   # Fix libtool files
+   fix_la_files $PKG
+}

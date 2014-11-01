@@ -15,6 +15,7 @@ depends=(acl
          libcap
          libgcrypt
          libpcre
+         gdbm
          man-db
          ncurses
          openssh
