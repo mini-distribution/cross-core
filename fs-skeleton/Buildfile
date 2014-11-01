@@ -32,7 +32,8 @@ build() {
    ln -s ../run $PKG/var/run
 
    # Create users
-   echo "root:it3Y6aTzjxuyE:0:0:root:/root:/bin/bash" >> $PKG/etc/passwd
+   echo "root:x:0:0:root:/root:/bin/bash" >> $PKG/etc/passwd
+   echo "root:it3Y6aTzjxuyE:16375:0:99999:7:::" >> $PKG/etc/shadow
 
    # Create groups
    cp $SRC/group $PKG/etc/group
