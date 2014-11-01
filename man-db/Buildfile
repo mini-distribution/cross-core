@@ -6,7 +6,7 @@ name=man-db
 version=2.7.0.2
 release=1
 source=(http://download.savannah.gnu.org/releases/$name/$name-$version.tar.xz)
-depends=(libpipeline gdbm)
+depends=(libpipeline gdbm zlib less)
 
 build() {
     cd $name-$version
@@ -15,11 +15,18 @@ build() {
                 --prefix=/usr \
                 --libdir=/usr/lib \
                 --libexecdir=/usr/lib/$name \
+                --sysconfdir=/etc \
                 --disable-setuid \
+                --with-db=gdbm \
+                --enable-mandirs=GNU \
                 --disable-nls
 
     make -j $JOBS
     make DESTDIR=$PKG install
+
+    # Configure man pager
+    install -d $PKG/etc/profile.d
+    echo 'export MANPAGER=less' > $PKG/etc/profile.d/man
 
     # Cleanup
     rm -r $PKG/usr/share/doc
