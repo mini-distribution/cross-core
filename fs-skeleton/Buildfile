@@ -26,8 +26,8 @@ build() {
    install -d $PKG/run
 
    # Create symlinks
-   ln -s /usr/bin $PKG/bin
-   ln -s /usr/sbin $PKG/sbin
+   ln -s usr/bin $PKG/bin
+   ln -s usr/sbin $PKG/sbin
    ln -s ../var $PKG/usr/var
    ln -s ../run $PKG/var/run
 
