@@ -3,7 +3,7 @@
 # License: GPLv2
 
 name=pciutils
-version=3.2.1
+version=3.3.0
 release=1
 source=(http://www.kernel.org/pub/software/utils/$name/$name-$version.tar.xz)
 

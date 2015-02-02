@@ -3,16 +3,16 @@
 # License: OpenSSL
 
 name=openssl
-version=1.0.1j
+version=1.0.2
 release=1
 source=(http://www.openssl.org/source/$name-$version.tar.gz
-	openssl-1.0.1-parallel-build.patch pod2man.patch)
+	openssl-1.0.2-parallel-build.patch pod2man.patch)
 depends=zlib
 
 build() {
    cd $name-$version
 
-   patch -p1 < $SRC/openssl-1.0.1-parallel-build.patch
+   patch -p1 < $SRC/openssl-1.0.2-parallel-build.patch
 
    ./Configure --prefix=/usr \
                --cross-compile-prefix=$HOST- \
