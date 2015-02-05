@@ -3,7 +3,7 @@
 # License: GPLv2 LGPLv2.1
 
 name=libgpg-error
-version=1.17
+version=1.18
 release=1
 source=(ftp://ftp.gnupg.org/gcrypt/$name/$name-$version.tar.bz2
         libgpg-error-add-arm-cortex_a-syscfg.patch)
