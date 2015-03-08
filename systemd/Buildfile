@@ -3,17 +3,16 @@
 # License: LGPLv2.1 MIT PD GPLv2
 
 name=systemd
-version=218
+version=219
 release=1
 source=(http://www.freedesktop.org/software/systemd/$name-$version.tar.xz
-        xattr-fix.patch
-        vconsole.conf)
+        vconsole.conf tmpfiles-pam.patch)
 depends=(libcap kmod util-linux pciutils glib tcp_wrappers libgcrypt libdbus xz)
 
 build() {
    cd $name-$version
 
-   patch -p1 -i $SRC/xattr-fix.patch
+   patch -p1 -i $SRC/tmpfiles-pam.patch
 
    # Disable LTO compilation, which currently breaks cross builds
    sed -i 's/-flto/-fno-lto/' configure
