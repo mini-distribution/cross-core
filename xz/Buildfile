@@ -3,7 +3,7 @@
 # License: PD LGPLv2.1 GPLv2 GPLv3
 
 name=xz
-version=5.2.0
+version=5.2.1
 release=1
 source=(http://tukaani.org/xz/$name-$version.tar.gz)
 
