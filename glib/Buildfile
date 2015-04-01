@@ -3,13 +3,18 @@
 # License: GPLv2
 
 name=glib
-version=2.42.1
+version=2.44.0
 release=1
-source=(http://ftp.gnome.org/pub/gnome/sources/glib/${version%.*}/$name-$version.tar.xz)
-depends=(zlib libffi)
+source=(http://ftp.gnome.org/pub/gnome/sources/glib/${version%.*}/$name-$version.tar.xz
+        0001-gio-Fix-linking-with-libgmodule.patch)
+depends=(zlib libffi libpcre)
 
 build() {
    cd $name-$version
+
+   patch -p1 -i $SRC/0001-gio-Fix-linking-with-libgmodule.patch
+
+   NOCONFIGURE=1 ./autogen.sh
 
    # Apply known hacks for cross compiling glib
    echo "glib_cv_stack_grows=yes" >> config.cache
@@ -34,7 +39,7 @@ build() {
                --disable-xattr \
                --enable-man \
                --disable-Bsymbolic \
-               --disable-nls
+               --with-pcre=system
 
    make -j $JOBS
    make DESTDIR=$PKG install
