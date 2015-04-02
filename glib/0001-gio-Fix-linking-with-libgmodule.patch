@@ -1,0 +1,56 @@
+From 967902612d7f7cf996366e29e9dc093aef0e8d47 Mon Sep 17 00:00:00 2001
+From: Jesper Larsen <knorr.jesper@gmail.com>
+Date: Wed, 1 Apr 2015 21:23:57 +0200
+Subject: [PATCH] gio: Fix linking with libgmodule
+
+---
+ gio/Makefile.am | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/gio/Makefile.am b/gio/Makefile.am
+index 28aea41..dacfbb4 100644
+--- a/gio/Makefile.am
++++ b/gio/Makefile.am
+@@ -707,6 +707,7 @@ bin_PROGRAMS = gio-querymodules glib-compile-schemas glib-compile-resources gset
+ 
+ glib_compile_resources_LDADD = libgio-2.0.la 		\
+ 	$(top_builddir)/gobject/libgobject-2.0.la	\
++	$(top_builddir)/gmodule/libgmodule-2.0.la \
+ 	$(top_builddir)/glib/libglib-2.0.la 		\
+ 	$(NULL)
+ 
+@@ -736,6 +737,7 @@ glib_compile_schemas_SOURCES = \
+ 
+ gsettings_LDADD = libgio-2.0.la 			\
+ 	$(top_builddir)/gobject/libgobject-2.0.la	\
++	$(top_builddir)/gmodule/libgmodule-2.0.la	\
+ 	$(top_builddir)/glib/libglib-2.0.la		\
+ 	$(NULL)
+ gsettings_SOURCES = gsettings-tool.c
+@@ -750,6 +752,7 @@ bin_PROGRAMS += gdbus
+ gdbus_SOURCES = gdbus-tool.c
+ gdbus_LDADD = libgio-2.0.la 				\
+ 	$(top_builddir)/gobject/libgobject-2.0.la	\
++	$(top_builddir)/gmodule/libgmodule-2.0.la	\
+ 	$(top_builddir)/glib/libglib-2.0.la		\
+ 	$(NULL)
+ 
+@@ -760,6 +763,7 @@ bin_PROGRAMS += gapplication
+ gapplication_SOURCES = gapplication-tool.c
+ gapplication_LDADD = libgio-2.0.la 			\
+ 	$(top_builddir)/gobject/libgobject-2.0.la	\
++	$(top_builddir)/gmodule/libgmodule-2.0.la	\
+ 	$(top_builddir)/glib/libglib-2.0.la		\
+ 	$(NULL)
+ endif
+@@ -780,6 +784,7 @@ gresource_SOURCES = gresource-tool.c
+ gresource_CPPFLAGS = $(LIBELF_CFLAGS) $(AM_CPPFLAGS)
+ gresource_LDADD = libgio-2.0.la				\
+ 	$(top_builddir)/gobject/libgobject-2.0.la	\
++	$(top_builddir)/gmodule/libgmodule-2.0.la \
+ 	$(top_builddir)/glib/libglib-2.0.la		\
+ 	$(LIBELF_LIBS)
+ 
+-- 
+1.9.1
+
