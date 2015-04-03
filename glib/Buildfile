@@ -39,13 +39,15 @@ build() {
                --disable-xattr \
                --enable-man \
                --disable-Bsymbolic \
-               --with-pcre=system
+               --with-pcre=system \
+               --disable-gtk-doc \
+               --disable-gtk-doc-html \
+               --disable-gtk-doc-pdf
 
    make -j $JOBS
    make DESTDIR=$PKG install
 
    # Cleanup
-   rm -r $PKG/usr/share/gtk-doc
    rm -r $PKG/usr/share/locale
    rm -r $PKG/usr/share/gdb
    rm -r $PKG/usr/share/glib-2.0/{codegen,gdb}
