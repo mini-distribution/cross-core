@@ -5,10 +5,16 @@
 name=ncurses
 version=5.9
 release=1
-source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz)
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz
+        http://mirror.mini-distribution.io/ncurses-5.9-patches.tar.xz)
 
 build() {
    cd $name-$version
+
+   for file in $SRC/ncurses-5.9-patches/*
+   do
+      patch -p1 -i $file
+   done
 
    ./configure --build=$BUILD \
                --host=$HOST \
@@ -24,7 +30,9 @@ build() {
                --without-ticlib \
                --without-gpm \
                --without-sysmouse \
-               --disable-termcap
+               --disable-termcap \
+               --enable-pc-files \
+               --with-pkg-config-libdir=/usr/lib/pkgconfig
 
     make -j $JOBS
     make DESTDIR=$PKG install
