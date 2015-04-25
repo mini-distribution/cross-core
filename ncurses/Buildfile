@@ -11,10 +11,10 @@ source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz
 build() {
    cd $name-$version
 
-   for file in $SRC/ncurses-5.9-patches/*
-   do
-      patch -p1 -i $file
-   done
+#   for file in $SRC/ncurses-5.9-patches/*
+#   do
+#      patch -p1 -i $file
+#   done
 
    ./configure --build=$BUILD \
                --host=$HOST \
