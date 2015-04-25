@@ -11,6 +11,8 @@ depends=ncurses
 build(){
    cd $name-$version
 
+   export NCURSESW_CONFIG="$SYSROOT/usr/bin/ncurses5-config"
+
    ./configure --build=$BUILD \
                --host=$HOST \
                --prefix=/usr \
