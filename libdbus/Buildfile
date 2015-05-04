@@ -3,7 +3,7 @@
 # License: AFL-2.1 GPLv2
 
 name=libdbus
-version=1.8.14
+version=1.8.16
 release=1
 source=(http://dbus.freedesktop.org/releases/dbus/dbus-$version.tar.gz)
 depends=(expat)
