@@ -1,17 +1,8 @@
-On linux platforms, grok /proc/cpuinfo for the CPU/vendor info.
-
-Prob not suitable for upstream seeing as how it's 100% linux-specific
-http://lists.gnu.org/archive/html/bug-coreutils/2005-09/msg00063.html
-
-Patch originally by Carlos E. Gorges <carlos@techlinux.com.br>, but 
-heavily reworked to suck less.
-
-To add support for additional platforms, check out the show_cpuinfo()
-func in the linux/arch/<ARCH>/ source tree of the kernel.
-
---- coreutils/src/uname.c
-+++ coreutils/src/uname.c
-@@ -50,6 +50,11 @@
+diff --git a/src/uname.c b/src/uname.c
+index 39bd28c..893ade8 100644
+--- a/src/uname.c
++++ b/src/uname.c
+@@ -49,6 +49,11 @@
  # include <mach-o/arch.h>
  #endif
  
@@ -23,7 +14,7 @@ func in the linux/arch/<ARCH>/ source tree of the kernel.
  #include "system.h"
  #include "error.h"
  #include "quote.h"
-@@ -138,6 +143,117 @@
+@@ -153,6 +158,117 @@ Print machine architecture.\n\
    exit (status);
  }
  
@@ -141,7 +132,7 @@ func in the linux/arch/<ARCH>/ source tree of the kernel.
  /* Print ELEMENT, preceded by a space if something has already been
     printed.  */
  
-@@ -250,10 +344,14 @@ main (int argc, char **argv)
+@@ -300,10 +416,14 @@ main (int argc, char **argv)
    if (toprint & PRINT_PROCESSOR)
      {
        char const *element = unknown;
@@ -157,7 +148,7 @@ func in the linux/arch/<ARCH>/ source tree of the kernel.
            element = processor;
        }
  #endif
-@@ -306,9 +404,13 @@ main (int argc, char **argv)
+@@ -356,9 +476,13 @@ main (int argc, char **argv)
        if (element == unknown)
          {
            static char hardware_platform[257];
