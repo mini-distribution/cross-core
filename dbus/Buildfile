@@ -3,9 +3,9 @@
 # License: AFL-2.1 GPLv2
 
 name=dbus
-version=1.9.16
+version=1.9.14
 release=1
-source=(http://dbus.freedesktop.org/releases/$name/$name-$version.tar.gz)
+source=(http://dbus.freedesktop.org/releases/dbus/$name-$version.tar.gz)
 depends=(expat systemd libdbus)
 
 build() {
