@@ -6,13 +6,11 @@ name=openssl
 version=1.0.2d
 release=1
 source=(ftp://ftp.openssl.org/source/openssl-$version.tar.gz
-	openssl-1.0.2a-parallel-build.patch pod2man.patch)
+        pod2man.patch)
 depends=zlib
 
 build() {
    cd $name-$version
-
-   patch -p2 -i $SRC/openssl-1.0.2a-parallel-build.patch
 
    ./Configure --prefix=/usr \
                --cross-compile-prefix=$HOST- \
@@ -24,8 +22,8 @@ build() {
                shared \
                linux-generic32
 
-  patch -p1 < $SRC/pod2man.patch
+   patch -p1 < $SRC/pod2man.patch
 
-  make -j $JOBS
-  make MANDIR=/usr/share/man MANSUFFIX=ssl install
+   make -j $JOBS
+   make MANDIR=/usr/share/man MANSUFFIX=ssl install
 }
