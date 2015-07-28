@@ -3,21 +3,20 @@
 # License: LGPLv2.1 MIT PD GPLv2
 
 name=systemd
-version=220
+version=221
 release=1
 source=(http://www.freedesktop.org/software/systemd/$name-$version.tar.xz
+        mount-setup.patch
         vconsole.conf)
 depends=(libcap kmod util-linux pciutils glib tcp_wrappers libgcrypt libdbus xz)
 
 build() {
    cd $name-$version
 
+   patch -p1 -i $SRC/mount-setup.patch
+
    # Disable LTO compilation, which currently breaks cross builds
    sed -i 's/-flto/-fno-lto/' configure
-
-   # Fix audit build issues
-   rm src/journal/audit_type-to-name.h
-   rm src/udev/keyboard-keys-from-name.gperf
 
    ./configure --build=$BUILD \
                --host=$HOST \
@@ -70,6 +69,7 @@ build() {
    rm $PKG/usr/lib/tmpfiles.d/legacy.conf
    rm $PKG/usr/lib/tmpfiles.d/x11.conf
    rm $PKG/usr/lib/udev/rules.d/73-seat-late.rules
+   rm -r $PKG/etc/X11
 
    # Fix libtool files
    fix_la_files $PKG
