@@ -3,17 +3,16 @@
 # License: LGPLv2.1 MIT PD GPLv2
 
 name=systemd
-version=221
+version=223
 release=1
-source=(http://www.freedesktop.org/software/systemd/$name-$version.tar.xz
-        mount-setup.patch
+source=(http://mirror.mini-distribution.io/$name-$version.tar.gz
         vconsole.conf)
 depends=(libcap kmod util-linux pciutils glib tcp_wrappers libgcrypt libdbus xz)
 
 build() {
    cd $name-$version
 
-   patch -p1 -i $SRC/mount-setup.patch
+   ./autogen.sh
 
    # Disable LTO compilation, which currently breaks cross builds
    sed -i 's/-flto/-fno-lto/' configure
@@ -42,6 +41,7 @@ build() {
                --disable-efi \
                --disable-networkd \
                --disable-gnuefi \
+               --disable-bootchart \
                ac_cv_func_malloc_0_nonnull=yes
 
    make -j $JOBS
