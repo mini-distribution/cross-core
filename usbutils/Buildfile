@@ -6,7 +6,7 @@ name=usbutils
 version=008
 release=1
 source=(https://www.kernel.org/pub/linux/utils/usb/$name/$name-$version.tar.xz)
-depends=libusb
+depends=(libusb systemd)
 
 build() {
    cd $name-$version
@@ -17,7 +17,7 @@ build() {
                --disable-zlib \
                --datarootdir=/usr/lib \
                --mandir=/usr/share/man
-   
+
    make -j $JOBS
    make DESTDIR=$PKG install
 }
