@@ -3,7 +3,7 @@
 # License: GPLv2 LGPLv2
 
 name=procps-ng
-version=3.3.10
+version=3.3.11
 release=1
 source=(http://downloads.sourceforge.net/project/procps-ng/Production/$name-$version.tar.xz \
         99-sysctl.conf)
