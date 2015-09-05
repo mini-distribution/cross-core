@@ -3,9 +3,9 @@
 # License: LGPLv2.1 MIT PD GPLv2
 
 name=systemd
-version=223
+version=225
 release=1
-source=(http://mirror.mini-distribution.io/$name-$version.tar.gz
+source=(http://mirror.mini-distribution.io/$name-$version.tar.xz
         vconsole.conf)
 depends=(libcap kmod util-linux pciutils glib tcp_wrappers libgcrypt libdbus xz)
 
