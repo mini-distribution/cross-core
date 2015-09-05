@@ -3,7 +3,7 @@
 # License: LGPLv2
 
 name=check
-version=0.9.14
+version=0.10.0
 release=1
 source=http://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.gz
 

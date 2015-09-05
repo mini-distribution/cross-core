@@ -3,7 +3,7 @@
 # License: BSD
 
 name=openssh
-version=6.9p1
+version=7.1p1
 release=1
 source=(http://www.mirrorservice.org/pub/OpenBSD/OpenSSH/portable/$name-$version.tar.gz
         sshdgenkeys.service
