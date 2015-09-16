@@ -12,8 +12,6 @@ depends=(libcap kmod util-linux pciutils glib tcp_wrappers libgcrypt libdbus xz)
 build() {
    cd $name-$version
 
-   ./autogen.sh
-
    # Disable LTO compilation, which currently breaks cross builds
    sed -i 's/-flto/-fno-lto/' configure
 
