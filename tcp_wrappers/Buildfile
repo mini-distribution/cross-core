@@ -6,7 +6,7 @@ name=tcp_wrappers
 version=7.6
 release=1
 source=(ftp://ftp.porcupine.org/pub/security/${name}_${version}.tar.gz \
-        ftp://ftp.uni-frankfurt.de/pub/Mirrors/gentoo.org/distfiles/tcp-wrappers-$version-patches-1.0.tar.bz2 \
+        http://ftp.uni-frankfurt.de/gentoo.org/distfiles/tcp-wrappers-$version-patches-1.0.tar.bz2 \
         hosts.allow hosts.deny try-from.8 safe_finger.8)
 
 build() {
