@@ -27,8 +27,8 @@ build() {
    make -j $JOBS
    make DESTDIR=$PKG install
 
+   # We will overwrite the lib provided by libdbus as bootstrap
    rm -r $PKG/usr/share/doc
-   rm -r $PKG/usr/{include,lib}
    rm -r $PKG/var
 
    # Fix libtool files
