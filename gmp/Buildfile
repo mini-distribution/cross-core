@@ -3,12 +3,12 @@
 # License: LGPLv3
 
 name=gmp
-version=6.0.0a
+version=6.1.0
 release=1
 source=(ftp://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
 
 build() {
-   cd $name-6.0.0
+   cd $name-$version
 
    CC_FOR_BUILD=cc \
    ./configure --build=$BUILD \
