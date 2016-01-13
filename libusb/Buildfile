@@ -3,7 +3,7 @@
 # License: LGPLv2.1
 
 name=libusb
-version=1.0.19
+version=1.0.20
 release=1
 source=(http://downloads.sourceforge.net/$name/$name-$version.tar.bz2)
 depends=systemd
@@ -16,7 +16,8 @@ build () {
                --prefix=/usr \
                --disable-static
 
-   make -j $JOBS
+   # Use only one build thread to avoid build bug in libusb 1.0.20
+   make -j 1
    make DESTDIR=$PKG install
 
    # Fix libtool files
