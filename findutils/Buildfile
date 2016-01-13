@@ -3,7 +3,7 @@
 # License: GPLv3
 
 name=findutils
-version=4.4.2
+version=4.6.0
 release=1
 source=(http://ftp.gnu.org/pub/gnu/$name/$name-$version.tar.gz)
 
