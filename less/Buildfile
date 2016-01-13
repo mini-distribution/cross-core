@@ -3,7 +3,7 @@
 # License: GPLv3
 
 name=less
-version=458
+version=481
 release=1
 source=(http://www.greenwoodsoftware.com/less/$name-$version.tar.gz \
         filter)
