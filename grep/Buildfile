@@ -3,7 +3,7 @@
 # License: GPLv3
 
 name=grep
-version=2.22
+version=2.23
 release=1
 source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
 depends=libpcre
