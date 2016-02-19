@@ -11,7 +11,7 @@ source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz
 build() {
    cd $name-$version
 
-   for file in `ls -1 $SRC/ncurses-6.0-patches-20160213/*.gz` do
+   for file in `ls -1 $SRC/ncurses-6.0-patches-20160213/*.gz`; do
      gunzip $file
      patch -p1 -i ${file%.gz}
    done
