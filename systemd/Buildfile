@@ -3,7 +3,7 @@
 # License: LGPLv2.1 MIT PD GPLv2
 
 name=systemd
-version=228
+version=229
 release=1
 source=(http://mirror.mini-distribution.io/$name-$version.tar.gz
         vconsole.conf)
@@ -33,6 +33,7 @@ build() {
                --disable-selinux \
                --disable-pam \
                --with-libgcrypt-prefix=$SYSROOT/usr \
+               --with-gpg-error-prefix=$SYSROOT/usr \
                --disable-libcryptsetup \
                --disable-dbus \
                --disable-tests \
