@@ -3,17 +3,17 @@
 # License: BSD GPLv2 Rdisc
 
 name=iputils
-version=s20121221
+version=s20151218
 release=1
 source=(http://www.skbuff.net/iputils/$name-$version.tar.bz2
         http://crux.nu/files/distfiles/$name-man-$version.tar.xz)
-depends=(sysfsutils libcap openssl)
+depends=(sysfsutils libcap openssl libgcrypt)
 
 build() {
    cd $name-$version
 
    make -j $JOBS CC="$HOST-gcc" USE_GNUTLS=no
-  
+
    install -d $PKG/usr/share/man/man8
    install -d $PKG/usr/{bin,sbin}
    install ping{,6} $PKG/usr/bin
