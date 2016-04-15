@@ -3,9 +3,9 @@
 # License: MIT
 
 name=expat
-version=2.1.0
+version=2.1.1
 release=1
-source=(http://downloads.sourceforge.net/project/expat/expat/$version/$name-$version.tar.gz)
+source=(http://downloads.sourceforge.net/project/expat/expat/$version/$name-$version.tar.bz2)
 
 build() {
    cd $name-$version
