@@ -3,14 +3,14 @@
 # License: GPLv3
 
 name=coreutils
-version=8.24
+version=8.25
 release=1
 source=(http://ftp.gnu.org/gnu/coreutils/$name-$version.tar.xz
         003_all_coreutils-uname.patch
         030_all_coreutils-more-dir-colors.patch
         040_all_coreutils-cp-mkdir-eexist.patch
-        coreutils-8.23-disable-man-pages.patch
-        coreutils-8.23-enable-ls-colors-for-vt102.patch)
+        coreutils-8.25-disable-man-pages.patch
+        coreutils-8.25-enable-ls-colors-for-vt102.patch)
 depends=(libcap attr acl gmp)
 
 build() {

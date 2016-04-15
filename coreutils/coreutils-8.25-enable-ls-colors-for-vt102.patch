@@ -1,0 +1,10 @@
+--- a/src/dircolors.hin
++++ b/src/dircolors.hin
+@@ -42,6 +42,7 @@ TERM st-256color
+ TERM terminator
+ TERM tmux*
+ TERM vt100
++TERM vt102
+ TERM xterm*
+ 
+ # Below are the color init strings for the basic file types. A color init
