@@ -3,7 +3,7 @@
 # License: GPLv3
 
 name=libgcrypt
-version=1.6.5
+version=1.7.0
 release=1
 source=(ftp://ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-$version.tar.bz2)
 depends=libgpg-error
