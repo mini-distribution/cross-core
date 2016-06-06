@@ -5,14 +5,20 @@
 name=libgcrypt
 version=1.7.0
 release=1
-source=(ftp://ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-$version.tar.bz2)
+source=(ftp://ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-$version.tar.bz2
+        0001-ac_cv_sys_symbol_underscore.patch
+        0002-reconfigure.patch)
 depends=libgpg-error
 
 build() {
    cd $name-$version
 
+   patch -p1 -i $SRC/0001-ac_cv_sys_symbol_underscore.patch
+   patch -p1 -i $SRC/0002-reconfigure.patch
+
    GPG_ERROR_CFLAGS="-I$SYSROOT/usr/include" \
    GPG_ERROR_LIBS="-L$SYSROOT/usr/lib" \
+   ac_cv_sys_symbol_underscore=no \
    ./configure --build=$BUILD \
                --host=$HOST \
                --prefix=/usr \
