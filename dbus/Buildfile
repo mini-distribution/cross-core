@@ -3,10 +3,10 @@
 # License: AFL-2.1 GPLv2
 
 name=dbus
-version=1.10.8
+version=1.11.2
 release=1
 source=(http://dbus.freedesktop.org/releases/dbus/$name-$version.tar.gz)
-depends=(expat systemd libdbus)
+depends=(expat systemd)
 
 build() {
    cd $name-$version
@@ -27,7 +27,7 @@ build() {
    make -j $JOBS
    make DESTDIR=$PKG install
 
-   # We will overwrite the lib provided by libdbus as bootstrap
+   # Cleanup
    rm -r $PKG/usr/share/doc
    rm -r $PKG/var
 
