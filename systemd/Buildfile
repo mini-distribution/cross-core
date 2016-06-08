@@ -7,7 +7,7 @@ version=230
 release=1
 source=(http://mirror.mini-distribution.io/$name-$version.tar.xz
         vconsole.conf)
-depends=(libcap kmod util-linux pciutils glib tcp_wrappers libgcrypt libdbus xz)
+depends=(libcap kmod util-linux pciutils glib tcp_wrappers libgcrypt xz)
 
 build() {
    cd $name-$version
