@@ -12,9 +12,6 @@ depends=(libcap kmod util-linux pciutils glib tcp_wrappers libgcrypt xz)
 build() {
    cd $name-$version
 
-   # Disable LTO compilation, which currently breaks cross builds
-   sed -i 's/-flto/-fno-lto/' configure
-
    ./configure --build=$BUILD \
                --host=$HOST \
                --prefix=/usr \
