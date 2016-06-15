@@ -6,7 +6,7 @@ name=dbus
 version=1.10.8
 release=1
 source=(http://dbus.freedesktop.org/releases/dbus/$name-$version.tar.gz)
-depends=(expat systemd libdbus)
+depends=(expat systemd)
 
 build() {
    cd $name-$version
