@@ -7,7 +7,7 @@ version=481
 release=1
 source=(http://www.greenwoodsoftware.com/less/$name-$version.tar.gz \
         filter)
-depends=(ncurses libpcre)
+depends=(ncurses pcre)
 
 build() {
    cd $name-$version
