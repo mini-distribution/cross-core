@@ -14,7 +14,7 @@ depends=(acl
          kmod
          libcap
          libgcrypt
-         libpcre
+         pcre
          gdbm
          man-db
          ncurses

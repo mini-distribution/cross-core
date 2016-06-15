@@ -6,7 +6,7 @@ name=grep
 version=2.25
 release=1
 source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
-depends=libpcre
+depends=pcre
 
 build() {
    cd $name-$version

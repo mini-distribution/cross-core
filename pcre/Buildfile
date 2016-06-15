@@ -2,13 +2,13 @@
 # URL: http://www.pcre.org
 # License: BSD
 
-name=libpcre
-version=8.38
+name=pcre
+version=8.39
 release=1
-source=(ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-$version.tar.bz2)
+source=(ftp://ftp.csx.cam.ac.uk/pub/software/programming/$name/$name-$version.tar.bz2)
 
 build() {
-   cd pcre-$version
+   cd $name-$version
 
    ./configure --build=$BUILD \
                --host=$HOST \
