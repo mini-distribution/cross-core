@@ -3,7 +3,7 @@
 # License: GPLv3
 
 name=wget
-version=1.17.1
+version=1.18
 release=1
 source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz \
         wgetrc)
