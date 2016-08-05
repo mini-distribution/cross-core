@@ -3,7 +3,7 @@
 # License: MIT
 
 name=expat
-version=2.1.1
+version=2.2.0
 release=1
 source=(http://downloads.sourceforge.net/project/expat/expat/$version/$name-$version.tar.bz2)
 
