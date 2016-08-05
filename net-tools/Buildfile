@@ -5,7 +5,7 @@
 name=net-tools
 version=1.60
 release=1
-source=(http://tenet.dl.sourceforge.net/project/net-tools/$name-$version.tar.bz2 \
+source=(http://downloads.sourceforge.net/project/net-tools/$name-$version.tar.bz2 \
         $name-$version-config.patch \
         $name-$version-compile_fixes.patch \
         $name-$version-arp.patch \
