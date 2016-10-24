@@ -3,19 +3,13 @@
 # License: GPLv3
 
 name=bash
-version=4.3
+version=4.4
 release=1
-source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz profile
-        http://mirror.mini-distribution.io/bash-4.3-patches-42.tar.xz)
+source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.gz profile)
 depends=ncurses
 
 build() {
    cd $name-$version
-
-   for file in $SRC/bash-$version-patches-*/*
-   do
-      patch -p0 -i $file
-   done
 
    echo "bash_cv_sys_named_pipes=yes" >> config.cache
    echo "bash_cv_job_control_missing=present" >> config.cache
