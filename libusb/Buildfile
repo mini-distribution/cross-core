@@ -3,9 +3,9 @@
 # License: LGPLv2.1
 
 name=libusb
-version=1.0.20
+version=1.0.21
 release=1
-source=(https://github.com/$name/$name/releases/download/v1.0.20/$name-$version.tar.bz2)
+source=(https://github.com/$name/$name/releases/download/v${version}/$name-$version.tar.bz2)
 depends=systemd
 
 build () {
