@@ -26,6 +26,7 @@ build() {
                --enable-{write,raw,kill} \
                --cache-file=config.cache \
                --without-python \
+               --without-ncursesw \
                LDFLAGS=-ltinfo
 
    make -j $JOBS
