@@ -3,7 +3,7 @@
 # License: GPLv2
 
 name=kbd
-version=2.0.2
+version=2.0.4
 release=1
 source=(http://www.kbd-project.org/download/$name-$version.tar.xz)
 depends=check
