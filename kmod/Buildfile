@@ -3,7 +3,7 @@
 # License: GPLv2
 
 name=kmod
-version=23
+version=24
 release=1
 source=(http://www.kernel.org/pub/linux/utils/kernel/kmod/$name-$version.tar.xz)
 
