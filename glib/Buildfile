@@ -1,6 +1,6 @@
 # Description: General purpose utility library
 # URL: http://developer.gnome.org/glib
-# License: GPLv2
+# License: LGPLv2
 
 name=glib
 version=2.50.3
