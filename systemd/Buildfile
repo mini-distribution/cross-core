@@ -59,6 +59,9 @@ build() {
    # Disable first boot noise
    rm $PKG/usr/lib/systemd/system/sysinit.target.wants/systemd-firstboot.service
 
+   # Disable container service
+   rm $PKG/usr/lib/systemd/system/systemd-nspawn@.service
+
    # Cleanup
    rm $PKG/usr/lib/tmpfiles.d/legacy.conf
    rm $PKG/usr/lib/tmpfiles.d/x11.conf
