@@ -3,9 +3,9 @@
 # License: BSD GPLv2
 
 name=psmisc
-version=22.21
+version=23.1
 release=1
-source=(http://downloads.sourceforge.net/project/psmisc/psmisc/$name-$version.tar.gz)
+source=(http://downloads.sourceforge.net/project/psmisc/psmisc/$name-$version.tar.xz)
 depends=ncurses
 
 build() {
