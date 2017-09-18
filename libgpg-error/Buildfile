@@ -6,12 +6,17 @@ name=libgpg-error
 version=1.27
 release=1
 source=(ftp://ftp.gnupg.org/gcrypt/$name/$name-$version.tar.bz2
-        libgpg-error-add-arm-cortex_a-syscfg.patch)
+        libgpg-error-add-arm-cortex_a-syscfg.patch
+        triplet-aliases.patch)
 
 build() {
    cd $name-$version
 
    patch -p1 < $SRC/libgpg-error-add-arm-cortex_a-syscfg.patch
+   patch -p1 < $SRC/triplet-aliases.patch
+
+   # When possible add an syscfg alias to existing syscfg files in the triplet
+   # patch above
 
    ./configure --build=$BUILD \
                --host=$HOST \
