@@ -1,5 +1,5 @@
 # Description: Library giving userland programs access to USB devices
-# URL: http://libusb.org
+# URL: http://libusb.info
 # License: LGPLv2.1
 
 name=libusb
