@@ -1,0 +1,23 @@
+# Description: libmnl is a minimalistic user-space library oriented to Netlink developers. 
+# URL: http://www.netfilter.org/projects/libmnl/
+# License: LGPLv2.1+
+
+name=libmnl
+version=1.0.4
+release=1
+source=(http://www.netfilter.org/projects/$name/files/$name-$version.tar.bz2)
+
+build() {
+   cd $name-$version
+
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr \
+               --enable-shared
+
+   make -j $JOBS
+   make DESTDIR=$PKG install
+
+   # Fix libtool files
+   fix_la_files $PKG
+}

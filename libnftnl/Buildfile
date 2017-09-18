@@ -1,0 +1,24 @@
+# Description: libnftnl is a userspace library providing a low-level netlink programming interface (API) to the in-kernel nf_tables subsystem. 
+# URL: http://www.netfilter.org/projects/libnftnl/index.html
+# License: GPLv2+
+
+name=libnftnl
+version=1.0.7
+release=1
+source=(http://www.netfilter.org/projects/$name/files/$name-$version.tar.bz2)
+depends=(libmnl)
+
+build() {
+   cd $name-$version
+
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr \
+               --enable-shared
+
+   make -j $JOBS
+   make DESTDIR=$PKG install
+
+   # Fix libtool files
+   fix_la_files $PKG
+}

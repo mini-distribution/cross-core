@@ -1,0 +1,26 @@
+# Description: A Linux kernel packet filter control tool
+# URL: http://www.iptables.org
+# License: GPLv2
+
+name=iptables
+version=1.6.1
+release=1
+source=(ftp://ftp.netfilter.org/pub/iptables/$name-$version.tar.bz2)
+depends=libnftnl
+
+build () {
+   cd $name-$version
+
+   ./configure --build=$BUILD \
+               --host=$HOST \
+               --prefix=/usr \
+               --disable-static \
+               --libexecdir=/usr/lib \
+               --enable-libipq
+
+   make -j $JOBS
+   make DESTDIR=$PKG install
+
+   # Fix libtool files
+   fix_la_files $PKG
+}
