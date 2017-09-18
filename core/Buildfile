@@ -1,50 +1,55 @@
 # Description: All core builds
 
 name=core
-version=1.2
+version=1.3
 release=1
 depends=(acl
-         bash
-         dbus
-         findutils
-         gawk
-         gmp
-         groff
-         iputils
-         kmod
-         libcap
-         libgcrypt
-         pcre
-         gdbm
-         man-db
-         ncurses
-         openssh
-         pciutils
-         psmisc
-         shadow
-         systemd
-         tcp_wrappers
-         util-linux
-         zlib
          attr
+         bash
          check
          coreutils
+         dbus
          expat
+         findutils
          fs-skeleton
+         gawk
+         gdbm
          glib
+         gmp
          grep
+         groff
          gzip
+         iproute2
+         iptables
+         iputils
          kbd
+         kmod
          less
+         libcap
          libffi
+         libgcrypt
          libgpg-error
+         libmnl
+         libnftnl
+         libpipeline
          libusb
+         man-db
          nano
-         net-tools
+         ncurses
+         openssh
          openssl
+         pciutils
+         pcre
          procps-ng
+         psmisc
          sed
+         shadow
          sysfsutils
+         systemd
          tar
+         tcp_wrappers
          usbutils
-         wget)
+         util-linux
+         wget
+         xz
+         zlib)
