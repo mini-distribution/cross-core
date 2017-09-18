@@ -3,7 +3,7 @@
 # License: LGPLv2.1 MIT PD GPLv2
 
 name=systemd
-version=231
+version=234
 release=1
 source=(http://mirror.mini-distribution.io/$name-$version.tar.xz
         vconsole.conf)
