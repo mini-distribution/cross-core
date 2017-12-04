@@ -3,43 +3,43 @@
 # License: LGPLv2.1 MIT PD GPLv2
 
 name=systemd
-version=234
+version=235
 release=1
-source=(http://mirror.mini-distribution.io/$name-$version.tar.xz
+source=(https://github.com/systemd/systemd/archive/$name-$version.tar.gz
+        0001-meson-do-not-create-systemd-user-sessions.service-if.patch
         vconsole.conf)
 depends=(libcap kmod util-linux pciutils glib tcp_wrappers libgcrypt xz)
 
 build() {
    cd $name-$version
 
-   ./configure --build=$BUILD \
-               --host=$HOST \
-               --prefix=/usr \
-               --disable-static \
-               --sysconfdir=/etc \
-               --libexecdir=/usr/lib \
-               --localstatedir=/var \
-               --disable-nls \
-               --without-python \
-               --enable-compat-libs \
-               --disable-audit \
-               --disable-ima \
-               --disable-kdbus \
-               --disable-selinux \
-               --disable-pam \
-               --with-libgcrypt-prefix=$SYSROOT/usr \
-               --with-gpg-error-prefix=$SYSROOT/usr \
-               --disable-libcryptsetup \
-               --disable-dbus \
-               --disable-tests \
-               --disable-efi \
-               --disable-networkd \
-               --disable-gnuefi \
-               --disable-bootchart \
-               ac_cv_func_malloc_0_nonnull=yes
+   patch -p1 -i $SRC/0001-meson-do-not-create-systemd-user-sessions.service-if.patch
 
-   make -j $JOBS
-   make DESTDIR=$PKG install
+   meson build --prefix=/usr \
+               --libdir=/usr/lib \
+               --sysconfdir=/etc \
+               --localstatedir=/var \
+               --cross-file=$CFG/$HOST.meson
+
+   meson configure build -Dapparmor=false \
+                         -Dbuildtype=release \
+                         -Dldconfig=false \
+                         -Drootlibdir=/usr/lib \
+                         -Daudit=false \
+                         -Dima=false \
+                         -Dselinux=false \
+                         -Dpam=false \
+                         -Dlibcryptsetup=false \
+                         -Dtests=unsafe \
+                         -Ddbus=false \
+                         -Defi=false \
+                         -Dgnu-efi=false \
+                         -Dnetworkd=false \
+                         -Dapparmor=false
+
+   ninja -C build
+
+   DESTDIR=$PKG ninja -C build install
 
    # Systemd required fixes
    ln -s /proc/self/mounts $PKG/etc/mtab
@@ -67,13 +67,14 @@ build() {
    rm $PKG/usr/lib/tmpfiles.d/x11.conf
    rm $PKG/usr/lib/udev/rules.d/73-seat-late.rules
    rm -r $PKG/etc/X11
+   rm -r $PKG/usr/share/{doc,locale}
 
    # Fix libtool files
    fix_la_files $PKG
 }
 
 check() {
-   # Test for preinstalled intltool-update tool
+   check_tool meson "Please install meson"
    check_tool intltool-update "Please install intltool"
    check_exist /usr/share/xml/docbook/stylesheet/docbook-xsl "Please install docbook-xsl"
 }
