@@ -5,7 +5,7 @@
 name=systemd
 version=235
 release=1
-source=(https://github.com/systemd/systemd/archive/$name-$version.tar.gz
+source=(http://mirror.mini-distribution.io/$name-$version.tar.gz
         0001-meson-do-not-create-systemd-user-sessions.service-if.patch
         vconsole.conf)
 depends=(libcap kmod util-linux pciutils glib tcp_wrappers libgcrypt xz)
