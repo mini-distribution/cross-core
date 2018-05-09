@@ -5,7 +5,7 @@
 name=openssl
 version=1.0.2l
 release=1
-source=(ftp://ftp.openssl.org/source/openssl-$version.tar.gz
+source=(https://ftp.openssl.org/source/old/1.0.2/openssl-$version.tar.gz
         pod2man.patch)
 depends=zlib
 
