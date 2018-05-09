@@ -5,7 +5,7 @@
 name=libgcrypt
 version=1.8.1
 release=1
-source=(ftp://ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-$version.tar.bz2
+source=(https://ftp.osuosl.org/pub/blfs/conglomeration/$name/$name-$version.tar.bz2
         0001-ac_cv_sys_symbol_underscore.patch
         0002-reconfigure.patch)
 depends=libgpg-error
