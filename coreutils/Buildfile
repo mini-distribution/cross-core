@@ -22,6 +22,7 @@ build() {
       patch -p1 -i $file
    done
 
+   autoreconf --install --force
    echo "fu_cv_sys_stat_statfs2_bsize=yes" >> config.cache
    echo "gl_cv_func_working_mkstemp=yes" >> config.cache
    echo "ac_cv_func_canonicalize_file_name=no" >> config.cache
@@ -44,3 +45,6 @@ build() {
    rm -r $PKG/usr/share
 }
 
+check() {
+   check_tool autoreconf
+}
