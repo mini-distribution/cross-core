@@ -5,11 +5,14 @@
 name=libcap
 version=2.25
 release=1
-source=(https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/$name-$version.tar.xz)
+source=(https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/$name-$version.tar.xz
+        0001-Fix-build-with-gperf-3.1.patch)
 depends=attr
 
 build() {
    cd $name-$version
+
+   patch -p1 -i $SRC/0001-Fix-build-with-gperf-3.1.patch
 
    make -j $JOBS \
          BUILD_CC=gcc \
