@@ -3,7 +3,7 @@
 # License: GPLv3
 
 name=coreutils
-version=8.28
+version=8.29
 release=1
 source=(http://ftp.gnu.org/gnu/coreutils/$name-$version.tar.xz
         003_all_coreutils-uname.patch
