@@ -3,7 +3,7 @@
 # License: GPLv3
 
 name=gawk
-version=4.1.4
+version=4.2.1
 release=1
 source=(http://ftp.gnu.org/gnu/$name/$name-$version.tar.xz)
 
