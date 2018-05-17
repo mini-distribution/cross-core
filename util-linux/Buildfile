@@ -3,7 +3,7 @@
 # License: GPLv2 LGPLv2 BSD PD
 
 name=util-linux
-version=2.30
+version=2.32
 release=1
 source=(http://www.kernel.org/pub/linux/utils/util-linux/v${version}/$name-$version.tar.xz)
 depends=(ncurses zlib)
