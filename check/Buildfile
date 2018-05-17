@@ -1,11 +1,11 @@
 # Description: A unit testing framework for C
-# URL: http://check.sourceforge.net
+# URL: https://libcheck.github.io/check
 # License: LGPLv2
 
 name=check
-version=0.11.0
+version=0.12.0
 release=1
-source=https://github.com/libcheck/check/releases/download/0.11.0/$name-$version.tar.gz
+source=https://github.com/libcheck/check/releases/download/$version/$name-$version.tar.gz
 
 build() {
    cd $name-$version
