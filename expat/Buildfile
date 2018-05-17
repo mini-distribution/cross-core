@@ -1,5 +1,5 @@
 # Description: XML parser
-# URL: http://expat.sourceforge.net
+# URL: https://libexpat.github.io
 # License: MIT
 
 name=expat
