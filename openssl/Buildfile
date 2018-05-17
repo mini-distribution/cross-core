@@ -3,7 +3,7 @@
 # License: OpenSSL
 
 name=openssl
-version=1.0.2l
+version=1.0.2n
 release=1
 source=(https://ftp.openssl.org/source/old/1.0.2/openssl-$version.tar.gz
         pod2man.patch)
