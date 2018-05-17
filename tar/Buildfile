@@ -1,11 +1,11 @@
 # Description: GNU Tar
-# URL: http://www.gnu.org/software/tar/
+# URL: http://www.gnu.org/software/tar
 # License: GPL
 
 name=tar
-version=1.29
+version=1.30
 release=1
-source=(http://ftp.gnu.org/gnu/tar/$name-$version.tar.gz)
+source=(http://ftp.gnu.org/gnu/tar/$name-$version.tar.xz)
 
 build() {
    cd $name-$version
