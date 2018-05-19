@@ -5,7 +5,7 @@
 name=shadow
 version=4.2.1
 release=1
-source=(http://pkg-shadow.alioth.debian.org/releases/$name-$version.tar.xz \
+source=(http://mirror.mini-distribution.io/$name-$version.tar.xz \
         shadow-4.2.1-subids-fix.patch \
         shadow.timer shadow.service \
         login.defs)
