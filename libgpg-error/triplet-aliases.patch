@@ -1,10 +1,11 @@
 --- a/src/mkheader.c	2017-09-18 00:36:16.439868677 +0200
 +++ b/src/mkheader.c	2017-09-18 00:37:09.597355393 +0200
-@@ -88,6 +88,7 @@
+@@ -88,6 +88,8 @@
  
      {"arm-unknown-linux-gnueabihf",  "arm-unknown-linux-gnueabi" },
      {"armv7-unknown-linux-gnueabihf"  },
 +    {"armv7-rpi2-linux-gnueabi",  "arm-unknown-linux-gnueabi" },
++    {"armv8-rpi3-linux-gnueabi",  "arm-unknown-linux-gnueabi" },
      {"armv5-unknown-linux-musleabi"   },
      {"armv6-unknown-linux-musleabihf" },
  
