@@ -23,4 +23,7 @@ build() {
         MANDIR=/usr/share/man \
         STRIP="" \
         install install-lib
+
+   # Fix missing link
+   ln -s /usr/lib/libpci.so.3.5.6 $PKG/usr/lib/libpci.so.3
 }
