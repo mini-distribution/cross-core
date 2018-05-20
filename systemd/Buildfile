@@ -3,41 +3,56 @@
 # License: LGPLv2.1 MIT PD GPLv2
 
 name=systemd
-version=235
+version=238
 release=1
 source=(http://mirror.mini-distribution.io/$name-$version.tar.gz
-        0001-meson-do-not-create-systemd-user-sessions.service-if.patch
-        vconsole.conf)
-depends=(libcap kmod util-linux pciutils glib tcp_wrappers libgcrypt xz)
+        0001-core-don-t-include-libmount.h-in-a-header-file-8580.patch
+        systemd-238-upstream_fixes-1.patch
+        vconsole.conf
+        dhcp.network)
+depends=(libcap kmod util-linux pciutils glib tcp_wrappers libgcrypt xz acl pcre)
 
 build() {
-   cd $name-$version
+    cd $name-$version
 
-   patch -p1 -i $SRC/0001-meson-do-not-create-systemd-user-sessions.service-if.patch
+    patch -p1 -i $SRC/systemd-238-upstream_fixes-1.patch
+    patch -p1 -i $SRC/0001-core-don-t-include-libmount.h-in-a-header-file-8580.patch
 
-   meson build --prefix=/usr \
-               --libdir=/usr/lib \
-               --sysconfdir=/etc \
-               --localstatedir=/var \
-               --cross-file=$CFG/$HOST.meson
+    meson build --cross-file=$CFG/$HOST.meson \
+                --bindir=/usr/bin \
+                --prefix=/usr \
+                --sysconfdir=/etc \
+                --localstatedir=/var \
+                --libdir=/usr/lib \
+                --sbindir=/usr/sbin \
+                -Dsplit-usr=false \
+                -Dsplit-bin=false \
+                -Dapparmor=false \
+                -Dbuildtype=release \
+                -Dldconfig=false \
+                -Drootlibdir=/usr/lib \
+                -Daudit=false \
+                -Dima=false \
+                -Dselinux=false \
+                -Dpam=false \
+                -Ddefault-dnssec=no \
+                -Dlibcryptsetup=false \
+                -Dtests=unsafe \
+                -Dinstall-tests=false \
+                -Ddbus=false \
+                -Defi=false \
+                -Dgnu-efi=false \
+                -Dnetworkd=true \
+                -Dapparmor=false \
+                -Dfirstboot=false \
+                -Dzshcompletiondir=no \
+                -Dpolkit=false \
+                -Dsysusers=true \
+                -Db_lto=false \
+                -Drootprefix= \
+                -Dvconsole=true
 
-   meson configure build -Dapparmor=false \
-                         -Dbuildtype=release \
-                         -Dldconfig=false \
-                         -Drootlibdir=/usr/lib \
-                         -Daudit=false \
-                         -Dima=false \
-                         -Dselinux=false \
-                         -Dpam=false \
-                         -Dlibcryptsetup=false \
-                         -Dtests=unsafe \
-                         -Ddbus=false \
-                         -Defi=false \
-                         -Dgnu-efi=false \
-                         -Dnetworkd=false \
-                         -Dapparmor=false
-
-   ninja -C build
+   ninja -C build -j $JOBS
 
    DESTDIR=$PKG ninja -C build install
 
@@ -45,27 +60,21 @@ build() {
    ln -s /proc/self/mounts $PKG/etc/mtab
    install -d $PKG/usr/sbin
    ln -s /usr/lib/systemd/systemd $PKG/usr/sbin/init
+   touch $PKG/etc/machine-id
 
    # Install vconsole.conf (KEYMAP=us)
    install -Dm644 $SRC/vconsole.conf $PKG/etc/vconsole.conf
 
-   # Boot into multi-user target (non-graphical)
-   ln -sf multi-user.target $PKG/usr/lib/systemd/system/default.target
+   # Install DHCP network configuration template
+   install -Dm644 $SRC/dhcp.network $PKG/etc/systemd/network/dhcp.network
 
    # Disable annoying systemd pager
    install -d $PKG/etc/profile.d
    echo 'export PAGER=' > $PKG/etc/profile.d/systemd
 
-   # Disable first boot noise
-   rm $PKG/usr/lib/systemd/system/sysinit.target.wants/systemd-firstboot.service
-
-   # Disable container service
-   rm $PKG/usr/lib/systemd/system/systemd-nspawn@.service
-
    # Cleanup
    rm $PKG/usr/lib/tmpfiles.d/legacy.conf
    rm $PKG/usr/lib/tmpfiles.d/x11.conf
-   rm $PKG/usr/lib/udev/rules.d/73-seat-late.rules
    rm -r $PKG/etc/X11
    rm -r $PKG/usr/share/{doc,locale}
 

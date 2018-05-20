@@ -1,0 +1,4 @@
+[Match]
+Name=NETWORK_INTERFACE_NAME
+[Network]
+DHCP=ipv4
