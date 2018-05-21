@@ -11,7 +11,8 @@ source=(https://github.com/$name-maint/$name/releases/download/$version/$name-$v
         shadow.service
         shadow.timer
         login.defs
-        useradd.defaults)
+        useradd.defaults
+        environment)
 depends=(systemd acl attr)
 
 build() {
@@ -56,6 +57,9 @@ build() {
 
    # Install empty user skeleton
    install -d $PKG/etc/skel
+
+   # Install global environment inherited by all users
+   install -m 644 $SRC/environment $PKG/etc
 
    # Install logs
    install -d $PKG/var/log
