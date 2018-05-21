@@ -1,22 +1,24 @@
 # Description: Shadow password file utilities
-# URL: http://pkg-shadow.alioth.debian.org
+# URL: https://github.com/shadow-maint/shadow
 # License: BSD
 
 name=shadow
-version=4.2.1
+version=4.6
 release=1
-source=(http://mirror.mini-distribution.io/$name-$version.tar.xz \
-        shadow-4.2.1-subids-fix.patch \
-        shadow.timer shadow.service \
-        login.defs)
+source=(https://github.com/$name-maint/$name/releases/download/$version/$name-$version.tar.xz
+        shadow-strncpy-usage.patch
+        xstrdup.patch
+        shadow.service
+        shadow.timer
+        login.defs
+        useradd.defaults)
+depends=(systemd acl attr)
 
 build() {
    cd $name-$version
 
-   patch -p1 -i $SRC/shadow-4.2.1-subids-fix.patch
-
-   # Don't set suid on installed binaries
-   sed -i 's/\(^suidu*bins = \).*/\1/' src/Makefile.in
+   patch -p1 -i $SRC/shadow-strncpy-usage.patch
+   patch -p1 -i $SRC/xstrdup.patch
 
    ./configure --build=$BUILD \
                --host=$HOST \
@@ -30,37 +32,46 @@ build() {
                --disable-nls \
                --without-selinux \
                --without-libpam \
-               --disable-subordinate-ids \
-               --disable-shadowgrp \
+               --enable-subordinate-ids \
+               --enable-shadowgrp \
                --without-audit \
-               --without-acl \
-               --without-attr \
+               --with-acl \
+               --with-attr \
                --without-tcb \
-               --with-group-name-max-length=32
+               --with-group-name-max-length=32 \
+               --with-sha-crypt \
+               --without-libcrack
 
    make -j $JOBS
    make DESTDIR=$PKG install
 
    # Install and enable systemd timer to trigger shadow integrity checks
-   install -D -m644 $SRC/shadow.timer $PKG/usr/lib/systemd/system/shadow.timer
-   install -D -m644 $SRC/shadow.service $PKG/usr/lib/systemd/system/shadow.service
-   install -d -m755 $PKG/usr/lib/systemd/system/multi-user.target.wants
+   install -D -m 644 $SRC/shadow.timer $PKG/usr/lib/systemd/system/shadow.timer
+   install -D -m 644 $SRC/shadow.service $PKG/usr/lib/systemd/system/shadow.service
+   install -d -m 755 $PKG/usr/lib/systemd/system/multi-user.target.wants
    ln -s ../shadow.timer $PKG/usr/lib/systemd/system/multi-user.target.wants/shadow.timer
 
    # Install login configuration
    install -m 644 $SRC/login.defs $PKG/etc
 
+   # Install empty user skeleton
+   install -d $PKG/etc/skel
+
+   # Install logs
    install -d $PKG/var/log
    touch $PKG/var/log/{lastlog,faillog}
 
+   # Install default tty configuration
+   echo "xterm-color" > $PKG/etc/ttytype
+
+   # Install default useradd configuration
+   install -D -m 644 $SRC/useradd.defaults $PKG/etc/default/useradd
+
    # Remove broken tools
    rm $PKG/usr/sbin/logoutd
+   rm $PKG/usr/share/man/man8/logoutd.8
 
    # Remove utilities better provided by coreutils
    rm $PKG/usr/bin/groups
    rm $PKG/usr/share/man/man1/groups.1
-
-   # Remove utilities better provided by util-linux
-   rm $PKG/usr/sbin/nologin
-   rm $PKG/usr/share/man/man8/nologin.8
 }
