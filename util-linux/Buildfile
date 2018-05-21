@@ -22,7 +22,7 @@ build() {
                --bindir=/usr/bin \
                --sbindir=/usr/sbin \
                --libdir=/usr/lib \
-               --disable-{nls,elvtune,wall,fallocate,login,su} \
+               --disable-{nls,elvtune,wall,fallocate,login,su,nologin} \
                --enable-{write,raw,kill} \
                --cache-file=config.cache \
                --without-python \
