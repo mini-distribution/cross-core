@@ -3,7 +3,7 @@
 # License: AFL-2.1 GPLv2
 
 name=dbus
-version=1.10.26
+version=1.12.8
 release=1
 source=(http://dbus.freedesktop.org/releases/dbus/$name-$version.tar.gz)
 depends=(expat systemd)
@@ -20,9 +20,11 @@ build() {
                --localstatedir=/var \
                --with-systemdsystemunitdir=/etc/systemd/system \
                --enable-abstract-sockets \
-               --with-dbus-user=root \
+               --with-dbus-user=dbus \
                --disable-tests \
-               --enable-systemd
+               --enable-systemd \
+               --disable-selinux \
+               --without-x
 
    make -j $JOBS
    make DESTDIR=$PKG install
