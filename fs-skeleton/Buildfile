@@ -35,9 +35,6 @@ build() {
    echo "root:x:0:0:root:/root:/bin/bash" >> $PKG/etc/passwd
    echo -e "root:\$6\$01010101\$9M5Kunmy0spJHC.1Zp7RMMYMGXAJJllD.4cFpMlJEDtySqkf.TLNN4sRZ/u4oloRFcHrDJvYV5xYhJwgGZvc/1:16375:0:99999:7:::" >> $PKG/etc/shadow
 
-   # Create groups
-   cp $SRC/group $PKG/etc/group
-
    # Create dynamic linker configuration
    install -d $PKG/etc/ld.so.conf.d
    cp $SRC/ld.so.conf $PKG/etc
