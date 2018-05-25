@@ -17,8 +17,6 @@ depends=(acl
          glib
          gmp
          grep
-         groff
-         gzip
          iproute2
          iptables
          iputils
@@ -51,5 +49,4 @@ depends=(acl
          usbutils
          util-linux
          wget
-         xz
          zlib)
