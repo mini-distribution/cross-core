@@ -4,7 +4,7 @@
 name=fs-skeleton
 version=1.0
 release=1
-source=(group ld.so.conf)
+source=(ld.so.conf)
 
 build() {
 
