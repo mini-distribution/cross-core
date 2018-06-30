@@ -1,0 +1,13 @@
+diff -Naur a/factory/etc/nsswitch.conf b/factory/etc/nsswitch.conf
+--- a/factory/etc/nsswitch.conf	2018-06-22 13:11:49.000000000 +0200
++++ b/factory/etc/nsswitch.conf	2018-06-30 22:19:50.456554637 +0200
+@@ -1,6 +1,6 @@
+ # This file is part of systemd.
+ 
+-passwd: files
++passwd: compat mymachines systemd files
+ shadow: files
+-group:  files
+-hosts:  files mymachines resolve myhostname
++group:  compat mymachines systemd files
++hosts:  files mymachines resolve [!UNAVAIL=return] dns myhostname

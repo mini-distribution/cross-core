@@ -3,11 +3,10 @@
 # License: LGPLv2.1 MIT PD GPLv2
 
 name=systemd
-version=238
+version=239
 release=1
 source=(http://mirror.mini-distribution.io/$name-$version.tar.gz
-        0001-core-don-t-include-libmount.h-in-a-header-file-8580.patch
-        systemd-238-upstream_fixes-1.patch
+        fix-nsswitch-configuration.patch
         vconsole.conf
         dhcp.network)
 depends=(libcap kmod util-linux pciutils glib tcp_wrappers libgcrypt xz acl pcre)
@@ -15,8 +14,7 @@ depends=(libcap kmod util-linux pciutils glib tcp_wrappers libgcrypt xz acl pcre
 build() {
     cd $name-$version
 
-    patch -p1 -i $SRC/systemd-238-upstream_fixes-1.patch
-    patch -p1 -i $SRC/0001-core-don-t-include-libmount.h-in-a-header-file-8580.patch
+    patch -p1 -i $SRC/fix-nsswitch-configuration.patch
 
     meson build --cross-file=$CFG/$HOST.meson \
                 --bindir=/usr/bin \
