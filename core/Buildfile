@@ -17,6 +17,7 @@ depends=(acl
          glib
          gmp
          grep
+         gzip
          iproute2
          iptables
          iputils
