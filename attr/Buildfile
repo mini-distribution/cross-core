@@ -3,9 +3,9 @@
 # License: GPLv2
 
 name=attr
-version=2.4.47
+version=2.4.48
 release=1
-source=(http://download.savannah.gnu.org/releases/$name/$name-$version.src.tar.gz)
+source=(http://download.savannah.gnu.org/releases/$name/$name-$version.tar.gz)
 
 build() {
    cd $name-$version
@@ -17,9 +17,9 @@ build() {
                --disable-nls
 
    make -j $JOBS
-   make DIST_ROOT=$PKG install install-lib install-dev
+   make DESTDIR=$PKG install
 
-   rm -rf $PKG/usr/share/{doc,locale}
+   rm -r $PKG/usr/share/doc
 
    # Fix libtool files
    fix_la_files $PKG
