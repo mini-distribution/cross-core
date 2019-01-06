@@ -31,8 +31,7 @@ build() {
    ln -s ../var $PKG/usr/var
    ln -s ../run $PKG/var/run
 
-   # Create users with SHA512 password
-   echo "root:x:0:0:root:/root:/bin/bash" >> $PKG/etc/passwd
+   # Install SHA512 password for root user
    echo -e "root:\$6\$01010101\$9M5Kunmy0spJHC.1Zp7RMMYMGXAJJllD.4cFpMlJEDtySqkf.TLNN4sRZ/u4oloRFcHrDJvYV5xYhJwgGZvc/1:16375:0:99999:7:::" >> $PKG/etc/shadow
 
    # Create dynamic linker configuration
